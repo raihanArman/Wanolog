@@ -83,5 +83,5 @@ fun createKtorClient(httpClientEngine: HttpClientEngine, json: Json) = HttpClien
 }
 
 object Configs {
-    const val BASE_URL = "kitsu.io/api/edge"
+    const val BASE_URL = "kitsu.io"
 }

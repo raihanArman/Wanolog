@@ -1,6 +1,7 @@
 package com.randev.wanolog.android.application
 
 import android.app.Application
+import com.randev.wanolog.android.di.featureModule
 import com.randev.wanolog.initKoin
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -18,7 +19,7 @@ class WanologApp: Application() {
             androidContext(this@WanologApp)
             modules(
 //                navigatorModule,
-//                featureModule,
+                featureModule,
             )
         }
     }

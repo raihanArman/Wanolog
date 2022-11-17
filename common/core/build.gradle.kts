@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     kotlin("plugin.serialization") version Version.kotlin
+    id("com.rickclephas.kmp.nativecoroutines") version "0.11.4"
 }
 
 kotlin {
@@ -21,6 +22,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(Dependencies.ktorJsonSerialization)
+                implementation(Dependencies.ktorCore)
             }
         }
         val commonTest by getting {

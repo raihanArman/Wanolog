@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class AnimeListResponse(
     @SerialName("data")
-    val `data`: List<Data?>?,
+    val data: List<Data?>?,
 ): BaseResponse() {
     @Serializable
     data class Data(
@@ -51,8 +51,6 @@ data class AnimeListResponse(
             val episodeLength: Int?,
             @SerialName("favoritesCount")
             val favoritesCount: Int?,
-            @SerialName("nextRelease")
-            val nextRelease: Any?,
             @SerialName("nsfw")
             val nsfw: Boolean?,
             @SerialName("popularityRank")
@@ -253,13 +251,13 @@ data class AnimeListResponse(
             @Serializable
             data class Titles(
                 @SerialName("en")
-                val en: String?,
+                val en: String? = null,
                 @SerialName("en_jp")
-                val enJp: String?,
+                val enJp: String? = null,
                 @SerialName("en_us")
-                val enUs: String?,
+                val enUs: String? = null,
                 @SerialName("ja_jp")
-                val jaJp: String?
+                val jaJp: String? = null
             )
         }
 

@@ -1,6 +1,7 @@
 package com.randev.domain.di
 
 import com.randev.domain.usecase.GetAnimeAllUseCase
+import com.randev.domain.usecase.GetAnimeTrendingUseCase
 import org.koin.dsl.module
 
 /**
@@ -10,4 +11,5 @@ import org.koin.dsl.module
 
 val useCaseModule = module {
     single { GetAnimeAllUseCase(get()) }
+    single { GetAnimeTrendingUseCase(get()) }
 }

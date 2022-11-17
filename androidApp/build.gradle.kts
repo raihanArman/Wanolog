@@ -37,9 +37,18 @@ dependencies {
     implementation(project(":common:domain"))
 
     implementation("io.insert-koin:koin-androidx-compose:3.2.2")
+    // Compose Coil
+    implementation("io.coil-kt:coil-compose:2.2.2")
+
+    implementation("com.google.accompanist:accompanist-pager:0.15.0")
+
+    implementation("com.google.accompanist:accompanist-flowlayout:0.20.0")
+
+
 
     implementation("androidx.compose.ui:ui:1.2.1")
     implementation("androidx.compose.ui:ui-tooling:1.2.1")
+    implementation("androidx.compose.ui:ui-util:1.2.1")
     implementation("androidx.compose.ui:ui-tooling-preview:1.2.1")
     implementation("androidx.compose.foundation:foundation:1.2.1")
     implementation("androidx.compose.material:material:1.2.1")

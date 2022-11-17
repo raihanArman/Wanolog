@@ -24,4 +24,13 @@ class AnimeRepositoryImpl(
             }
         }.asFlow()
     }
+
+    override suspend fun getAnimeTrending(): Flow<Resource<AnimeListModel>> {
+        return object : NetworkResource<AnimeListModel>() {
+            override suspend fun remoteFetch(): AnimeListModel {
+                val request = api.fetchAnimeTrending()
+                return mapper.map(request)
+            }
+        }.asFlow()
+    }
 }
