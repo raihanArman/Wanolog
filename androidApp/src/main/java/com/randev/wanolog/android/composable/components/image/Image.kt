@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import coil.compose.AsyncImagePainter
 import coil.compose.SubcomposeAsyncImage
 import com.randev.wanolog.android.R
 import com.randev.wanolog.android.utils.emptyString
@@ -44,11 +45,16 @@ fun BaseImageView(
             Image(painter = painterResource(id = R.drawable.ic_placeholder), contentDescription = null)
         },
         success = {
-            Image(
-                painter = this.painter, contentDescription = emptyString(),
-                modifier = modifier,
-                contentScale = contentScale ?: ContentScale.FillBounds,
-            )
+            val state = painter.state
+            if (state is AsyncImagePainter.State.Success) {
+                Image(
+                    painter = this.painter, contentDescription = emptyString(),
+                    modifier = modifier,
+                    contentScale = contentScale ?: ContentScale.FillBounds,
+                )
+            }
+
+
         },
         contentDescription = emptyString()
     )

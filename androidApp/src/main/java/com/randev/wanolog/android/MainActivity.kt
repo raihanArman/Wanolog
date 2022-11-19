@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.sp
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.Greeting
 import com.randev.wanolog.android.presentation.home.HomeScreen
+import com.randev.wanolog.android.presentation.home.manga.MangaScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

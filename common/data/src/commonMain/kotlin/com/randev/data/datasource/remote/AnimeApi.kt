@@ -16,8 +16,8 @@ class AnimeApi(
     override suspend fun fetchAnimeAll(): AnimeListResponse {
         return ktor.get("api/edge/anime") {
             parameter("page[limit]", 20)
+            parameter("sort", "-updatedAt")
         }.body()
-
     }
 
     override suspend fun fetchAnimeTrending(): AnimeListResponse {

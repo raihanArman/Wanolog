@@ -43,6 +43,8 @@ dependencies {
     implementation("com.google.accompanist:accompanist-pager:0.15.0")
 
     implementation("com.google.accompanist:accompanist-flowlayout:0.20.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0-alpha01")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0-alpha01")
 
 
 

@@ -1,4 +1,4 @@
-package com.randev.domain.usecase
+package com.randev.domain.usecase.anime
 
 import com.randev.core.wrapper.FlowUseCase
 import com.randev.core.wrapper.Resource

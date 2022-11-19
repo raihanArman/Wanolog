@@ -1,7 +1,8 @@
 package com.randev.wanolog.android.di
 
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.randev.wanolog.android.presentation.home.HomeViewModel
+import com.randev.wanolog.android.presentation.home.anime.AnimeViewModel
+import com.randev.wanolog.android.presentation.home.manga.MangaViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -11,5 +12,7 @@ import org.koin.dsl.module
  */
 
 val featureModule = module {
-    viewModel { HomeViewModel(get(), get()) }
+    viewModel { AnimeViewModel(get(), get()) }
+    viewModel { MangaViewModel(get(), get()) }
+    viewModel { HomeViewModel(get()) }
 }

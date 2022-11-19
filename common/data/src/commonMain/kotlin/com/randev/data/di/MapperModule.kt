@@ -1,6 +1,8 @@
 package com.randev.data.di
 
 import com.randev.data.mapper.AnimeListMapper
+import com.randev.data.mapper.CategoryListMapper
+import com.randev.data.mapper.MangaListMapper
 import org.koin.dsl.module
 
 /**
@@ -10,4 +12,6 @@ import org.koin.dsl.module
 
 val mapperModule = module {
     single { AnimeListMapper() }
+    single { CategoryListMapper() }
+    single { MangaListMapper() }
 }

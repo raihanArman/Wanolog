@@ -3,8 +3,6 @@ package com.randev.wanolog.android.presentation.home.component
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
@@ -14,19 +12,18 @@ import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.SizeMode
 import com.randev.domain.model.AnimeListModel
+import com.randev.domain.model.MangaListModel
 import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpacer
 import com.randev.wanolog.android.composable.components.header.Header
 
 /**
  * @author Raihan Arman
- * @date 17/11/22
+ * @date 19/11/22
  */
-
-
 @Composable
-fun AllSection(
+fun MangaAllSection(
     modifier: Modifier = Modifier,
-    data: List<AnimeListModel.AnimeModel>
+    data: List<MangaListModel.MangaModel>
 ) {
     Column(
         modifier = modifier
@@ -45,7 +42,7 @@ fun AllSection(
             crossAxisSpacing = 10.dp
         ) {
             data.forEach {
-                ItemCard(title = it.attributes.titles.enJp, image = it.attributes.posterImage.original, modifier = Modifier.width(itemSize - 30.dp))
+                ItemCard(title = it.attributes.canonicalTitle, image = it.attributes.posterImage.original, modifier = Modifier.width(itemSize - 30.dp))
             }
         }
 

@@ -3,6 +3,7 @@ package com.randev.data.repository
 import com.randev.core.wrapper.NetworkResource
 import com.randev.core.wrapper.Resource
 import com.randev.data.datasource.remote.AnimeApi
+import com.randev.data.datasource.remote.AnimeApiClient
 import com.randev.data.mapper.AnimeListMapper
 import com.randev.domain.model.AnimeListModel
 import com.randev.domain.repository.AnimeRepository
@@ -14,7 +15,7 @@ import kotlinx.coroutines.flow.Flow
  */
 class AnimeRepositoryImpl(
     private val mapper: AnimeListMapper,
-    private val api: AnimeApi
+    private val api: AnimeApiClient
 ): AnimeRepository {
     override suspend fun getAnimeAll(): Flow<Resource<AnimeListModel>> {
         return object : NetworkResource<AnimeListModel>() {
