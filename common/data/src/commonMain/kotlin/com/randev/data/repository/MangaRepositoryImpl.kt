@@ -34,4 +34,31 @@ class MangaRepositoryImpl(
             }
         }.asFlow()
     }
+
+    override suspend fun getMangaTopUpcoming(): Flow<Resource<MangaListModel>> {
+        return object : NetworkResource<MangaListModel>() {
+            override suspend fun remoteFetch(): MangaListModel {
+                val request = api.fetchMangaTopUpcoming()
+                return mapper.map(request)
+            }
+        }.asFlow()
+    }
+
+    override suspend fun getMangaTopRating(): Flow<Resource<MangaListModel>> {
+        return object : NetworkResource<MangaListModel>() {
+            override suspend fun remoteFetch(): MangaListModel {
+                val request = api.fetchMangaTopRating()
+                return mapper.map(request)
+            }
+        }.asFlow()
+    }
+
+    override suspend fun getMangaPopular(): Flow<Resource<MangaListModel>> {
+        return object : NetworkResource<MangaListModel>() {
+            override suspend fun remoteFetch(): MangaListModel {
+                val request = api.fetchMangaPopular()
+                return mapper.map(request)
+            }
+        }.asFlow()
+    }
 }

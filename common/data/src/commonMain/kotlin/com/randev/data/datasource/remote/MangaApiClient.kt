@@ -10,4 +10,7 @@ import com.randev.data.response.MangaListResponse
 interface MangaApiClient {
     suspend fun fetchMangaTrending(): MangaListResponse
     suspend fun fetchMangaAll(): MangaListResponse
+    suspend fun fetchMangaTopUpcoming(): MangaListResponse
+    suspend fun fetchMangaTopRating(): MangaListResponse
+    suspend fun fetchMangaPopular(): MangaListResponse
 }

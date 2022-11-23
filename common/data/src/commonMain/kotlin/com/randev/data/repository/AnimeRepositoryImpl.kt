@@ -34,4 +34,31 @@ class AnimeRepositoryImpl(
             }
         }.asFlow()
     }
+
+    override suspend fun getAnimeTopUpcoming(): Flow<Resource<AnimeListModel>> {
+        return object : NetworkResource<AnimeListModel>() {
+            override suspend fun remoteFetch(): AnimeListModel {
+                val request = api.fetchAnimeTopUpcoming()
+                return mapper.map(request)
+            }
+        }.asFlow()
+    }
+
+    override suspend fun getAnimeTopRating(): Flow<Resource<AnimeListModel>> {
+        return object : NetworkResource<AnimeListModel>() {
+            override suspend fun remoteFetch(): AnimeListModel {
+                val request = api.fetchAnimeTopRating()
+                return mapper.map(request)
+            }
+        }.asFlow()
+    }
+
+    override suspend fun getAnimePopular(): Flow<Resource<AnimeListModel>> {
+        return object : NetworkResource<AnimeListModel>() {
+            override suspend fun remoteFetch(): AnimeListModel {
+                val request = api.fetchAnimePopular()
+                return mapper.map(request)
+            }
+        }.asFlow()
+    }
 }

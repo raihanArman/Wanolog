@@ -26,4 +26,25 @@ class MangaApi(
         }.body()
     }
 
+    override suspend fun fetchMangaTopUpcoming(): MangaListResponse {
+        return ktor.get("api/edge/manga") {
+            parameter("page[limit]", 20)
+            parameter("filter[status]", "upcoming")
+        }.body()
+    }
+
+    override suspend fun fetchMangaTopRating(): MangaListResponse {
+        return ktor.get("api/edge/manga") {
+            parameter("page[limit]", 20)
+            parameter("sort", "-averageRating")
+        }.body()
+    }
+
+    override suspend fun fetchMangaPopular(): MangaListResponse {
+        return ktor.get("api/edge/manga") {
+            parameter("page[limit]", 20)
+            parameter("sort", "popularityRank")
+        }.body()
+    }
+
 }

@@ -11,4 +11,7 @@ import kotlinx.coroutines.flow.Flow
 interface AnimeRepository {
     suspend fun getAnimeAll(): Flow<Resource<AnimeListModel>>
     suspend fun getAnimeTrending(): Flow<Resource<AnimeListModel>>
+    suspend fun getAnimeTopUpcoming(): Flow<Resource<AnimeListModel>>
+    suspend fun getAnimeTopRating(): Flow<Resource<AnimeListModel>>
+    suspend fun getAnimePopular(): Flow<Resource<AnimeListModel>>
 }

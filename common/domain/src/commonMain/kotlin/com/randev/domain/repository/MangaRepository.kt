@@ -12,4 +12,7 @@ import kotlinx.coroutines.flow.Flow
 interface MangaRepository {
     suspend fun getMangaAll(): Flow<Resource<MangaListModel>>
     suspend fun getMangaTrending(): Flow<Resource<MangaListModel>>
+    suspend fun getMangaTopUpcoming(): Flow<Resource<MangaListModel>>
+    suspend fun getMangaTopRating(): Flow<Resource<MangaListModel>>
+    suspend fun getMangaPopular(): Flow<Resource<MangaListModel>>
 }

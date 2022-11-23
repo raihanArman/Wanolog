@@ -9,8 +9,11 @@ import com.randev.domain.model.CategoryListModel
  */
 
 data class AnimeState(
-    val allData: List<AnimeListModel.AnimeModel>? = emptyList(),
-    val trendingData: List<AnimeListModel.AnimeModel>? = emptyList(),
+    val allData: List<AnimeListModel.AnimeModel>? = null,
+    val trendingData: List<AnimeListModel.AnimeModel>? = null,
+    val topUpcomingData: List<AnimeListModel.AnimeModel>? = null,
+    val topRatingData: List<AnimeListModel.AnimeModel>? = null,
+    val popularData: List<AnimeListModel.AnimeModel>? = null,
     val isLoading: Boolean = false,
     val errorMessage: String? = null
 )

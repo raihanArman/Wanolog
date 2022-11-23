@@ -21,7 +21,7 @@ class HomeViewModel(
     private val categoryAllUseCase: GetCategoryAllUseCase
 ): ViewModel() {
 
-    var contentTypeState by mutableStateOf(ContentType.ANIME)
+    var contentTypeState by mutableStateOf(ContentType.MANGA)
 
     private val _observeCategory: MutableStateFlow<HomeState> = MutableStateFlow(HomeState())
     val observeCategory: StateFlow<HomeState> = _observeCategory

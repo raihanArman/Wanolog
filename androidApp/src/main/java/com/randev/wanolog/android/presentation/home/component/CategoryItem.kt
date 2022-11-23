@@ -20,7 +20,7 @@ import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 @Composable
 fun CategoryItem(
     modifier: Modifier = Modifier,
-    title: String
+    title: String,
 ) {
     Surface(
         modifier = modifier,

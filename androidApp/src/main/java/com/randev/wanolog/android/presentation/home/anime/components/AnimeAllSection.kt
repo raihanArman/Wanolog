@@ -1,8 +1,13 @@
 package com.randev.wanolog.android.presentation.home.component
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
@@ -26,26 +31,16 @@ fun AnimeAllSection(
     modifier: Modifier = Modifier,
     data: List<AnimeListModel.AnimeModel>
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxWidth(),
+
+    val itemSize: Dp = (LocalConfiguration.current.screenWidthDp.dp / 2)
+    FlowRow(
+        mainAxisSize = SizeMode.Expand,
+        mainAxisAlignment = FlowMainAxisAlignment.SpaceBetween,
+        crossAxisSpacing = 10.dp
     ) {
-        val itemSize: Dp = (LocalConfiguration.current.screenWidthDp.dp / 2)
-
-        VerticalSpacer(height = 20.dp)
-        Header(
-            text = "All"
-        )
-        VerticalSpacer(height = 10.dp)
-        FlowRow(
-            mainAxisSize = SizeMode.Expand,
-            mainAxisAlignment = FlowMainAxisAlignment.SpaceBetween,
-            crossAxisSpacing = 10.dp
-        ) {
-            data.forEach {
-                ItemCard(title = it.attributes.titles.enJp, image = it.attributes.posterImage.original, modifier = Modifier.width(itemSize - 30.dp))
-            }
+        data.forEach {
+            ItemCard(title = it.attributes.titles.enJp, image = it.attributes.posterImage.original, modifier = Modifier.width(itemSize - 30.dp))
         }
-
     }
+
 }

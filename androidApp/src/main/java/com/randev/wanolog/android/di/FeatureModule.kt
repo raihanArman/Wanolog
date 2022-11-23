@@ -12,7 +12,7 @@ import org.koin.dsl.module
  */
 
 val featureModule = module {
-    viewModel { AnimeViewModel(get(), get()) }
-    viewModel { MangaViewModel(get(), get()) }
+    viewModel { AnimeViewModel(get(), get(), get(), get(), get()) }
+    viewModel { MangaViewModel(get(), get(), get(), get(), get()) }
     viewModel { HomeViewModel(get()) }
 }

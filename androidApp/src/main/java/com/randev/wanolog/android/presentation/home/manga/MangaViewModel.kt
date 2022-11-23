@@ -1,10 +1,17 @@
 package com.randev.wanolog.android.presentation.home.manga
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.randev.core.wrapper.Resource
 import com.randev.domain.usecase.manga.GetMangaAllUseCase
+import com.randev.domain.usecase.manga.GetMangaPopularUseCase
+import com.randev.domain.usecase.manga.GetMangaTopRatingUseCase
+import com.randev.domain.usecase.manga.GetMangaTopUpcomingUseCase
 import com.randev.domain.usecase.manga.GetMangaTrendingUseCase
+import com.randev.wanolog.android.presentation.home.ContentStatus
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -20,49 +27,167 @@ import kotlinx.coroutines.launch
 class MangaViewModel(
     private val allUseCase: GetMangaAllUseCase,
     private val trendingUseCase: GetMangaTrendingUseCase,
+    private val upcomingUseCase: GetMangaTopUpcomingUseCase,
+    private val ratingUseCase: GetMangaTopRatingUseCase,
+    private val popularUseCase: GetMangaPopularUseCase,
 ): ViewModel() {
 
     private val _observeManga: MutableStateFlow<MangaState> = MutableStateFlow(MangaState())
     val observeManga: StateFlow<MangaState> = _observeManga
 
-    fun getManga() {
-        viewModelScope.launch {
-            combine(
-                allUseCase.invoke(),
-                trendingUseCase.invoke(),
-            ) { all, trending ->
-                if (all is Resource.Success && trending is Resource.Success) {
-                    _observeManga.update {
-                        it.copy(
-                            allData = all.model?.data,
-                            trendingData = trending.model?.data,
-                            isLoading = false
-                        )
-                    }
-                } else if (all is Resource.Error) {
-                    println("Error All -> ${all.errorMessage}")
-                    _observeManga.update {
-                        it.copy(
-                            isLoading = false,
-                            errorMessage = all.errorMessage
-                        )
-                    }
-                } else if (trending is Resource.Error) {
-                    _observeManga.update {
-                        it.copy(
-                            isLoading = false,
-                            errorMessage = trending.errorMessage
-                        )
-                    }
-                }  else {
-                    _observeManga.update {
-                        it.copy(
-                            isLoading = true
-                        )
-                    }
-                }
-            }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
+    var contentStatusState by mutableStateOf(ContentStatus.TRENDING)
 
+    init {
+        changeContentContentStatus(ContentStatus.TRENDING)
+    }
+
+    fun changeContentContentStatus(contentStatus: ContentStatus) {
+        contentStatusState = contentStatus
+        when(contentStatus) {
+            ContentStatus.TRENDING -> {
+                getTrending()
+            }
+            ContentStatus.TOP_UPCOMING -> {
+                getTopUpcoming()
+            }
+            ContentStatus.TOP_RATING -> {
+                getTopRating()
+            }
+            ContentStatus.POPULAR -> {
+                getTopPopular()
+            }
+        }
+    }
+
+    private fun getTrending(){
+        viewModelScope.launch {
+            trendingUseCase.invoke().collect { resource ->
+                when(resource) {
+                    is Resource.Success -> {
+                        _observeManga.update {
+                            it.copy(
+                                trendingData = resource.model?.data,
+                                isLoading = false
+                            )
+                        }
+                    }
+                    is Resource.Error -> {
+                        _observeManga.update {
+                            it.copy(
+                                isLoading = false,
+                                errorMessage = resource.errorMessage
+                            )
+                        }
+                    }
+                    is Resource.Loading -> {
+                        _observeManga.update {
+                            it.copy(
+                                isLoading = true
+                            )
+                        }
+                    }
+                    else -> {}
+                }
+            }
+        }
+    }
+
+    private fun getTopUpcoming() {
+        viewModelScope.launch {
+            upcomingUseCase.invoke().collect { resource ->
+                when(resource) {
+                    is Resource.Success -> {
+                        _observeManga.update {
+                            it.copy(
+                                topUpcomingData = resource.model?.data,
+                                isLoading = false
+                            )
+                        }
+                    }
+                    is Resource.Error -> {
+                        _observeManga.update {
+                            it.copy(
+                                isLoading = false,
+                                errorMessage = resource.errorMessage
+                            )
+                        }
+                    }
+                    is Resource.Loading -> {
+                        _observeManga.update {
+                            it.copy(
+                                isLoading = true
+                            )
+                        }
+                    }
+                    else -> {}
+                }
+            }
+        }
+    }
+
+    private fun getTopRating() {
+        viewModelScope.launch {
+            ratingUseCase.invoke().collect { resource ->
+                when(resource) {
+                    is Resource.Success -> {
+                        _observeManga.update {
+                            it.copy(
+                                topRatingData = resource.model?.data,
+                                isLoading = false
+                            )
+                        }
+                    }
+                    is Resource.Error -> {
+                        _observeManga.update {
+                            it.copy(
+                                isLoading = false,
+                                errorMessage = resource.errorMessage
+                            )
+                        }
+                    }
+                    is Resource.Loading -> {
+                        _observeManga.update {
+                            it.copy(
+                                isLoading = true
+                            )
+                        }
+                    }
+                    else -> {}
+                }
+            }
+        }
+    }
+
+    private fun getTopPopular() {
+        viewModelScope.launch {
+            popularUseCase.invoke().collect { resource ->
+                when(resource) {
+                    is Resource.Success -> {
+                        _observeManga.update {
+                            it.copy(
+                                popularData = resource.model?.data,
+                                isLoading = false
+                            )
+                        }
+                    }
+                    is Resource.Error -> {
+                        _observeManga.update {
+                            it.copy(
+                                isLoading = false,
+                                errorMessage = resource.errorMessage
+                            )
+                        }
+                    }
+                    is Resource.Loading -> {
+                        _observeManga.update {
+                            it.copy(
+                                isLoading = true
+                            )
+                        }
+                    }
+                    else -> {}
+                }
+            }
         }
     }
 

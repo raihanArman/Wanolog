@@ -9,4 +9,7 @@ import com.randev.data.response.AnimeListResponse
 interface AnimeApiClient {
     suspend fun fetchAnimeAll(): AnimeListResponse
     suspend fun fetchAnimeTrending(): AnimeListResponse
+    suspend fun fetchAnimeTopUpcoming(): AnimeListResponse
+    suspend fun fetchAnimeTopRating(): AnimeListResponse
+    suspend fun fetchAnimePopular(): AnimeListResponse
 }
