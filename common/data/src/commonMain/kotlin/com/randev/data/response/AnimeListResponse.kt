@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class AnimeListResponse(
     @SerialName("data")
-    val data: List<Data?>?,
+    val data: List<Data?>? = null,
 ): BaseResponse() {
     @Serializable
     data class Data(

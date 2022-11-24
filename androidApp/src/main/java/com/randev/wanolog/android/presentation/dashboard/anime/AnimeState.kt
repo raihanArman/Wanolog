@@ -1,4 +1,4 @@
-package com.randev.wanolog.android.presentation.home.anime
+package com.randev.wanolog.android.presentation.dashboard.anime
 
 import com.randev.domain.model.AnimeListModel
 import com.randev.domain.model.CategoryListModel

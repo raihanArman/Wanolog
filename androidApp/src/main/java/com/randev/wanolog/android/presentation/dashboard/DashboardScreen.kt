@@ -22,8 +22,9 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.android.R
-import com.randev.wanolog.android.presentation.home.anime.AnimeScreen
-import com.randev.wanolog.android.presentation.home.manga.MangaScreen
+import com.randev.wanolog.android.presentation.dashboard.characters.CharactersScreen
+import com.randev.wanolog.android.presentation.dashboard.anime.AnimeScreen
+import com.randev.wanolog.android.presentation.dashboard.manga.MangaScreen
 import com.randev.wanolog.android.utils.Screen
 
 /**
@@ -139,6 +140,9 @@ fun NavGraphBuilder.setupDashboardBottomNavScreens(){
         }
         composable(Screen.Manga.route){
             MangaScreen()
+        }
+        composable(Screen.Character.route){
+            CharactersScreen()
         }
     }
 }

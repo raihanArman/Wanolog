@@ -19,18 +19,22 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.Greeting
+import com.randev.wanolog.android.presentation.MainScreen
+import com.randev.wanolog.android.presentation.anime_all.AnimeAllScreen
 import com.randev.wanolog.android.presentation.dashboard.SetupNavGraph
 import com.randev.wanolog.android.presentation.home.HomeScreen
-import com.randev.wanolog.android.presentation.home.manga.MangaScreen
+import com.randev.wanolog.android.presentation.dashboard.manga.MangaScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MovieAppTheme {
-                val navHostController = rememberNavController()
-                SetupNavGraph(navController = navHostController)
-            }
+            MainScreen()
+//            MovieAppTheme {
+//                val navHostController = rememberNavController()
+//                SetupNavGraph(navController = navHostController)
+////                AnimeAllScreen()
+//            }
         }
     }
 }

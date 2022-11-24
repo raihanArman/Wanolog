@@ -1,4 +1,4 @@
-package com.randev.wanolog.android.presentation.home.anime.components
+package com.randev.wanolog.android.presentation.dashboard.anime.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable

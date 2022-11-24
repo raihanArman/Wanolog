@@ -35,6 +35,7 @@ dependencies {
     implementation(project(":shared"))
     implementation(project(":common:core"))
     implementation(project(":common:domain"))
+    implementation(project(":common:navigation"))
 
     implementation("io.insert-koin:koin-androidx-compose:3.2.2")
     // Compose Coil
@@ -47,6 +48,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0-alpha01")
 
 
+
+    //Paging
+    implementation("androidx.paging:paging-compose:1.0.0-alpha14")
 
     implementation("androidx.compose.ui:ui:1.2.1")
     implementation("androidx.compose.ui:ui-tooling:1.2.1")

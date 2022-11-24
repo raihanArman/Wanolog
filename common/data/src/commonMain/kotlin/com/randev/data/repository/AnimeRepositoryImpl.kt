@@ -1,5 +1,6 @@
 package com.randev.data.repository
 
+import com.randev.core.SortType
 import com.randev.core.wrapper.NetworkResource
 import com.randev.core.wrapper.Resource
 import com.randev.data.datasource.remote.AnimeApi
@@ -17,10 +18,10 @@ class AnimeRepositoryImpl(
     private val mapper: AnimeListMapper,
     private val api: AnimeApiClient
 ): AnimeRepository {
-    override suspend fun getAnimeAll(): Flow<Resource<AnimeListModel>> {
+    override suspend fun getAnimeAll(page: Int): Flow<Resource<AnimeListModel>> {
         return object : NetworkResource<AnimeListModel>() {
             override suspend fun remoteFetch(): AnimeListModel {
-                val request = api.fetchAnimeAll()
+                val request = api.fetchAnimeAll(page*20)
                 return mapper.map(request)
             }
         }.asFlow()
@@ -57,6 +58,19 @@ class AnimeRepositoryImpl(
         return object : NetworkResource<AnimeListModel>() {
             override suspend fun remoteFetch(): AnimeListModel {
                 val request = api.fetchAnimePopular()
+                return mapper.map(request)
+            }
+        }.asFlow()
+    }
+
+    override suspend fun getAnimeSearchFilter(
+        query: String,
+        page: Int,
+        sortType: SortType
+    ): Flow<Resource<AnimeListModel>> {
+        return object : NetworkResource<AnimeListModel>() {
+            override suspend fun remoteFetch(): AnimeListModel {
+                val request = api.fetchAnimeSearchFilter(query, page*20, sortType)
                 return mapper.map(request)
             }
         }.asFlow()

@@ -1,5 +1,7 @@
 package com.randev.data.datasource.remote
 
+import com.randev.core.SortType
+import com.randev.data.response.AnimeListResponse
 import com.randev.data.response.MangaListResponse
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -19,10 +21,11 @@ class MangaApi(
         }.body()
     }
 
-    override suspend fun fetchMangaAll(): MangaListResponse {
+    override suspend fun fetchMangaAll(page: Int): MangaListResponse {
         return ktor.get("api/edge/manga") {
             parameter("page[limit]", 20)
             parameter("sort", "-updatedAt")
+            parameter("page[offset]", page)
         }.body()
     }
 
@@ -44,6 +47,23 @@ class MangaApi(
         return ktor.get("api/edge/manga") {
             parameter("page[limit]", 20)
             parameter("sort", "popularityRank")
+        }.body()
+    }
+
+    override suspend fun fetchMangaSearchFilter(
+        query: String,
+        page: Int,
+        sortType: SortType
+    ): MangaListResponse {
+        return ktor.get("api/edge/manga") {
+            parameter("page[limit]", 20)
+            if (query.isNotBlank()) {
+                parameter("filter[text]", query)
+            }
+            parameter("page[offset]", page)
+            if (sortType.path.isNotEmpty()) {
+                parameter("sort", sortType.path)
+            }
         }.body()
     }
 

@@ -1,5 +1,7 @@
 package com.randev.data.datasource.remote
 
+import com.randev.core.SortType
+import com.randev.data.response.AnimeListResponse
 import com.randev.data.response.MangaListResponse
 
 /**
@@ -9,8 +11,13 @@ import com.randev.data.response.MangaListResponse
 
 interface MangaApiClient {
     suspend fun fetchMangaTrending(): MangaListResponse
-    suspend fun fetchMangaAll(): MangaListResponse
+    suspend fun fetchMangaAll(page: Int): MangaListResponse
     suspend fun fetchMangaTopUpcoming(): MangaListResponse
     suspend fun fetchMangaTopRating(): MangaListResponse
     suspend fun fetchMangaPopular(): MangaListResponse
+    suspend fun fetchMangaSearchFilter(
+        query: String,
+        page: Int,
+        sortType: SortType
+    ): MangaListResponse
 }

@@ -4,6 +4,8 @@ import com.randev.data.datasource.remote.AnimeApi
 import com.randev.data.datasource.remote.AnimeApiClient
 import com.randev.data.datasource.remote.CategoryApi
 import com.randev.data.datasource.remote.CategoryApiClient
+import com.randev.data.datasource.remote.CharacterApi
+import com.randev.data.datasource.remote.CharactersApiClient
 import com.randev.data.datasource.remote.MangaApi
 import com.randev.data.datasource.remote.MangaApiClient
 import org.koin.dsl.module
@@ -17,4 +19,5 @@ val clientModule = module {
     single<AnimeApiClient> { AnimeApi(get()) }
     single<CategoryApiClient> { CategoryApi(get()) }
     single<MangaApiClient> { MangaApi(get()) }
+    single<CharactersApiClient> { CharacterApi(get()) }
 }

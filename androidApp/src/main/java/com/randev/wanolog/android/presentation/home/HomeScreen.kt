@@ -30,11 +30,11 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpacer
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
-import com.randev.wanolog.android.presentation.home.anime.AnimeScreen
-import com.randev.wanolog.android.presentation.home.anime.AnimeViewModel
+import com.randev.wanolog.android.presentation.dashboard.anime.AnimeScreen
+import com.randev.wanolog.android.presentation.dashboard.anime.AnimeViewModel
 import com.randev.wanolog.android.presentation.home.component.CategorySection
 import com.randev.wanolog.android.presentation.home.component.ContentTypeItem
-import com.randev.wanolog.android.presentation.home.manga.MangaScreen
+import com.randev.wanolog.android.presentation.dashboard.manga.MangaScreen
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.getViewModel
 

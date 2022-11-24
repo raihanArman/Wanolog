@@ -1,5 +1,6 @@
 package com.randev.data.repository
 
+import com.randev.core.SortType
 import com.randev.core.wrapper.NetworkResource
 import com.randev.core.wrapper.Resource
 import com.randev.data.datasource.remote.MangaApiClient
@@ -17,10 +18,10 @@ class MangaRepositoryImpl(
     private val api: MangaApiClient,
     private val mapper: MangaListMapper,
 ): MangaRepository {
-    override suspend fun getMangaAll(): Flow<Resource<MangaListModel>> {
+    override suspend fun getMangaAll(page: Int): Flow<Resource<MangaListModel>> {
         return object : NetworkResource<MangaListModel>() {
             override suspend fun remoteFetch(): MangaListModel {
-                val request = api.fetchMangaAll()
+                val request = api.fetchMangaAll(page*20)
                 return mapper.map(request)
             }
         }.asFlow()
@@ -57,6 +58,19 @@ class MangaRepositoryImpl(
         return object : NetworkResource<MangaListModel>() {
             override suspend fun remoteFetch(): MangaListModel {
                 val request = api.fetchMangaPopular()
+                return mapper.map(request)
+            }
+        }.asFlow()
+    }
+
+    override suspend fun getMangaSearchFilter(
+        query: String,
+        page: Int,
+        sortType: SortType
+    ): Flow<Resource<MangaListModel>> {
+        return object : NetworkResource<MangaListModel>() {
+            override suspend fun remoteFetch(): MangaListModel {
+                val request = api.fetchMangaSearchFilter(query, page*20, sortType)
                 return mapper.map(request)
             }
         }.asFlow()

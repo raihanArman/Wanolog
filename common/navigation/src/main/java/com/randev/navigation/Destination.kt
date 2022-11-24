@@ -16,7 +16,7 @@ sealed class Destination(protected val route: String, vararg params: String) {
         operator fun invoke(): String = route
     }
 
-    object HomeScreen : NoArgumentsDestination("home")
+    object DashboardScreen : NoArgumentsDestination("dashboard")
 
     object DetailsScreen : Destination("details", "movie_id") {
         const val MOVIE_ID_KEY = "movie_id"
@@ -25,7 +25,8 @@ sealed class Destination(protected val route: String, vararg params: String) {
         )
     }
 
-    object MoreUpcomingScreen : NoArgumentsDestination("upcoming")
+    object AnimeAllScreen : NoArgumentsDestination("anime_all")
+    object MangaAllScreen : NoArgumentsDestination("manga_all")
     object MorePopularScreen : NoArgumentsDestination("popular")
     object SearchScreen : NoArgumentsDestination("search")
     object FavoriteScreen : NoArgumentsDestination("favorite")

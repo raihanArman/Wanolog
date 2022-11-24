@@ -12,8 +12,8 @@ import kotlinx.coroutines.flow.Flow
  */
 class GetAnimeAllUseCase(
     private val repository: AnimeRepository
-): FlowUseCase<Nothing?, AnimeListModel>() {
-    override suspend fun execute(parameters: Nothing?): Flow<Resource<AnimeListModel>> {
-        return repository.getAnimeAll()
+): FlowUseCase<Int?, AnimeListModel>() {
+    override suspend fun execute(parameters: Int?): Flow<Resource<AnimeListModel>> {
+        return repository.getAnimeAll(parameters!!)
     }
 }
