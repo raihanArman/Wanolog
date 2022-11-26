@@ -101,7 +101,9 @@ fun AnimeAllScreen(
             data?.let {
                 ItemCard(
                     title = it.attributes.titles.enJp,
-                    image = it.attributes.posterImage.original
+                    image = it.attributes.posterImage.original,
+                    onClick = {},
+                    id = it.id
                 )
             }
         }

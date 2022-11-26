@@ -1,6 +1,7 @@
 package com.randev.data.datasource.remote
 
 import com.randev.core.SortType
+import com.randev.data.response.AnimeDetailResponse
 import com.randev.data.response.AnimeListResponse
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -63,6 +64,17 @@ class AnimeApi(
             if (sortType.path.isNotEmpty()) {
                 parameter("sort", sortType.path)
             }
+        }.body()
+    }
+
+    override suspend fun fetchAnimeDetail(id: String): AnimeDetailResponse {
+        return ktor.get("api/edge/anime/$id") {
+            parameter("include", "categories,streamingLinks.streamer,reviews.user,animeProductions.producer,animeCharacters.character,mediaRelationships.destination")
+            parameter("fields[categories]", "nsfw,slug,title")
+            parameter("fields[reviews]", "rating,content,user")
+            parameter("fields[users]", "name,avatar")
+            parameter("fields[producers]", "name")
+            parameter("fields[characters]", "image,name")
         }.body()
     }
 }

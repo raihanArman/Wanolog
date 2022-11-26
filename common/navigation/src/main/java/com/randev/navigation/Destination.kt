@@ -18,16 +18,15 @@ sealed class Destination(protected val route: String, vararg params: String) {
 
     object DashboardScreen : NoArgumentsDestination("dashboard")
 
-    object DetailsScreen : Destination("details", "movie_id") {
-        const val MOVIE_ID_KEY = "movie_id"
-        operator fun invoke(movieId: Int): String = route.appendParams(
-            MOVIE_ID_KEY to movieId
+    object AnimeDetailScreen : Destination("anime_detail", "anime_id") {
+        const val ANIME_ID_KEY = "anime_id"
+        operator fun invoke(id: String): String = route.appendParams(
+            ANIME_ID_KEY to id
         )
     }
 
     object AnimeAllScreen : NoArgumentsDestination("anime_all")
     object MangaAllScreen : NoArgumentsDestination("manga_all")
-    object MorePopularScreen : NoArgumentsDestination("popular")
     object SearchScreen : NoArgumentsDestination("search")
     object FavoriteScreen : NoArgumentsDestination("favorite")
 }

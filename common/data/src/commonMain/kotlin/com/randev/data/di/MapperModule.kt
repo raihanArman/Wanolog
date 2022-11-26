@@ -1,5 +1,6 @@
 package com.randev.data.di
 
+import com.randev.data.mapper.AnimeDetailMapper
 import com.randev.data.mapper.AnimeListMapper
 import com.randev.data.mapper.CategoryListMapper
 import com.randev.data.mapper.CharacterListMapper
@@ -16,4 +17,5 @@ val mapperModule = module {
     single { CategoryListMapper() }
     single { MangaListMapper() }
     single { CharacterListMapper() }
+    single { AnimeDetailMapper() }
 }

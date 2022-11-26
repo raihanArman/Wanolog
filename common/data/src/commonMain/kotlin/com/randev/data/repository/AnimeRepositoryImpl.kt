@@ -5,7 +5,9 @@ import com.randev.core.wrapper.NetworkResource
 import com.randev.core.wrapper.Resource
 import com.randev.data.datasource.remote.AnimeApi
 import com.randev.data.datasource.remote.AnimeApiClient
+import com.randev.data.mapper.AnimeDetailMapper
 import com.randev.data.mapper.AnimeListMapper
+import com.randev.domain.model.AnimeDetailModel
 import com.randev.domain.model.AnimeListModel
 import com.randev.domain.repository.AnimeRepository
 import kotlinx.coroutines.flow.Flow
@@ -16,6 +18,7 @@ import kotlinx.coroutines.flow.Flow
  */
 class AnimeRepositoryImpl(
     private val mapper: AnimeListMapper,
+    private val mapperDetail: AnimeDetailMapper,
     private val api: AnimeApiClient
 ): AnimeRepository {
     override suspend fun getAnimeAll(page: Int): Flow<Resource<AnimeListModel>> {
@@ -72,6 +75,15 @@ class AnimeRepositoryImpl(
             override suspend fun remoteFetch(): AnimeListModel {
                 val request = api.fetchAnimeSearchFilter(query, page*20, sortType)
                 return mapper.map(request)
+            }
+        }.asFlow()
+    }
+
+    override suspend fun getAnimeDetail(id: String): Flow<Resource<AnimeDetailModel>> {
+        return object : NetworkResource<AnimeDetailModel>() {
+            override suspend fun remoteFetch(): AnimeDetailModel {
+                val request = api.fetchAnimeDetail(id)
+                return mapperDetail.map(request)
             }
         }.asFlow()
     }

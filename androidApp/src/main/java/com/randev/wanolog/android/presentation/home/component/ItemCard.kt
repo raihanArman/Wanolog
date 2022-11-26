@@ -1,5 +1,6 @@
 package com.randev.wanolog.android.presentation.home.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,12 +28,17 @@ import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 @Composable
 fun ItemCard(
     modifier: Modifier = Modifier.fillMaxWidth(),
+    id: String,
     title: String,
-    image: String
+    image: String,
+    onClick: (String) -> Unit
 ) {
     Card(
         modifier = modifier
             .height(250.dp)
+            .clickable {
+                onClick(id)
+            }
     ) {
         Box(
             modifier = Modifier

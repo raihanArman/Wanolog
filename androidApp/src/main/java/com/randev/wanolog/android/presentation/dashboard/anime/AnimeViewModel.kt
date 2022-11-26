@@ -207,6 +207,14 @@ class AnimeViewModel(
         appNavigator.tryNavigateTo(Destination.AnimeAllScreen.fullRoute)
     }
 
+    fun onNavigateToDetailsClicked(id: String) {
+        appNavigator.tryNavigateTo(
+            Destination.AnimeDetailScreen(
+                id = id
+            )
+        )
+    }
+
 //    fun getHome() {
 //        viewModelScope.launch {
 //            combine(

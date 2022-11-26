@@ -41,7 +41,9 @@ fun MangaTrendingSection(
                     title = it.attributes.canonicalTitle,
                     image = it.attributes.posterImage.original,
                     modifier = Modifier
-                        .width(150.dp)
+                        .width(150.dp),
+                    onClick = {},
+                    id = it.id
                 )
             }
         }

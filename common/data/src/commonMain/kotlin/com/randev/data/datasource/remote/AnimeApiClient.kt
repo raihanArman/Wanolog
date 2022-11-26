@@ -1,6 +1,7 @@
 package com.randev.data.datasource.remote
 
 import com.randev.core.SortType
+import com.randev.data.response.AnimeDetailResponse
 import com.randev.data.response.AnimeListResponse
 
 /**
@@ -18,4 +19,5 @@ interface AnimeApiClient {
         page: Int,
         sortType: SortType
     ): AnimeListResponse
+    suspend fun fetchAnimeDetail(id: String): AnimeDetailResponse
 }

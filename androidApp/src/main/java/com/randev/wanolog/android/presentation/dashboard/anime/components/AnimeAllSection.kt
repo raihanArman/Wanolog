@@ -29,9 +29,9 @@ import com.randev.wanolog.android.composable.components.header.Header
 @Composable
 fun AnimeAllSection(
     modifier: Modifier = Modifier,
-    data: List<AnimeListModel.AnimeModel>
+    data: List<AnimeListModel.AnimeModel>,
+    onClick: (String) -> Unit
 ) {
-
     val itemSize: Dp = (LocalConfiguration.current.screenWidthDp.dp / 2)
     FlowRow(
         mainAxisSize = SizeMode.Expand,
@@ -39,7 +39,13 @@ fun AnimeAllSection(
         crossAxisSpacing = 10.dp
     ) {
         data.forEach {
-            ItemCard(title = it.attributes.titles.enJp, image = it.attributes.posterImage.original, modifier = Modifier.width(itemSize - 30.dp))
+            ItemCard(
+                id = it.id,
+                title = it.attributes.titles.enJp,
+                image = it.attributes.posterImage.original,
+                modifier = Modifier.width(itemSize - 30.dp),
+                onClick = onClick,
+            )
         }
     }
 

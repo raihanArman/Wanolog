@@ -5,17 +5,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.randev.navigation.Destination
 import com.randev.navigation.NavHostApp
 import com.randev.navigation.NavigationIntent
 import com.randev.navigation.composable
 import com.randev.wanolog.android.presentation.anime_all.AnimeAllScreen
+import com.randev.wanolog.android.presentation.anime_detail.DetailAnimeScreen
 import com.randev.wanolog.android.presentation.dashboard.DashboardScreen
 import com.randev.wanolog.android.presentation.manga_all.MangaAllScreen
-import com.randev.wanolog.android.utils.Screen
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import org.koin.androidx.compose.getViewModel
@@ -47,6 +45,9 @@ fun MainScreen(
         }
         composable(Destination.MangaAllScreen){
             MangaAllScreen()
+        }
+        composable(Destination.AnimeDetailScreen) {
+            DetailAnimeScreen()
         }
     }
 

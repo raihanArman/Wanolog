@@ -52,7 +52,13 @@ fun MangaAllSection(
         crossAxisSpacing = 10.dp
     ) {
         data.forEach {
-            ItemCard(title = it.attributes.canonicalTitle, image = it.attributes.posterImage.original, modifier = Modifier.width(itemSize - 30.dp))
+            ItemCard(
+                title = it.attributes.canonicalTitle,
+                image = it.attributes.posterImage.original,
+                modifier = Modifier.width(itemSize - 30.dp),
+                onClick = {},
+                id = it.id
+            )
         }
     }
 }

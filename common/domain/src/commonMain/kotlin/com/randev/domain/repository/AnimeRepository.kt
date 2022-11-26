@@ -2,6 +2,7 @@ package com.randev.domain.repository
 
 import com.randev.core.SortType
 import com.randev.core.wrapper.Resource
+import com.randev.domain.model.AnimeDetailModel
 import com.randev.domain.model.AnimeListModel
 import kotlinx.coroutines.flow.Flow
 
@@ -16,4 +17,5 @@ interface AnimeRepository {
     suspend fun getAnimeTopRating(): Flow<Resource<AnimeListModel>>
     suspend fun getAnimePopular(): Flow<Resource<AnimeListModel>>
     suspend fun getAnimeSearchFilter(query: String, page: Int, sortType: SortType): Flow<Resource<AnimeListModel>>
+    suspend fun getAnimeDetail(id: String): Flow<Resource<AnimeDetailModel>>
 }

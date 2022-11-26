@@ -1,6 +1,7 @@
 package com.randev.domain.di
 
 import com.randev.domain.usecase.anime.GetAnimeAllUseCase
+import com.randev.domain.usecase.anime.GetAnimeDetailUseCase
 import com.randev.domain.usecase.anime.GetAnimePopularUseCase
 import com.randev.domain.usecase.anime.GetAnimeSearchFilterUseCase
 import com.randev.domain.usecase.anime.GetAnimeTopRatingUseCase
@@ -36,4 +37,5 @@ val useCaseModule = module {
     single { GetCharacterAllUseCase(get()) }
     single { GetAnimeSearchFilterUseCase(get()) }
     single { GetMangaSearchFilterUseCase(get()) }
+    single { GetAnimeDetailUseCase(get()) }
 }

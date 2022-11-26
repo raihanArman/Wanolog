@@ -129,16 +129,16 @@ fun AnimeScreen(
                     ) {
                         when (targetState) {
                             ContentStatus.TRENDING -> {
-                                TrendingSection(state = state)
+                                TrendingSection(state = state, onClick = viewModel::onNavigateToDetailsClicked)
                             }
                             ContentStatus.TOP_UPCOMING -> {
-                                TopUpcomingSection(state = state)
+                                TopUpcomingSection(state = state, onClick = viewModel::onNavigateToDetailsClicked)
                             }
                             ContentStatus.TOP_RATING -> {
-                                TopRatingSection(state = state)
+                                TopRatingSection(state = state, onClick = viewModel::onNavigateToDetailsClicked)
                             }
                             ContentStatus.POPULAR -> {
-                                PopularSection(state = state)
+                                PopularSection(state = state, onClick = viewModel::onNavigateToDetailsClicked)
                             }
                         }
                     }
@@ -176,29 +176,41 @@ fun AnimeScreen(
 }
 
 @Composable
-fun TrendingSection(state: AnimeState) {
+fun TrendingSection(state: AnimeState, onClick: (String) -> Unit ) {
     state.trendingData?.let {
-        AnimeAllSection(data = it)
+        AnimeAllSection(
+            data = it,
+            onClick = onClick
+        )
     }
 }
 
 @Composable
-fun TopUpcomingSection(state: AnimeState) {
+fun TopUpcomingSection(state: AnimeState, onClick: (String) -> Unit ) {
     state.topUpcomingData?.let {
-        AnimeAllSection(data = it)
+        AnimeAllSection(
+            data = it,
+            onClick = onClick
+        )
     }
 }
 
 @Composable
-fun TopRatingSection(state: AnimeState) {
+fun TopRatingSection(state: AnimeState, onClick: (String) -> Unit ) {
     state.topRatingData?.let {
-        AnimeAllSection(data = it)
+        AnimeAllSection(
+            data = it,
+            onClick = onClick
+        )
     }
 }
 
 @Composable
-fun PopularSection(state: AnimeState) {
+fun PopularSection(state: AnimeState, onClick: (String) -> Unit ) {
     state.popularData?.let {
-        AnimeAllSection(data = it)
+        AnimeAllSection(
+            data = it,
+            onClick = onClick
+        )
     }
 }
