@@ -25,7 +25,7 @@ data class AnimeDetailModel(
         val coverImage: CoverImageModel,
         val createdAt: String,
         val description: String,
-        val endDate: String,
+        val endDate: String?,
         val episodeCount: Int,
         val episodeLength: Int,
         val favoritesCount: Int,

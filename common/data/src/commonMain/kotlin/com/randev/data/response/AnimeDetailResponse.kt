@@ -58,8 +58,6 @@ data class AnimeDetailResponse(
             val popularityRank: Int?,
             @SerialName("posterImage")
             val posterImage: PosterImage?,
-            @SerialName("ratingFrequencies")
-            val ratingFrequencies: RatingFrequencies?,
             @SerialName("ratingRank")
             val ratingRank: Int?,
             @SerialName("showType")
@@ -271,37 +269,37 @@ data class AnimeDetailResponse(
         @Serializable
         data class Relationships(
             @SerialName("animeCharacters")
-            val animeCharacters: AnimeCharacters?,
+            val animeCharacters: AnimeCharacters? = null,
             @SerialName("animeProductions")
-            val animeProductions: AnimeProductions?,
+            val animeProductions: AnimeProductions? = null,
             @SerialName("animeStaff")
-            val animeStaff: AnimeStaff?,
+            val animeStaff: AnimeStaff? = null,
             @SerialName("castings")
-            val castings: Castings?,
+            val castings: Castings? = null,
             @SerialName("categories")
-            val categories: Categories?,
+            val categories: Categories? = null,
             @SerialName("characters")
-            val characters: Characters?,
+            val characters: Characters? = null,
             @SerialName("episodes")
-            val episodes: Episodes?,
+            val episodes: Episodes? = null,
             @SerialName("genres")
-            val genres: Genres?,
+            val genres: Genres? = null,
             @SerialName("installments")
-            val installments: Installments?,
+            val installments: Installments? = null,
             @SerialName("mappings")
             val mappings: Mappings?,
             @SerialName("mediaRelationships")
-            val mediaRelationships: MediaRelationships?,
+            val mediaRelationships: MediaRelationships? = null,
             @SerialName("productions")
-            val productions: Productions?,
+            val productions: Productions? = null,
             @SerialName("quotes")
-            val quotes: Quotes?,
+            val quotes: Quotes? = null,
             @SerialName("reviews")
-            val reviews: Reviews?,
+            val reviews: Reviews? = null,
             @SerialName("staff")
-            val staff: Staff?,
+            val staff: Staff? = null,
             @SerialName("streamingLinks")
-            val streamingLinks: StreamingLinks?
+            val streamingLinks: StreamingLinks? = null
         ) {
             @Serializable
             data class AnimeCharacters(
@@ -598,7 +596,7 @@ data class AnimeDetailResponse(
         @SerialName("links")
         val links: Links?,
         @SerialName("relationships")
-        val relationships: Relationships?,
+        val relationships: Relationships? = null,
         @SerialName("type")
         val type: String?
     ) {
@@ -650,8 +648,6 @@ data class AnimeDetailResponse(
             val posterImage: PosterImage? = null,
             @SerialName("rating")
             val rating: Double? = null,
-            @SerialName("ratingFrequencies")
-            val ratingFrequencies: RatingFrequencies? = null,
             @SerialName("ratingRank")
             val ratingRank: Int? = null,
             @SerialName("role")
@@ -812,33 +808,33 @@ data class AnimeDetailResponse(
             @Serializable
             data class Image(
                 @SerialName("large")
-                val large: String?,
+                val large: String? = null,
                 @SerialName("medium")
-                val medium: String?,
+                val medium: String? = null,
                 @SerialName("meta")
-                val meta: Meta?,
+                val meta: Meta? = null,
                 @SerialName("original")
-                val original: String?,
+                val original: String? = null,
                 @SerialName("small")
-                val small: String?,
+                val small: String? = null,
                 @SerialName("tiny")
-                val tiny: String?
+                val tiny: String? = null
             ) {
                 @Serializable
                 data class Meta(
                     @SerialName("dimensions")
-                    val dimensions: Dimensions?
+                    val dimensions: Dimensions? = null
                 ) {
                     @Serializable
                     data class Dimensions(
                         @SerialName("large")
-                        val large: Large?,
+                        val large: Large? = null,
                         @SerialName("medium")
-                        val medium: Medium?,
+                        val medium: Medium? = null,
                         @SerialName("small")
-                        val small: Small?,
+                        val small: Small? = null,
                         @SerialName("tiny")
-                        val tiny: Tiny?
+                        val tiny: Tiny? = null
                     ) {
                         @Serializable
                         data class Large(
@@ -1005,57 +1001,57 @@ data class AnimeDetailResponse(
         @Serializable
         data class Relationships(
             @SerialName("anime")
-            val anime: Anime?,
+            val anime: Anime? = null,
             @SerialName("animeCharacters")
-            val animeCharacters: AnimeCharacters?,
+            val animeCharacters: AnimeCharacters? = null,
             @SerialName("animeProductions")
-            val animeProductions: AnimeProductions?,
+            val animeProductions: AnimeProductions? = null,
             @SerialName("animeStaff")
-            val animeStaff: AnimeStaff?,
+            val animeStaff: AnimeStaff? = null,
             @SerialName("castings")
-            val castings: Castings?,
+            val castings: Castings? = null,
             @SerialName("categories")
-            val categories: Categories?,
+            val categories: Categories? = null,
             @SerialName("chapters")
-            val chapters: Chapters?,
+            val chapters: Chapters? = null,
             @SerialName("character")
-            val character: Character?,
+            val character: Character? = null,
             @SerialName("characters")
-            val characters: Characters?,
+            val characters: Characters? = null,
             @SerialName("destination")
-            val destination: Destination?,
+            val destination: Destination? = null,
             @SerialName("episodes")
-            val episodes: Episodes?,
+            val episodes: Episodes? = null,
             @SerialName("genres")
-            val genres: Genres?,
+            val genres: Genres? = null,
             @SerialName("installments")
-            val installments: Installments?,
+            val installments: Installments? = null,
             @SerialName("mangaCharacters")
-            val mangaCharacters: MangaCharacters?,
+            val mangaCharacters: MangaCharacters? = null,
             @SerialName("mangaStaff")
-            val mangaStaff: MangaStaff?,
+            val mangaStaff: MangaStaff? = null,
             @SerialName("mappings")
-            val mappings: Mappings?,
+            val mappings: Mappings? = null,
             @SerialName("mediaRelationships")
-            val mediaRelationships: MediaRelationships?,
+            val mediaRelationships: MediaRelationships? = null,
             @SerialName("producer")
-            val producer: Producer?,
+            val producer: Producer? = null,
             @SerialName("productions")
-            val productions: Productions?,
+            val productions: Productions? = null,
             @SerialName("quotes")
-            val quotes: Quotes?,
+            val quotes: Quotes? = null,
             @SerialName("reviews")
-            val reviews: Reviews?,
+            val reviews: Reviews? = null,
             @SerialName("source")
-            val source: Source?,
+            val source: Source? = null,
             @SerialName("staff")
-            val staff: Staff?,
+            val staff: Staff? = null,
             @SerialName("streamer")
-            val streamer: Streamer?,
+            val streamer: Streamer? = null,
             @SerialName("streamingLinks")
-            val streamingLinks: StreamingLinks?,
+            val streamingLinks: StreamingLinks? = null,
             @SerialName("user")
-            val user: User?
+            val user: User? = null
         ) {
             @Serializable
             data class Anime(

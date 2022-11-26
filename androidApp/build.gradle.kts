@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace = "com.randev.wanolog.android"
-    compileSdk = 32
+    compileSdk = 33
     defaultConfig {
         applicationId = "com.randev.wanolog.android"
         minSdk = 23
-        targetSdk = 32
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
     }
@@ -50,14 +50,14 @@ dependencies {
 
 
     //Paging
-    implementation("androidx.paging:paging-compose:1.0.0-alpha14")
+    implementation("androidx.paging:paging-compose:1.0.0-alpha17")
 
-    implementation("androidx.compose.ui:ui:1.2.1")
-    implementation("androidx.compose.ui:ui-tooling:1.2.1")
-    implementation("androidx.compose.ui:ui-util:1.2.1")
+    implementation("androidx.compose.ui:ui:1.3.1")
+    implementation("androidx.compose.ui:ui-tooling:1.3.1")
+    implementation("androidx.compose.ui:ui-util:1.3.1")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.2.1")
-    implementation("androidx.compose.foundation:foundation:1.2.1")
-    implementation("androidx.compose.material:material:1.2.1")
-    implementation("androidx.activity:activity-compose:1.5.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.3.1")
+    implementation("androidx.compose.foundation:foundation:1.3.1")
+    implementation("androidx.compose.material:material:1.3.1")
+    implementation("androidx.activity:activity-compose:1.6.1")
 }

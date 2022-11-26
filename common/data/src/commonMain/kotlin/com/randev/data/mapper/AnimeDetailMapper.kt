@@ -70,7 +70,7 @@ fun AnimeDetailResponse.Data?.mapToModel() = AnimeDetailModel.AnimeModel(
         ),
         createdAt = this?.attributes?.createdAt.orEmpty(),
         description = this?.attributes?.description.orEmpty(),
-        endDate = this?.attributes?.endDate.orEmpty(),
+        endDate = this?.attributes?.endDate,
         episodeCount = this?.attributes?.episodeCount ?: 0,
         favoritesCount = this?.attributes?.favoritesCount ?: 0,
         popularityRank = this?.attributes?.popularityRank ?: 0,
@@ -147,10 +147,10 @@ fun AnimeDetailResponse.Included?.mapToRelated() = AnimeDetailModel.RelatedModel
         jaJp = this?.attributes?.titles?.jaJp.orEmpty(),
     ),
     cover = CoverImageModel(
-        large = this?.attributes?.coverImage?.large.orEmpty(),
-        original = this?.attributes?.coverImage?.original.orEmpty(),
-        small = this?.attributes?.coverImage?.small.orEmpty(),
-        tiny = this?.attributes?.coverImage?.tiny.orEmpty(),
+        large = this?.attributes?.posterImage?.large.orEmpty(),
+        original = this?.attributes?.posterImage?.original.orEmpty(),
+        small = this?.attributes?.posterImage?.small.orEmpty(),
+        tiny = this?.attributes?.posterImage?.tiny.orEmpty(),
     ),
     type = this?.type.orEmpty()
 )

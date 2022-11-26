@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="anime_season_winter">Winter</string>
+    <string name="anime_season_spring">Spring</string>
+    <string name="anime_season_summer">Summer</string>
+    <string name="anime_season_fall">Fall</string>
+    <string name="anime_season_winter_y">Winter %s</string>
+    <string name="anime_season_spring_y">Spring %s</string>
+    <string name="anime_season_summer_y">Summer %s</string>
+    <string name="anime_season_fall_y">Fall %s</string>
+
+    <string name="media_type_anime_tv">TV Series</string>
+    <string name="media_type_anime_special">Special</string>
+    <string name="media_type_anime_ova">OVA</string>
+    <string name="media_type_anime_ona">ONA</string>
+    <string name="media_type_anime_movie">Movie</string>
+    <string name="media_type_anime_music">Music</string>
+    <string name="media_type_manga_manga">Manga</string>
+    <string name="media_type_manga_novel">Novel</string>
+    <string name="media_type_manga_manhua">Manhua</string>
+    <string name="media_type_manga_oneshot">Oneshot</string>
+    <string name="media_type_manga_doujin">Doujin</string>
+
+    <string name="media_release_summary_anime_future">Not Yet Aired</string>
+    <string name="media_release_summary_anime_present">Airing</string>
+    <string name="media_release_summary_anime_past">Finished Airing</string>
+
+    <string name="media_release_summary_manga_future">Not Yet Published</string>
+    <string name="media_release_summary_manga_present">Publishing</string>
+    <string name="media_release_summary_manga_past">Finished Publishing</string>
+
+    <string name="media_relationship_role_adaptation">Adaptation</string>
+    <string name="media_relationship_role_alternative_setting">Alternative Setting</string>
+    <string name="media_relationship_role_alternative_version">Alternative Version</string>
+    <string name="media_relationship_role_character">Character</string>
+    <string name="media_relationship_role_full_story">Full Story</string>
+    <string name="media_relationship_role_other">Other</string>
+    <string name="media_relationship_role_parent_story">Parent Story</string>
+    <string name="media_relationship_role_prequel">Prequel</string>
+    <string name="media_relationship_role_sequel">Sequel</string>
+    <string name="media_relationship_role_side_story">Side Story</string>
+    <string name="media_relationship_role_spinoff">Spin-off</string>
+    <string name="media_relationship_role_summary">Summary</string>
+</resources>

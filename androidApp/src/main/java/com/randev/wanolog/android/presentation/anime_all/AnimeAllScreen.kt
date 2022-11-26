@@ -102,7 +102,7 @@ fun AnimeAllScreen(
                 ItemCard(
                     title = it.attributes.titles.enJp,
                     image = it.attributes.posterImage.original,
-                    onClick = {},
+                    onClick = viewModel::onNavigateToDetailsClicked,
                     id = it.id
                 )
             }

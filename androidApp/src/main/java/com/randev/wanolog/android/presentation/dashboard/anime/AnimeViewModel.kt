@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.randev.core.wrapper.Resource
 import com.randev.domain.usecase.anime.GetAnimeAllUseCase
+import com.randev.domain.usecase.anime.GetAnimeDetailUseCase
 import com.randev.domain.usecase.anime.GetAnimePopularUseCase
 import com.randev.domain.usecase.anime.GetAnimeTopRatingUseCase
 import com.randev.domain.usecase.anime.GetAnimeTopUpcomingUseCase

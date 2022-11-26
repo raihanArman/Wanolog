@@ -14,6 +14,7 @@ import com.randev.domain.usecase.anime.GetAnimeSearchFilterUseCase
 import com.randev.wanolog.android.utils.SheetHandler
 import com.randev.core.SortType
 import com.randev.navigation.AppNavigator
+import com.randev.navigation.Destination
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
@@ -119,6 +120,14 @@ class AnimeAllViewModel(
 
     fun onBackScreen() {
         navigator.tryNavigateBack()
+    }
+
+    fun onNavigateToDetailsClicked(id: String) {
+        navigator.tryNavigateTo(
+            Destination.AnimeDetailScreen(
+                id = id
+            )
+        )
     }
 
 }
