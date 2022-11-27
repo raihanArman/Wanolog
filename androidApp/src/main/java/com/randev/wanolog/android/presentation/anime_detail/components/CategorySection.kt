@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowRow
 import com.randev.domain.model.AnimeDetailModel
+import com.randev.domain.model.CategoryModel
 
 /**
  * @author Raihan Arman
@@ -14,10 +15,10 @@ import com.randev.domain.model.AnimeDetailModel
  */
 
 @Composable
-fun CategorySection(categories: List<AnimeDetailModel.CategoryModel>) {
+fun CategorySection(categories: List<CategoryModel>) {
     Box(
         modifier = Modifier
-            .padding(top = 10.dp, end = 25.dp, start = 25.dp)
+            .padding(top = 10.dp, end = 25.dp, start = 25.dp, bottom = 20.dp)
     ) {
         FlowRow(
             mainAxisSpacing = 10.dp,

@@ -2,6 +2,7 @@ package com.randev.data.datasource.remote
 
 import com.randev.core.SortType
 import com.randev.data.response.AnimeListResponse
+import com.randev.data.response.MangaDetailResponse
 import com.randev.data.response.MangaListResponse
 
 /**
@@ -20,4 +21,5 @@ interface MangaApiClient {
         page: Int,
         sortType: SortType
     ): MangaListResponse
+    suspend fun fetchMangaDetail(id: String): MangaDetailResponse
 }

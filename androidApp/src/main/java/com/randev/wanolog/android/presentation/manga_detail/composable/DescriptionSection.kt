@@ -1,4 +1,4 @@
-package com.randev.wanolog.android.presentation.anime_detail.components
+package com.randev.wanolog.android.presentation.manga_detail.composable
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Animatable
@@ -42,13 +42,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.randev.domain.model.AnimeDetailModel
+import com.randev.domain.model.MangaDetailModel
 import com.randev.movieapp_kmm.android.composable.components.image.BaseImageView
 import com.randev.movieapp_kmm.android.composable.components.space.HorizontalSpacer
 import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpacer
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.android.R
 import com.randev.wanolog.android.utils.releaseSummary
-import com.randev.wanolog.android.utils.typeAnime
+import com.randev.wanolog.android.utils.typeManga
 import kotlinx.coroutines.launch
 
 /**
@@ -57,7 +58,7 @@ import kotlinx.coroutines.launch
  */
 
 @Composable
-fun DescriptionSection(content: AnimeDetailModel) {
+fun DescriptionSection(content: MangaDetailModel) {
 
     var expanded by remember {
         mutableStateOf(false)
@@ -121,7 +122,7 @@ fun DescriptionSection(content: AnimeDetailModel) {
                     .horizontalScroll(rememberScrollState()),
             ) {
                 Text(
-                    text = content.data.attributes.showType.typeAnime(context),
+                    text = content.data.attributes.mangaType.typeManga(context),
                     style = MovieAppTheme.typography.medium,
                     color = Color.Gray,
                     fontSize = 14.sp

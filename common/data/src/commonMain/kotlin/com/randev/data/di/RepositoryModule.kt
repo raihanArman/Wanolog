@@ -18,6 +18,6 @@ import org.koin.dsl.module
 val repositoryModule = module {
     single<AnimeRepository> { AnimeRepositoryImpl(get(), get(), get()) }
     single<CategoryRepository> { CategoryRepositoryImpl(get(), get()) }
-    single<MangaRepository> { MangaRepositoryImpl(get(), get()) }
+    single<MangaRepository> { MangaRepositoryImpl(get(), get(), get()) }
     single<CharacterRepository> { CharacterRepositoryImpl(get(), get()) }
 }

@@ -8,6 +8,7 @@ import com.randev.wanolog.android.presentation.home.HomeViewModel
 import com.randev.wanolog.android.presentation.dashboard.anime.AnimeViewModel
 import com.randev.wanolog.android.presentation.dashboard.manga.MangaViewModel
 import com.randev.wanolog.android.presentation.manga_all.MangaAllViewModel
+import com.randev.wanolog.android.presentation.manga_detail.MangaDetailViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -26,6 +27,13 @@ val featureModule = module {
     viewModel { MainViewModel(get()) }
     viewModel { params ->
         DetailAnimeViewModel(
+            appNavigator = get(),
+            stateHandle = params.get(),
+            useCase = get(),
+        )
+    }
+    viewModel { params ->
+        MangaDetailViewModel(
             appNavigator = get(),
             stateHandle = params.get(),
             useCase = get(),

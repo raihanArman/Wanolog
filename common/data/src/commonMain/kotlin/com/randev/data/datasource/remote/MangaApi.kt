@@ -2,6 +2,7 @@ package com.randev.data.datasource.remote
 
 import com.randev.core.SortType
 import com.randev.data.response.AnimeListResponse
+import com.randev.data.response.MangaDetailResponse
 import com.randev.data.response.MangaListResponse
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -64,6 +65,17 @@ class MangaApi(
             if (sortType.path.isNotEmpty()) {
                 parameter("sort", sortType.path)
             }
+        }.body()
+    }
+
+    override suspend fun fetchMangaDetail(id: String): MangaDetailResponse {
+        return ktor.get("api/edge/manga/$id") {
+            parameter("include", "categories,reviews.user,mediaRelationships.destination,characters.character,mediaRelationships.destination")
+            parameter("fields[categories]", "nsfw,slug,title")
+            parameter("fields[reviews]", "rating,content,user")
+            parameter("fields[users]", "name,avatar")
+            parameter("fields[producers]", "name")
+            parameter("fields[characters]", "image,name")
         }.body()
     }
 

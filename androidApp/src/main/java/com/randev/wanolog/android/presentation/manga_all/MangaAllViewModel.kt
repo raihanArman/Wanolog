@@ -17,6 +17,7 @@ import com.randev.domain.model.MangaListModel
 import com.randev.domain.usecase.manga.GetMangaAllUseCase
 import com.randev.domain.usecase.manga.GetMangaSearchFilterUseCase
 import com.randev.navigation.AppNavigator
+import com.randev.navigation.Destination
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
@@ -118,6 +119,14 @@ class MangaAllViewModel(
             _sortTypeFlow.value = sortType
             onHideBottomDialog()
         }
+    }
+
+    fun onNavigateToDetailsClicked(id: String) {
+        navigator.tryNavigateTo(
+            Destination.MangaDetailScreen(
+                id = id
+            )
+        )
     }
 
     fun onBackScreen() {

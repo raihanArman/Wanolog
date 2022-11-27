@@ -1,47 +1,46 @@
 package com.randev.domain.model
 
-import com.randev.core.arch.BaseModel
-
 /**
  * @author Raihan Arman
- * @date 26/11/22
+ * @date 27/11/22
  */
-data class AnimeDetailModel(
-    val data: AnimeModel,
+data class MangaDetailModel(
+    val data: MangaModel,
     val characters: List<CharacterModel>,
     val categories: List<CategoryModel>,
     val reviews: List<ReviewModel>,
     val relates: List<RelatedModel>,
-): BaseModel() {
-    data class AnimeModel(
+) {
+    data class MangaModel(
         val attributes: AttributesModel,
         val id: String,
+        val type: String
     )
 
     data class AttributesModel(
         val ageRating: String,
         val ageRatingGuide: String,
         val averageRating: String,
+        val canonicalTitle: String,
+        val chapterCount: Int,
         val coverImage: CoverImageModel,
+        val coverImageTopOffset: Int,
         val createdAt: String,
         val description: String,
         val endDate: String?,
-        val episodeCount: Int,
-        val episodeLength: Int,
         val favoritesCount: Int,
+        val mangaType: String,
         val popularityRank: Int,
         val posterImage: PosterImageModel,
         val ratingRank: Int,
-        val showType: String,
         val slug: String,
         val startDate: String,
         val status: String,
         val subtype: String,
         val synopsis: String,
         val titles: TitlesModel,
-        val totalLength: Int,
         val updatedAt: String,
         val userCount: Int,
-        val youtubeVideoId: String
+        val volumeCount: Int
     )
 }

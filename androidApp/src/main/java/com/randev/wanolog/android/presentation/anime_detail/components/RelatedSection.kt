@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.randev.domain.model.AnimeDetailModel
+import com.randev.domain.model.RelatedModel
 import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpacer
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.android.presentation.home.component.ItemCard
@@ -26,7 +27,7 @@ import com.randev.wanolog.android.presentation.home.component.ItemCard
 @Composable
 fun RelatedSection(
     modifier: Modifier = Modifier,
-    data: List<AnimeDetailModel.RelatedModel>,
+    data: List<RelatedModel>,
 ) {
     Column(
         modifier = modifier

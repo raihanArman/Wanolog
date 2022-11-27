@@ -14,6 +14,7 @@ import com.randev.wanolog.android.presentation.anime_all.AnimeAllScreen
 import com.randev.wanolog.android.presentation.anime_detail.DetailAnimeScreen
 import com.randev.wanolog.android.presentation.dashboard.DashboardScreen
 import com.randev.wanolog.android.presentation.manga_all.MangaAllScreen
+import com.randev.wanolog.android.presentation.manga_detail.MangaDetailScreen
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import org.koin.androidx.compose.getViewModel
@@ -48,6 +49,9 @@ fun MainScreen(
         }
         composable(Destination.AnimeDetailScreen) {
             DetailAnimeScreen()
+        }
+        composable(Destination.MangaDetailScreen) {
+            MangaDetailScreen()
         }
     }
 

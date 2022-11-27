@@ -52,7 +52,7 @@ fun releaseSummary(
     }
 }
 
-fun String.typeStatus(
+fun String.typeAnime(
     context: Context
 ): String {
     return when (this) {
@@ -62,6 +62,19 @@ fun String.typeStatus(
         "ONA" -> context.getString(R.string.media_type_anime_ona)
         "movie" -> context.getString(R.string.media_type_anime_movie)
         "music" -> context.getString(R.string.media_type_anime_music)
+        else -> "?"
+    } ?: this ?: "?"
+}
+
+fun String.typeManga(
+    context: Context
+): String {
+    return when (this) {
+        "manga" -> context.getString(R.string.media_type_manga_manga)
+        "novel" -> context.getString(R.string.media_type_manga_novel)
+        "manhua" -> context.getString(R.string.media_type_manga_manhua)
+        "oneshot" -> context.getString(R.string.media_type_manga_oneshot)
+        "doujin" -> context.getString(R.string.media_type_manga_doujin)
         else -> "?"
     } ?: this ?: "?"
 }

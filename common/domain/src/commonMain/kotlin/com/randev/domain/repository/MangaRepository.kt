@@ -4,6 +4,7 @@ import com.randev.core.SortType
 import com.randev.core.wrapper.Resource
 import com.randev.domain.model.AnimeListModel
 import com.randev.domain.model.CategoryListModel
+import com.randev.domain.model.MangaDetailModel
 import com.randev.domain.model.MangaListModel
 import kotlinx.coroutines.flow.Flow
 
@@ -18,4 +19,5 @@ interface MangaRepository {
     suspend fun getMangaTopRating(): Flow<Resource<MangaListModel>>
     suspend fun getMangaPopular(): Flow<Resource<MangaListModel>>
     suspend fun getMangaSearchFilter(query: String, page: Int, sortType: SortType): Flow<Resource<MangaListModel>>
+    suspend fun getMangaDetail(id: String): Flow<Resource<MangaDetailModel>>
 }

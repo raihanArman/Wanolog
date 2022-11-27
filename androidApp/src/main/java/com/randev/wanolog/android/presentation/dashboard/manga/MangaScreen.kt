@@ -124,16 +124,16 @@ fun MangaScreen(
                     ) {
                         when (status) {
                             ContentStatus.TRENDING -> {
-                                TrendingSection(state = state)
+                                TrendingSection(state = state, onClick = viewModel::onNavigateToDetailsClicked)
                             }
                             ContentStatus.TOP_UPCOMING -> {
-                                TopUpcomingSection(state = state)
+                                TopUpcomingSection(state = state, onClick = viewModel::onNavigateToDetailsClicked)
                             }
                             ContentStatus.TOP_RATING -> {
-                                TopRatingSection(state = state)
+                                TopRatingSection(state = state, onClick = viewModel::onNavigateToDetailsClicked)
                             }
                             ContentStatus.POPULAR -> {
-                                PopularSection(state = state)
+                                PopularSection(state = state, onClick = viewModel::onNavigateToDetailsClicked)
                             }
                         }
                     }
@@ -169,30 +169,41 @@ fun MangaScreen(
 }
 
 @Composable
-fun TrendingSection(state: MangaState) {
+fun TrendingSection(
+    state: MangaState,
+    onClick: (String) -> Unit) {
     state.trendingData?.let {
-        MangaAllSection(data = it)
+        MangaAllSection(data = it, onClick = onClick)
     }
 }
 
 @Composable
-fun TopUpcomingSection(state: MangaState) {
+fun TopUpcomingSection(
+    state: MangaState,
+    onClick: (String) -> Unit
+) {
     state.topUpcomingData?.let {
-        MangaAllSection(data = it)
+        MangaAllSection(data = it, onClick = onClick)
     }
 }
 
 @Composable
-fun TopRatingSection(state: MangaState) {
+fun TopRatingSection(
+    state: MangaState,
+    onClick: (String) -> Unit
+) {
     state.topRatingData?.let {
-        MangaAllSection(data = it)
+        MangaAllSection(data = it, onClick = onClick)
     }
 }
 
 @Composable
-fun PopularSection(state: MangaState) {
+fun PopularSection(
+    state: MangaState,
+    onClick: (String) -> Unit
+) {
     state.popularData?.let {
-        MangaAllSection(data = it)
+        MangaAllSection(data = it, onClick = onClick)
     }
 }
 

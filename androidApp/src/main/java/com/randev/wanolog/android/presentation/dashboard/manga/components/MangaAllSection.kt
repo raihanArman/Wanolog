@@ -28,7 +28,8 @@ import com.randev.wanolog.android.composable.components.header.Header
 @Composable
 fun MangaAllSection(
     modifier: Modifier = Modifier,
-    data: List<MangaListModel.MangaModel>
+    data: List<MangaListModel.MangaModel>,
+    onClick: (String) -> Unit
 ) {
 //    LazyVerticalGrid(
 //        modifier = modifier
@@ -56,7 +57,7 @@ fun MangaAllSection(
                 title = it.attributes.canonicalTitle,
                 image = it.attributes.posterImage.original,
                 modifier = Modifier.width(itemSize - 30.dp),
-                onClick = {},
+                onClick = onClick,
                 id = it.id
             )
         }

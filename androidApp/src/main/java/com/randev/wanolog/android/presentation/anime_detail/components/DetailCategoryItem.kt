@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.randev.domain.model.AnimeDetailModel
+import com.randev.domain.model.CategoryModel
 import com.randev.movieapp_kmm.android.composable.style.Colors
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 
@@ -20,7 +21,7 @@ import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 @Composable
 fun DetailCategoryItem(
     modifier: Modifier = Modifier,
-    category: AnimeDetailModel.CategoryModel
+    category: CategoryModel
 ) {
     Surface(
         modifier = modifier,

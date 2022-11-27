@@ -193,6 +193,14 @@ class MangaViewModel(
         }
     }
 
+    fun onNavigateToDetailsClicked(id: String) {
+        appNavigator.tryNavigateTo(
+            Destination.MangaDetailScreen(
+                id = id
+            )
+        )
+    }
+
     fun onNavigateToMangaAll() {
         appNavigator.tryNavigateTo(Destination.MangaAllScreen.fullRoute)
     }

@@ -2,10 +2,14 @@ package com.randev.data.mapper
 
 import com.randev.core.arch.BaseMapper
 import com.randev.data.response.AnimeDetailResponse
+import com.randev.data.response.MangaDetailResponse
+import com.randev.data.response.MangaListResponse
 import com.randev.domain.model.AnimeDetailModel
 import com.randev.domain.model.CategoryModel
 import com.randev.domain.model.CharacterModel
 import com.randev.domain.model.CoverImageModel
+import com.randev.domain.model.MangaDetailModel
+import com.randev.domain.model.MangaListModel
 import com.randev.domain.model.PosterImageModel
 import com.randev.domain.model.RelatedModel
 import com.randev.domain.model.ReviewModel
@@ -13,10 +17,10 @@ import com.randev.domain.model.TitlesModel
 
 /**
  * @author Raihan Arman
- * @date 26/11/22
+ * @date 27/11/22
  */
-class AnimeDetailMapper: BaseMapper<AnimeDetailResponse, AnimeDetailModel>() {
-    override fun map(value: AnimeDetailResponse): AnimeDetailModel {
+class MangaDetailMapper: BaseMapper<MangaDetailResponse, MangaDetailModel>() {
+    override fun map(value: MangaDetailResponse): MangaDetailModel {
         val data = value.data.mapToModel()
         val categories = value.included?.filter {
             it?.type == "categories"
@@ -49,20 +53,20 @@ class AnimeDetailMapper: BaseMapper<AnimeDetailResponse, AnimeDetailModel>() {
             )
         } ?: emptyList()
 
-        return AnimeDetailModel(
+        return MangaDetailModel(
             data = data,
             categories = categories,
             characters = characters,
             reviews = reviews,
             relates = relates
         )
-
     }
 }
 
-fun AnimeDetailResponse.Data?.mapToModel() = AnimeDetailModel.AnimeModel(
+fun MangaDetailResponse.Data?.mapToModel() = MangaDetailModel.MangaModel(
     id = this?.id.orEmpty(),
-    attributes = AnimeDetailModel.AttributesModel(
+    type = this?.type.orEmpty(),
+    attributes = MangaDetailModel.AttributesModel(
         ageRating = this?.attributes?.ageRating.orEmpty(),
         ageRatingGuide = this?.attributes?.ageRatingGuide.orEmpty(),
         averageRating = this?.attributes?.averageRating.orEmpty(),
@@ -75,7 +79,6 @@ fun AnimeDetailResponse.Data?.mapToModel() = AnimeDetailModel.AnimeModel(
         createdAt = this?.attributes?.createdAt.orEmpty(),
         description = this?.attributes?.description.orEmpty(),
         endDate = this?.attributes?.endDate,
-        episodeCount = this?.attributes?.episodeCount ?: 0,
         favoritesCount = this?.attributes?.favoritesCount ?: 0,
         popularityRank = this?.attributes?.popularityRank ?: 0,
         posterImage = PosterImageModel(
@@ -86,7 +89,6 @@ fun AnimeDetailResponse.Data?.mapToModel() = AnimeDetailModel.AnimeModel(
             tiny = this?.attributes?.posterImage?.tiny.orEmpty(),
         ),
         ratingRank = this?.attributes?.ratingRank ?: 0,
-        showType = this?.attributes?.showType.orEmpty(),
         slug = this?.attributes?.slug.orEmpty(),
         startDate = this?.attributes?.startDate.orEmpty(),
         status = this?.attributes?.status.orEmpty(),
@@ -98,20 +100,23 @@ fun AnimeDetailResponse.Data?.mapToModel() = AnimeDetailModel.AnimeModel(
             enUs = this?.attributes?.titles?.enUs.orEmpty(),
             jaJp = this?.attributes?.titles?.jaJp.orEmpty(),
         ),
-        totalLength = this?.attributes?.totalLength ?: 0,
         updatedAt = this?.attributes?.updatedAt.orEmpty(),
         userCount = this?.attributes?.userCount ?: 0,
-        youtubeVideoId = this?.attributes?.youtubeVideoId.orEmpty(),
-        episodeLength = this?.attributes?.episodeLength ?: 0
+        canonicalTitle = this?.attributes?.canonicalTitle.orEmpty(),
+        chapterCount = this?.attributes?.chapterCount ?: 0,
+        coverImageTopOffset = this?.attributes?.coverImageTopOffset ?: 0,
+        mangaType = this?.attributes?.mangaType.orEmpty(),
+        volumeCount = this?.attributes?.volumeCount ?: 0
     )
 )
 
-fun AnimeDetailResponse.Included?.mapToCategory() = CategoryModel(
+
+fun MangaDetailResponse.Included?.mapToCategory() = CategoryModel(
     id = this?.id.orEmpty(),
     title = this?.attributes?.title.orEmpty()
 )
 
-fun AnimeDetailResponse.Included?.mapToCharacter() = CharacterModel(
+fun MangaDetailResponse.Included?.mapToCharacter() = CharacterModel(
     id = this?.id.orEmpty(),
     image = CoverImageModel(
         large = this?.attributes?.image?.large.orEmpty(),
@@ -122,10 +127,10 @@ fun AnimeDetailResponse.Included?.mapToCharacter() = CharacterModel(
     name = this?.attributes?.name.orEmpty()
 )
 
-fun AnimeDetailResponse.Included?.mapToReview(
+fun MangaDetailResponse.Included?.mapToReview(
     username: String,
     userId: String,
-    avatar: AnimeDetailResponse.Included.Attributes.Avatar?
+    avatar: MangaDetailResponse.Included.Attributes.Avatar?
 ): ReviewModel {
     return ReviewModel(
         id = this?.id.orEmpty(),
@@ -142,7 +147,7 @@ fun AnimeDetailResponse.Included?.mapToReview(
     )
 }
 
-fun AnimeDetailResponse.Included?.mapToRelated() = RelatedModel(
+fun MangaDetailResponse.Included?.mapToRelated() = RelatedModel(
     id = this?.id.orEmpty(),
     titles = TitlesModel(
         en = this?.attributes?.titles?.en.orEmpty(),

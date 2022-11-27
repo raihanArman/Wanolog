@@ -4,6 +4,7 @@ import com.randev.data.mapper.AnimeDetailMapper
 import com.randev.data.mapper.AnimeListMapper
 import com.randev.data.mapper.CategoryListMapper
 import com.randev.data.mapper.CharacterListMapper
+import com.randev.data.mapper.MangaDetailMapper
 import com.randev.data.mapper.MangaListMapper
 import org.koin.dsl.module
 
@@ -18,4 +19,5 @@ val mapperModule = module {
     single { MangaListMapper() }
     single { CharacterListMapper() }
     single { AnimeDetailMapper() }
+    single { MangaDetailMapper() }
 }
