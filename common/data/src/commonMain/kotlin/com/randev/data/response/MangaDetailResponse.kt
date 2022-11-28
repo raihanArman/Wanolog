@@ -710,33 +710,33 @@ data class MangaDetailResponse(
             @Serializable
             data class Image(
                 @SerialName("large")
-                val large: String?,
+                val large: String? = null,
                 @SerialName("medium")
-                val medium: String?,
+                val medium: String? = null,
                 @SerialName("meta")
-                val meta: Meta?,
+                val meta: Meta? = null,
                 @SerialName("original")
-                val original: String?,
+                val original: String? = null,
                 @SerialName("small")
-                val small: String?,
+                val small: String? = null,
                 @SerialName("tiny")
-                val tiny: String?
+                val tiny: String? = null
             ) {
                 @Serializable
                 data class Meta(
                     @SerialName("dimensions")
-                    val dimensions: Dimensions?
+                    val dimensions: Dimensions? = null
                 ) {
                     @Serializable
                     data class Dimensions(
                         @SerialName("large")
-                        val large: Large?,
+                        val large: Large? = null,
                         @SerialName("medium")
-                        val medium: Medium?,
+                        val medium: Medium? = null,
                         @SerialName("small")
-                        val small: Small?,
+                        val small: Small? = null,
                         @SerialName("tiny")
-                        val tiny: Tiny?
+                        val tiny: Tiny? = null
                     ) {
                         @Serializable
                         data class Large(

@@ -1,5 +1,6 @@
 package com.randev.data.datasource.remote
 
+import com.randev.data.response.CharacterByTypeListResponse
 import com.randev.data.response.CharacterListResponse
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -17,6 +18,22 @@ class CharacterApi(
             parameter("page[limit]", 20)
             parameter("sort", "-updatedAt")
             parameter("page[offset]", page)
+        }.body()
+    }
+
+    override suspend fun fetchCharacterManga(page: Int, id: String): CharacterByTypeListResponse {
+        return ktor.get("api/edge/manga/$id/characters") {
+            parameter("page[limit]", 20)
+            parameter("page[offset]", page)
+            parameter("include", "character")
+        }.body()
+    }
+
+    override suspend fun fetchCharacterAnime(page: Int, id: String): CharacterByTypeListResponse {
+        return ktor.get("api/edge/anime/$id/characters") {
+            parameter("page[limit]", 20)
+            parameter("page[offset]", page)
+            parameter("include", "character")
         }.body()
     }
 

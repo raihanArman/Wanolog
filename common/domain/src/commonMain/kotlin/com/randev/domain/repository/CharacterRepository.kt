@@ -11,4 +11,6 @@ import kotlinx.coroutines.flow.Flow
  */
 interface CharacterRepository {
     suspend fun getCharacterAll(page: Int): Flow<Resource<CharacterListModel>>
+    suspend fun getCharacterManga(page: Int, id: String): Flow<Resource<CharacterListModel>>
+    suspend fun getCharacterAnime(page: Int, id: String): Flow<Resource<CharacterListModel>>
 }

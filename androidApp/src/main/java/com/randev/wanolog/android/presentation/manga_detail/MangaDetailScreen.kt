@@ -2,6 +2,7 @@ package com.randev.wanolog.android.presentation.manga_detail
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,19 +24,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.randev.domain.model.AnimeDetailModel
 import com.randev.domain.model.MangaDetailModel
 import com.randev.movieapp_kmm.android.composable.components.space.HorizontalSpacer
 import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpacer
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.android.R
 import com.randev.wanolog.android.composable.components.image.GridImageLayout
-import com.randev.wanolog.android.presentation.anime_detail.CharacterSection
-import com.randev.wanolog.android.presentation.anime_detail.ContentDetail
-import com.randev.wanolog.android.presentation.anime_detail.EpisodeCount
 import com.randev.wanolog.android.presentation.anime_detail.components.CategorySection
 import com.randev.wanolog.android.presentation.anime_detail.components.RelatedSection
+import com.randev.wanolog.android.presentation.anime_detail.components.ReviewSection
 import com.randev.wanolog.android.presentation.manga_detail.composable.DescriptionSection
+import com.randev.wanolog.android.presentation.manga_detail.composable.StatsSection
 import org.koin.androidx.compose.getViewModel
 
 /**
@@ -50,13 +49,17 @@ fun MangaDetailScreen(
     val state by viewModel.observeDetailState.collectAsState()
 
     state.data?.let { content ->
-        ContentDetail(content)
+        ContentDetail(
+            content = content,
+            onClickCharacter = viewModel::onNavigateToCharactersClicked,
+            onBack = viewModel::onBackScreen
+        )
     }
 }
 
 
 @Composable
-fun ContentDetail(content: MangaDetailModel) {
+fun ContentDetail(content: MangaDetailModel, onClickCharacter: () -> Unit, onBack: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -67,7 +70,10 @@ fun ContentDetail(content: MangaDetailModel) {
                 .fillMaxSize()
         ) {
             item {
-                DescriptionSection(content)
+                DescriptionSection(
+                    content = content,
+                    onBack = onBack
+                )
             }
             item {
                 CategorySection(content.categories)
@@ -76,7 +82,16 @@ fun ContentDetail(content: MangaDetailModel) {
                 ChapterCount(content)
             }
             item {
-                CharacterSection(content)
+                StatsSection(data = content)
+            }
+            item {
+                ReviewSection(data = content.reviews, onClickReviewAll = {})
+            }
+            item {
+                CharacterSection(
+                    content = content,
+                    onClickCharacter = onClickCharacter
+                )
             }
             item {
                 RelatedSection(data = content.relates)
@@ -123,7 +138,7 @@ fun ChapterCount(content: MangaDetailModel) {
 }
 
 @Composable
-fun CharacterSection(content: MangaDetailModel) {
+fun CharacterSection(content: MangaDetailModel, onClickCharacter: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -142,7 +157,10 @@ fun CharacterSection(content: MangaDetailModel) {
             modifier = Modifier
                 .border(1.dp, Color.Gray, RoundedCornerShape(5))
                 .clip(RoundedCornerShape(5))
-                .size(200.dp)
+                .size(200.dp),
+            onClick = {
+                onClickCharacter()
+            }
         )
     }
 }

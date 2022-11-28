@@ -75,4 +75,20 @@ class MangaDetailViewModel(
             }
         }
     }
+
+    fun onNavigateToCharactersClicked() {
+        println("Character Manga Clicked")
+        mangaId?.let {
+            appNavigator.tryNavigateTo(
+                Destination.CharacterMangaScreen(
+                    id = it
+                )
+            )
+        }
+    }
+
+    fun onBackScreen() {
+        appNavigator.tryNavigateBack()
+    }
+
 }

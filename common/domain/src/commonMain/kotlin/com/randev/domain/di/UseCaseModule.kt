@@ -9,6 +9,8 @@ import com.randev.domain.usecase.anime.GetAnimeTopUpcomingUseCase
 import com.randev.domain.usecase.anime.GetAnimeTrendingUseCase
 import com.randev.domain.usecase.category.GetCategoryAllUseCase
 import com.randev.domain.usecase.character.GetCharacterAllUseCase
+import com.randev.domain.usecase.character.GetCharacterAnimeUseCase
+import com.randev.domain.usecase.character.GetCharacterMangaUseCase
 import com.randev.domain.usecase.manga.GetMangaAllUseCase
 import com.randev.domain.usecase.manga.GetMangaDetailUseCase
 import com.randev.domain.usecase.manga.GetMangaPopularUseCase
@@ -40,4 +42,6 @@ val useCaseModule = module {
     single { GetMangaSearchFilterUseCase(get()) }
     single { GetAnimeDetailUseCase(get()) }
     single { GetMangaDetailUseCase(get()) }
+    single { GetCharacterMangaUseCase(get()) }
+    single { GetCharacterAnimeUseCase(get()) }
 }

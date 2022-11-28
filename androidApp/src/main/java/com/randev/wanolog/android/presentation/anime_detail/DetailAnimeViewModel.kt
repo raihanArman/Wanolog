@@ -73,4 +73,19 @@ class DetailAnimeViewModel(
         }
     }
 
+    fun onBackScreen() {
+        appNavigator.tryNavigateBack()
+    }
+
+    fun onNavigateToCharactersClicked() {
+        println("Character Manga Clicked")
+        animeId?.let {
+            appNavigator.tryNavigateTo(
+                Destination.CharacterAnimeScreen(
+                    id = it
+                )
+            )
+        }
+    }
+
 }

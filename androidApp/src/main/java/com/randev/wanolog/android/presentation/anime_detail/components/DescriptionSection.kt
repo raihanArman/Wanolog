@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -33,6 +34,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -47,6 +49,7 @@ import com.randev.movieapp_kmm.android.composable.components.space.HorizontalSpa
 import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpacer
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.android.R
+import com.randev.wanolog.android.composable.components.button.BackButton
 import com.randev.wanolog.android.utils.releaseSummary
 import com.randev.wanolog.android.utils.typeAnime
 import kotlinx.coroutines.launch
@@ -57,7 +60,10 @@ import kotlinx.coroutines.launch
  */
 
 @Composable
-fun DescriptionSection(content: AnimeDetailModel) {
+fun DescriptionSection(
+    content: AnimeDetailModel,
+    onBack: () -> Unit
+) {
 
     var expanded by remember {
         mutableStateOf(false)
@@ -100,6 +106,19 @@ fun DescriptionSection(content: AnimeDetailModel) {
                 contentScale = ContentScale.Crop,
                 url = content.data.attributes.posterImage.original
             )
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .padding(25.dp)) {
+                Row {
+                    BackButton(
+                        modifier = Modifier
+                            .clip(CircleShape)
+                            .background(Color.White.copy(0.5f))
+                            .padding(5.dp),
+                        onClick = onBack
+                    )
+                }
+            }
         }
         Column(
             modifier = Modifier

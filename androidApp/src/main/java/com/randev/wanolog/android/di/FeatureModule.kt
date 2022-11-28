@@ -3,6 +3,8 @@ package com.randev.wanolog.android.di
 import com.randev.wanolog.android.presentation.MainViewModel
 import com.randev.wanolog.android.presentation.anime_all.AnimeAllViewModel
 import com.randev.wanolog.android.presentation.anime_detail.DetailAnimeViewModel
+import com.randev.wanolog.android.presentation.character_anime.CharacterAnimeViewModel
+import com.randev.wanolog.android.presentation.character_manga.CharacterMangaViewModel
 import com.randev.wanolog.android.presentation.dashboard.characters.CharacterViewModel
 import com.randev.wanolog.android.presentation.home.HomeViewModel
 import com.randev.wanolog.android.presentation.dashboard.anime.AnimeViewModel
@@ -35,6 +37,20 @@ val featureModule = module {
     viewModel { params ->
         MangaDetailViewModel(
             appNavigator = get(),
+            stateHandle = params.get(),
+            useCase = get(),
+        )
+    }
+    viewModel { params ->
+        CharacterMangaViewModel(
+            navigator = get(),
+            stateHandle = params.get(),
+            useCase = get(),
+        )
+    }
+    viewModel { params ->
+        CharacterAnimeViewModel(
+            navigator = get(),
             stateHandle = params.get(),
             useCase = get(),
         )
