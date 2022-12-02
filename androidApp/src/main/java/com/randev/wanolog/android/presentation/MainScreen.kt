@@ -13,6 +13,7 @@ import com.randev.navigation.composable
 import com.randev.wanolog.android.presentation.anime_all.AnimeAllScreen
 import com.randev.wanolog.android.presentation.anime_detail.DetailAnimeScreen
 import com.randev.wanolog.android.presentation.character_anime.CharacterAnimeScreen
+import com.randev.wanolog.android.presentation.character_detail.CharacterDetailScreen
 import com.randev.wanolog.android.presentation.character_manga.CharacterMangaScreen
 import com.randev.wanolog.android.presentation.dashboard.DashboardScreen
 import com.randev.wanolog.android.presentation.manga_all.MangaAllScreen
@@ -60,6 +61,9 @@ fun MainScreen(
         }
         composable(Destination.CharacterAnimeScreen) {
             CharacterAnimeScreen()
+        }
+        composable(Destination.CharacterDetailScreen) {
+            CharacterDetailScreen()
         }
     }
 

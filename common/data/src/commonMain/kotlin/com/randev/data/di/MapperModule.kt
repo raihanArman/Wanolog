@@ -4,6 +4,7 @@ import com.randev.data.mapper.AnimeDetailMapper
 import com.randev.data.mapper.AnimeListMapper
 import com.randev.data.mapper.CategoryListMapper
 import com.randev.data.mapper.CharacterByTypeListMapper
+import com.randev.data.mapper.CharacterDetailMapper
 import com.randev.data.mapper.CharacterListMapper
 import com.randev.data.mapper.MangaDetailMapper
 import com.randev.data.mapper.MangaListMapper
@@ -22,4 +23,5 @@ val mapperModule = module {
     single { AnimeDetailMapper() }
     single { MangaDetailMapper() }
     single { CharacterByTypeListMapper() }
+    single { CharacterDetailMapper() }
 }

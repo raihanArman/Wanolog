@@ -54,7 +54,7 @@ fun CharacterMangaScreen(
                 ItemCard(
                     title = it.attributes.canonicalName,
                     image = it.attributes.image.original,
-                    onClick = {},
+                    onClick = viewModel::onNavigateToDetailsClicked,
                     id = it.id
                 )
             }

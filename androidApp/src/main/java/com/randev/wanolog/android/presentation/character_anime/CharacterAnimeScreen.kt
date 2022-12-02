@@ -49,12 +49,18 @@ fun CharacterAnimeScreen(
             )
         }
 
-        items(data) { data ->
+        items(
+            items = data,
+            key = {
+                it.id
+            }
+        ) { data ->
+
             data?.let {
                 ItemCard(
                     title = it.attributes.canonicalName,
                     image = it.attributes.image.original,
-                    onClick = {},
+                    onClick = viewModel::onNavigateToDetailsClicked,
                     id = it.id
                 )
             }

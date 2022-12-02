@@ -33,4 +33,12 @@ class CharacterMangaViewModel(
         navigator.tryNavigateBack()
     }
 
+    fun onNavigateToDetailsClicked(id: String) {
+        navigator.tryNavigateTo(
+            Destination.CharacterDetailScreen(
+                id = id
+            )
+        )
+    }
+
 }

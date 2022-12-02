@@ -1,6 +1,7 @@
 package com.randev.data.datasource.remote
 
 import com.randev.data.response.CharacterByTypeListResponse
+import com.randev.data.response.CharacterDetailResponse
 import com.randev.data.response.CharacterListResponse
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -34,6 +35,12 @@ class CharacterApi(
             parameter("page[limit]", 20)
             parameter("page[offset]", page)
             parameter("include", "character")
+        }.body()
+    }
+
+    override suspend fun fetchCharacterDetail(id: String): CharacterDetailResponse {
+        return ktor.get("api/edge/characters/$id") {
+            parameter("include", "mediaCharacters.voices.person")
         }.body()
     }
 

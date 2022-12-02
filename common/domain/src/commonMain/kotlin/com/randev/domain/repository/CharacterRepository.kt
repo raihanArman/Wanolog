@@ -2,6 +2,7 @@ package com.randev.domain.repository
 
 import com.randev.core.wrapper.Resource
 import com.randev.domain.model.AnimeListModel
+import com.randev.domain.model.CharacterDetailModel
 import com.randev.domain.model.CharacterListModel
 import kotlinx.coroutines.flow.Flow
 
@@ -13,4 +14,5 @@ interface CharacterRepository {
     suspend fun getCharacterAll(page: Int): Flow<Resource<CharacterListModel>>
     suspend fun getCharacterManga(page: Int, id: String): Flow<Resource<CharacterListModel>>
     suspend fun getCharacterAnime(page: Int, id: String): Flow<Resource<CharacterListModel>>
+    suspend fun getCharacterDetail(id: String): Flow<Resource<CharacterDetailModel>>
 }

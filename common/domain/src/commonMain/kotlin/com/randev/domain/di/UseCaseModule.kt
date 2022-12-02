@@ -10,6 +10,7 @@ import com.randev.domain.usecase.anime.GetAnimeTrendingUseCase
 import com.randev.domain.usecase.category.GetCategoryAllUseCase
 import com.randev.domain.usecase.character.GetCharacterAllUseCase
 import com.randev.domain.usecase.character.GetCharacterAnimeUseCase
+import com.randev.domain.usecase.character.GetCharacterDetailUseCase
 import com.randev.domain.usecase.character.GetCharacterMangaUseCase
 import com.randev.domain.usecase.manga.GetMangaAllUseCase
 import com.randev.domain.usecase.manga.GetMangaDetailUseCase
@@ -44,4 +45,5 @@ val useCaseModule = module {
     single { GetMangaDetailUseCase(get()) }
     single { GetCharacterMangaUseCase(get()) }
     single { GetCharacterAnimeUseCase(get()) }
+    single { GetCharacterDetailUseCase(get()) }
 }

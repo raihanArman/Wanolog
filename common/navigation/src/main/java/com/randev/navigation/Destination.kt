@@ -46,6 +46,13 @@ sealed class Destination(protected val route: String, vararg params: String) {
         )
     }
 
+    object CharacterDetailScreen : Destination("character_detail", "character_id") {
+        const val CHARACTER_ID_KEY = "character_id"
+        operator fun invoke(id: String): String = route.appendParams(
+            CHARACTER_ID_KEY to id
+        )
+    }
+
     object AnimeAllScreen : NoArgumentsDestination("anime_all")
     object MangaAllScreen : NoArgumentsDestination("manga_all")
     object SearchScreen : NoArgumentsDestination("search")

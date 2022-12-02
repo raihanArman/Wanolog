@@ -4,8 +4,10 @@ import com.randev.core.wrapper.NetworkResource
 import com.randev.core.wrapper.Resource
 import com.randev.data.datasource.remote.CharactersApiClient
 import com.randev.data.mapper.CharacterByTypeListMapper
+import com.randev.data.mapper.CharacterDetailMapper
 import com.randev.data.mapper.CharacterListMapper
 import com.randev.domain.model.AnimeListModel
+import com.randev.domain.model.CharacterDetailModel
 import com.randev.domain.model.CharacterListModel
 import com.randev.domain.repository.CharacterRepository
 import kotlinx.coroutines.flow.Flow
@@ -17,7 +19,8 @@ import kotlinx.coroutines.flow.Flow
 class CharacterRepositoryImpl(
     private val api: CharactersApiClient,
     private val mapper: CharacterListMapper,
-    private val mapperByType: CharacterByTypeListMapper
+    private val mapperByType: CharacterByTypeListMapper,
+    private val mapperDetail: CharacterDetailMapper
 ): CharacterRepository {
     override suspend fun getCharacterAll(page: Int): Flow<Resource<CharacterListModel>> {
         return object : NetworkResource<CharacterListModel>() {
@@ -48,6 +51,15 @@ class CharacterRepositoryImpl(
             override suspend fun remoteFetch(): CharacterListModel {
                 val request = api.fetchCharacterAnime(page*20, id)
                 return mapperByType.map(request)
+            }
+        }.asFlow()
+    }
+
+    override suspend fun getCharacterDetail(id: String): Flow<Resource<CharacterDetailModel>> {
+        return object : NetworkResource<CharacterDetailModel>() {
+            override suspend fun remoteFetch(): CharacterDetailModel {
+                val request = api.fetchCharacterDetail(id)
+                return mapperDetail.map(request)
             }
         }.asFlow()
     }
