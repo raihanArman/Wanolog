@@ -91,4 +91,12 @@ class MangaDetailViewModel(
         appNavigator.tryNavigateBack()
     }
 
+    fun onNavigateToDetailsClicked(id: String) {
+        appNavigator.tryNavigateTo(
+            Destination.AnimeDetailScreen(
+                id = id
+            )
+        )
+    }
+
 }

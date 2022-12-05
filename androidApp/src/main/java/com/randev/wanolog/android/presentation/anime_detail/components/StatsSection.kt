@@ -35,7 +35,9 @@ fun StatsSection(
             .padding(start = 25.dp, end = 25.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        ItemStatsSection(data = data, modifier = Modifier.weight(1f))
+        if (data.data.attributes.averageRating.isNotEmpty()) {
+            ItemStatsSection(data = data, modifier = Modifier.weight(1f))
+        }
         Column(
             modifier = Modifier.weight(1f),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -66,6 +68,7 @@ fun ItemStatsSection(
                modifier = Modifier
                    .size(30.dp)
             )
+
             HorizontalSpacer(width = 10.dp)
             Text(
                 text = "${Math.round(data.data.attributes.averageRating.toDouble())}%",
@@ -73,6 +76,7 @@ fun ItemStatsSection(
                 color = MovieAppTheme.colors.colorAccent,
                 style = MovieAppTheme.typography.bold
             )
+
         }
         Text(
             text = "${data.data.attributes.favoritesCount} favorites",

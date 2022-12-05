@@ -28,6 +28,7 @@ import com.randev.wanolog.android.presentation.home.component.ItemCard
 fun RelatedSection(
     modifier: Modifier = Modifier,
     data: List<RelatedModel>,
+    onClick: (String) -> Unit
 ) {
     Column(
         modifier = modifier
@@ -50,7 +51,7 @@ fun RelatedSection(
                     id = related.id,
                     title = related.titles.enJp,
                     image = related.cover.original,
-                    onClick = {},
+                    onClick = onClick,
                     modifier = Modifier
                         .width(150.dp)
                 )

@@ -133,7 +133,6 @@ fun DescriptionSection(
                 fontSize = 26.sp
             )
             Row(
-                horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(IntrinsicSize.Min)
@@ -146,40 +145,44 @@ fun DescriptionSection(
                     fontSize = 14.sp
                 )
 
-                HorizontalSpacer(width = 8.dp)
-                Divider(
-                    color = Color.Gray.copy(0.5f),
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .width(1.dp)
-                )
-                HorizontalSpacer(width = 8.dp)
-                Text(
-                    text = releaseSummary(
-                        context,
-                        content.data.attributes.startDate,
-                        content.data.attributes.endDate
-                    ),
-                    style = MovieAppTheme.typography.medium,
-                    color = Color.Gray,
-                    fontSize = 14.sp
-                )
+                if (content.data.attributes.startDate.isNotEmpty()) {
+                    HorizontalSpacer(width = 8.dp)
+                    Divider(
+                        color = Color.Gray.copy(0.5f),
+                        modifier = Modifier
+                            .fillMaxHeight()
+                            .width(1.dp)
+                    )
+                    HorizontalSpacer(width = 8.dp)
+                    Text(
+                        text = releaseSummary(
+                            context,
+                            content.data.attributes.startDate,
+                            content.data.attributes.endDate
+                        ),
+                        style = MovieAppTheme.typography.medium,
+                        color = Color.Gray,
+                        fontSize = 14.sp
+                    )
+                }
 
-                HorizontalSpacer(width = 8.dp)
-                Divider(
-                    color = Color.Gray.copy(0.5f),
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .width(1.dp)
-                )
+                if (content.data.attributes.ageRatingGuide.isNotEmpty()) {
+                    HorizontalSpacer(width = 8.dp)
+                    Divider(
+                        color = Color.Gray.copy(0.5f),
+                        modifier = Modifier
+                            .fillMaxHeight()
+                            .width(1.dp)
+                    )
 
-                HorizontalSpacer(width = 8.dp)
-                Text(
-                    text = content.data.attributes.ageRatingGuide,
-                    style = MovieAppTheme.typography.medium,
-                    color = Color.Gray,
-                    fontSize = 14.sp
-                )
+                    HorizontalSpacer(width = 8.dp)
+                    Text(
+                        text = content.data.attributes.ageRatingGuide,
+                        style = MovieAppTheme.typography.medium,
+                        color = Color.Gray,
+                        fontSize = 14.sp
+                    )
+                }
             }
 
             VerticalSpacer(height = 20.dp)

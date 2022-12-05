@@ -88,4 +88,12 @@ class DetailAnimeViewModel(
         }
     }
 
+    fun onNavigateToDetailsClicked(id: String) {
+        appNavigator.tryNavigateTo(
+            Destination.AnimeDetailScreen(
+                id = id
+            )
+        )
+    }
+
 }

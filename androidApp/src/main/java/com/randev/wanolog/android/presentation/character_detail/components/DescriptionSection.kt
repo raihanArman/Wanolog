@@ -4,7 +4,9 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -153,6 +155,29 @@ fun DescriptionSection(
                             )
                         }
                     }
+                }
+            }
+
+            if (content.voices.isNotEmpty()) {
+                VerticalSpacer(height = 20.dp)
+
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    BaseImageView(
+                        url = content.voices[0].image.original,
+                        modifier = Modifier
+                            .clip(CircleShape)
+                            .size(40.dp),
+                        contentScale = ContentScale.Crop
+                    )
+                    HorizontalSpacer(width = 10.dp)
+                    Text(
+                        text = content.voices[0].name,
+                        color = Color.White,
+                        style = MovieAppTheme.typography.medium,
+                        fontSize = 14.sp
+                    )
                 }
             }
 

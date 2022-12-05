@@ -52,13 +52,14 @@ fun DetailAnimeScreen(
         ContentDetail(
             content = content,
             onBack = viewModel::onBackScreen,
-            onClickCharacter = viewModel::onNavigateToCharactersClicked
+            onClickCharacter = viewModel::onNavigateToCharactersClicked,
+            onClickRelated = viewModel::onNavigateToDetailsClicked
         )
     }
 }
 
 @Composable
-fun ContentDetail(content: AnimeDetailModel, onClickCharacter: () -> Unit, onBack: () -> Unit) {
+fun ContentDetail(content: AnimeDetailModel, onClickCharacter: () -> Unit, onClickRelated: (String) -> Unit, onBack: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -83,17 +84,25 @@ fun ContentDetail(content: AnimeDetailModel, onClickCharacter: () -> Unit, onBac
             item {
                 StatsSection(data = content)
             }
-            item { 
-                ReviewSection(data = content.reviews, onClickReviewAll = {})
+            if (content.reviews.isNotEmpty()) {
+                item {
+                    ReviewSection(data = content.reviews, onClickReviewAll = {})
+                }
             }
-            item {
-                CharacterSection(
-                    content = content,
-                    onClickCharacter = onClickCharacter
-                )
+            if (content.characters.isNotEmpty()) {
+                item {
+                    CharacterSection(
+                        content = content,
+                        onClickCharacter = onClickCharacter
+                    )
+                }
             }
-            item {
-                RelatedSection(data = content.relates)
+            if (content.relates.isNotEmpty()) {
+                item {
+                    RelatedSection(data = content.relates) {
+                        onClickRelated(it)
+                    }
+                }
             }
         }
     }

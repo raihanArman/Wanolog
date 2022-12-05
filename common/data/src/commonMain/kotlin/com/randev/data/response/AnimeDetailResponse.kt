@@ -7,9 +7,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class AnimeDetailResponse(
     @SerialName("data")
-    val `data`: Data?,
+    val `data`: Data? = null,
     @SerialName("included")
-    val included: List<Included?>?
+    val included: List<Included?>? = null
 ) {
     @Serializable
     data class Data(
