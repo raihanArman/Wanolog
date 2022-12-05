@@ -25,6 +25,7 @@ import com.randev.wanolog.android.R
 import com.randev.wanolog.android.presentation.dashboard.characters.CharactersScreen
 import com.randev.wanolog.android.presentation.dashboard.anime.AnimeScreen
 import com.randev.wanolog.android.presentation.dashboard.manga.MangaScreen
+import com.randev.wanolog.android.presentation.dashboard.profile.ProfileScreen
 import com.randev.wanolog.android.utils.Screen
 
 /**
@@ -143,6 +144,9 @@ fun NavGraphBuilder.setupDashboardBottomNavScreens(){
         }
         composable(Screen.Character.route){
             CharactersScreen()
+        }
+        composable(Screen.Account.route){
+            ProfileScreen()
         }
     }
 }

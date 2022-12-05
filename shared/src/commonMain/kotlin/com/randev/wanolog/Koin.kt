@@ -2,10 +2,12 @@ package com.randev.wanolog
 
 import com.randev.data.di.clientModule
 import com.randev.data.di.mapperModule
+import com.randev.data.di.persistanceModule
 import com.randev.data.di.repositoryModule
 import com.randev.domain.di.useCaseModule
 import com.randev.network.ktorEngineModule
 import com.randev.network.networkModule
+import com.randev.preferences.preferencesModule
 import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration
 
@@ -18,8 +20,10 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) = startKoin {
     appDeclaration()
     modules(
         ktorEngineModule() +
+        preferencesModule +
         networkModule +
         clientModule +
+        persistanceModule +
         mapperModule +
         repositoryModule +
         useCaseModule

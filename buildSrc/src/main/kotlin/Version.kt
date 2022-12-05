@@ -30,4 +30,5 @@ object Version {
     const val sqlDelight = "1.5.4"
     const val chucker = "3.5.2"
     const val coroutinesNative = "1.6.0-native-mt"
+    const val dataStore = "1.1.0-dev01"
 }

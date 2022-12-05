@@ -10,6 +10,7 @@ import com.randev.wanolog.android.presentation.dashboard.characters.CharacterVie
 import com.randev.wanolog.android.presentation.home.HomeViewModel
 import com.randev.wanolog.android.presentation.dashboard.anime.AnimeViewModel
 import com.randev.wanolog.android.presentation.dashboard.manga.MangaViewModel
+import com.randev.wanolog.android.presentation.dashboard.profile.ProfileViewModel
 import com.randev.wanolog.android.presentation.manga_all.MangaAllViewModel
 import com.randev.wanolog.android.presentation.manga_detail.MangaDetailViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -62,5 +63,8 @@ val featureModule = module {
             stateHandle = params.get(),
             useCase = get(),
         )
+    }
+    viewModel {
+        ProfileViewModel(get())
     }
 }

@@ -28,6 +28,7 @@ kotlin {
                 implementation(Dependencies.ktorLogging)
 
                 implementation(project(mapOf("path" to ":common:core")))
+                implementation(project(mapOf("path" to ":libraries:preferences")))
             }
         }
         val commonTest by getting {

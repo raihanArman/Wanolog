@@ -8,6 +8,7 @@ import com.randev.data.mapper.CharacterDetailMapper
 import com.randev.data.mapper.CharacterListMapper
 import com.randev.data.mapper.MangaDetailMapper
 import com.randev.data.mapper.MangaListMapper
+import com.randev.data.mapper.UserListMapper
 import org.koin.dsl.module
 
 /**
@@ -24,4 +25,5 @@ val mapperModule = module {
     single { MangaDetailMapper() }
     single { CharacterByTypeListMapper() }
     single { CharacterDetailMapper() }
+    single { UserListMapper() }
 }

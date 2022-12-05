@@ -58,4 +58,7 @@ object Dependencies {
 
     const val kermitLogger = "co.touchlab:kermit:${Version.kermit}"
     const val multiplatformSettings = "com.russhwolf:multiplatform-settings:${Version.multiplatformSettings}"
+
+    const val dataStore = "androidx.datastore:datastore-preferences:${Version.dataStore}"
+    const val dataStoreCore = "androidx.datastore:datastore-preferences-core:${Version.dataStore}"
 }

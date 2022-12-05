@@ -25,6 +25,7 @@ kotlin {
                 api(project(":common:data"))
                 api(project(":libraries:network"))
                 api(project(":libraries:database"))
+                api(project(":libraries:preferences"))
             }
         }
         val commonTest by getting {

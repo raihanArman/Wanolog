@@ -23,6 +23,7 @@ kotlin {
             dependencies {
                 implementation(Dependencies.ktorJsonSerialization)
                 implementation(Dependencies.ktorCore)
+                implementation(project(mapOf("path" to ":libraries:preferences")))
             }
         }
         val commonTest by getting {
