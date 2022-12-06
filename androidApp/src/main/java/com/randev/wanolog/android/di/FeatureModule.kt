@@ -65,6 +65,6 @@ val featureModule = module {
         )
     }
     viewModel {
-        ProfileViewModel(get())
+        ProfileViewModel(get(), get(), get())
     }
 }

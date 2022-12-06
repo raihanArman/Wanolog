@@ -13,6 +13,7 @@ import com.randev.domain.model.AnimeListModel
 import com.randev.domain.model.UserListModel
 import com.randev.domain.repository.AuthRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 /**
  * @author Raihan Arman
@@ -42,5 +43,13 @@ class AuthRepositoryImpl(
                 }
             }
         }.asFlow()
+    }
+
+    override suspend fun userIsLogin(): Flow<Boolean> {
+        val isLogin = authPreferences.getAccessToken().map {
+            it.isNotEmpty()
+        }
+
+        return isLogin
     }
 }

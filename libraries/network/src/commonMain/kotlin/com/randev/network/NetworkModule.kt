@@ -55,6 +55,7 @@ fun createKtorClient(httpClientEngine: HttpClientEngine, json: Json, preferences
             }
 
             if (accessToken.isNotEmpty()) {
+                println("Hit user $accessToken")
                 bearerAuth(accessToken)
             }
 

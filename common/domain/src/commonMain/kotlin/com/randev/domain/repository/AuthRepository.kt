@@ -15,4 +15,7 @@ interface AuthRepository {
         username: String,
         password: String
     ): Flow<Resource<UserListModel>>
+
+    suspend fun userIsLogin(): Flow<Boolean>
+
 }

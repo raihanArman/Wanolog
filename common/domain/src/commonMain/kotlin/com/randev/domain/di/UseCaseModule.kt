@@ -7,6 +7,7 @@ import com.randev.domain.usecase.anime.GetAnimeSearchFilterUseCase
 import com.randev.domain.usecase.anime.GetAnimeTopRatingUseCase
 import com.randev.domain.usecase.anime.GetAnimeTopUpcomingUseCase
 import com.randev.domain.usecase.anime.GetAnimeTrendingUseCase
+import com.randev.domain.usecase.auth.CheckUserLoginUseCase
 import com.randev.domain.usecase.auth.PostLoginUseCase
 import com.randev.domain.usecase.category.GetCategoryAllUseCase
 import com.randev.domain.usecase.character.GetCharacterAllUseCase
@@ -20,6 +21,7 @@ import com.randev.domain.usecase.manga.GetMangaSearchFilterUseCase
 import com.randev.domain.usecase.manga.GetMangaTopRatingUseCase
 import com.randev.domain.usecase.manga.GetMangaTopUpcomingUseCase
 import com.randev.domain.usecase.manga.GetMangaTrendingUseCase
+import com.randev.domain.usecase.user.GetCurrentUserUseCase
 import org.koin.dsl.module
 
 /**
@@ -48,4 +50,6 @@ val useCaseModule = module {
     single { GetCharacterAnimeUseCase(get()) }
     single { GetCharacterDetailUseCase(get()) }
     single { PostLoginUseCase(get()) }
+    single { CheckUserLoginUseCase(get()) }
+    single { GetCurrentUserUseCase(get()) }
 }

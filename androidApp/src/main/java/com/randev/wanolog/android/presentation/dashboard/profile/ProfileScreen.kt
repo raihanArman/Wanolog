@@ -1,8 +1,11 @@
 package com.randev.wanolog.android.presentation.dashboard.profile
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -13,14 +16,18 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.randev.domain.model.UserModel
+import com.randev.movieapp_kmm.android.composable.components.image.BaseImageView
 import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpacer
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.randev.wanolog.android.R
 import com.randev.wanolog.android.composable.components.button.PrimaryButton
 import com.randev.wanolog.android.composable.components.text_field.TextFieldCustom
 import kotlinx.coroutines.flow.collectLatest
@@ -39,6 +46,7 @@ fun ProfileScreen(
     val scaffoldState = rememberScaffoldState()
 
     LaunchedEffect(key1 = true) {
+        viewModel.checkIsLogin()
         viewModel.eventFlow.collectLatest { event ->
             when(event) {
                 is ProfileViewModel.UIEvent.ShowSnackbar -> {
@@ -63,7 +71,54 @@ fun ProfileScreen(
                 onClickSignIn = viewModel::postLogin,
                 isLoadingButton = { viewModel.isLoading }
             )
+        } else {
+            state.userModel?.let { 
+                UserScreen(userModel = it)
+            }
         }
+    }
+}
+
+@Composable
+fun UserScreen(
+    userModel: UserModel
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(25.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        VerticalSpacer(height = 80.dp)
+        if (userModel.attributes.avatar == null) {
+            BaseImageView(
+                imageResourceId = R.drawable.photo_default,
+                modifier = Modifier
+                    .size(200.dp)
+                    .clip(
+                        CircleShape
+                    )
+            )
+        } else {
+            BaseImageView(
+                url = userModel.attributes.avatar!!.original,
+                modifier = Modifier
+                    .size(200.dp)
+                    .clip(
+                        CircleShape
+                    )
+            )
+        }
+
+        VerticalSpacer(height = 50.dp)
+
+        Text(
+            text = userModel.attributes.name,
+            color = Color.White,
+            style = MovieAppTheme.typography.bold,
+            fontSize = 30.sp
+        )
+
     }
 }
 

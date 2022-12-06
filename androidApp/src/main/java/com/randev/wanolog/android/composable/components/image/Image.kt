@@ -33,7 +33,7 @@ fun BaseImageView(
 fun BaseImageView(
     url: String,
     modifier: Modifier,
-    contentScale: ContentScale? = null
+    contentScale: ContentScale? = null,
 ) {
     SubcomposeAsyncImage(
         model = url,

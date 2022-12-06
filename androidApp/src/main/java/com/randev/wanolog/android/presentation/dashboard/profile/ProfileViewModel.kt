@@ -6,8 +6,10 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.randev.core.wrapper.Resource
+import com.randev.domain.usecase.auth.CheckUserLoginUseCase
 import com.randev.domain.usecase.auth.LoginRequest
 import com.randev.domain.usecase.auth.PostLoginUseCase
+import com.randev.domain.usecase.user.GetCurrentUserUseCase
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -22,6 +24,8 @@ import kotlinx.coroutines.launch
  */
 class ProfileViewModel(
     private val loginUseCase: PostLoginUseCase,
+    private val checkUserLoginUseCase: CheckUserLoginUseCase,
+    private val getCurrentUserUseCase: GetCurrentUserUseCase
 ): ViewModel() {
 
     var isLoading by mutableStateOf(false)
@@ -41,6 +45,57 @@ class ProfileViewModel(
 
     fun setEmailPassword(value: String) {
         passwordState = value
+    }
+
+    fun checkIsLogin() {
+        viewModelScope.launch {
+            checkUserLoginUseCase.invoke().collect { status ->
+                _observeProfileState.update {
+                    it.copy(
+                        isLogin = status
+                    )
+                }
+                if (status) {
+                    println("Hit get current user")
+                    getCurrentUser()
+                }
+            }
+        }
+    }
+
+    private fun getCurrentUser() {
+        viewModelScope.launch {
+            getCurrentUserUseCase.invoke().collect { resource ->
+                when(resource) {
+                    is Resource.Loading -> {
+                        _observeProfileState.update {
+                            it.copy(
+                                isLoading = true
+                            )
+                        }
+                    }
+                    is Resource.Success -> {
+                        _observeProfileState.update {
+                            it.copy(
+                                isLoading = false,
+                                userModel =
+                                    if (!resource.model?.data.isNullOrEmpty()) resource.model?.data?.get(0)
+                                    else null
+                            )
+                        }
+                    }
+                    is Resource.Error -> {
+                        _observeProfileState.update {
+                            it.copy(
+                                isLoading = false,
+                                errorMessage = resource.errorMessage
+                            )
+                        }
+                    }
+                    else -> {}
+                }
+            }
+        }
     }
 
     fun postLogin() {
