@@ -18,7 +18,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 
 enum class DashboardBottomBarItemType {
-    ANIME, MANGA, FAVORITE, CHARACTER ,ACCOUNT
+    ANIME, MANGA, FAVORITE, POST ,ACCOUNT
 }
 
 data class DashboardBottomBarItem(

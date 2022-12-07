@@ -10,6 +10,7 @@ import com.randev.wanolog.android.presentation.dashboard.characters.CharacterVie
 import com.randev.wanolog.android.presentation.home.HomeViewModel
 import com.randev.wanolog.android.presentation.dashboard.anime.AnimeViewModel
 import com.randev.wanolog.android.presentation.dashboard.manga.MangaViewModel
+import com.randev.wanolog.android.presentation.dashboard.post.PostAllViewModel
 import com.randev.wanolog.android.presentation.dashboard.profile.ProfileViewModel
 import com.randev.wanolog.android.presentation.manga_all.MangaAllViewModel
 import com.randev.wanolog.android.presentation.manga_detail.MangaDetailViewModel
@@ -66,5 +67,8 @@ val featureModule = module {
     }
     viewModel {
         ProfileViewModel(get(), get(), get())
+    }
+    viewModel {
+        PostAllViewModel(get())
     }
 }

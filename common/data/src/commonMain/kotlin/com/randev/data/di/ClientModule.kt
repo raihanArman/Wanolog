@@ -10,6 +10,8 @@ import com.randev.data.datasource.remote.CharacterApi
 import com.randev.data.datasource.remote.CharactersApiClient
 import com.randev.data.datasource.remote.MangaApi
 import com.randev.data.datasource.remote.MangaApiClient
+import com.randev.data.datasource.remote.PostApi
+import com.randev.data.datasource.remote.PostApiClient
 import com.randev.data.datasource.remote.UserApi
 import com.randev.data.datasource.remote.UserApiClient
 import org.koin.dsl.module
@@ -26,4 +28,5 @@ val clientModule = module {
     single<CharactersApiClient> { CharacterApi(get()) }
     single<AuthApiClient> { AuthApi(get()) }
     single<UserApiClient> { UserApi(get()) }
+    single<PostApiClient> { PostApi(get()) }
 }

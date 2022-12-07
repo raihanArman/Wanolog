@@ -25,6 +25,7 @@ import com.randev.wanolog.android.R
 import com.randev.wanolog.android.presentation.dashboard.characters.CharactersScreen
 import com.randev.wanolog.android.presentation.dashboard.anime.AnimeScreen
 import com.randev.wanolog.android.presentation.dashboard.manga.MangaScreen
+import com.randev.wanolog.android.presentation.dashboard.post.PostAllScreen
 import com.randev.wanolog.android.presentation.dashboard.profile.ProfileScreen
 import com.randev.wanolog.android.utils.Screen
 
@@ -44,6 +45,19 @@ fun DashboardScreen() {
             DashboardBottomBar(
                 navController = dashboardNav,
                 bottomBarItems = listOf(
+                    DashboardBottomBarItem(
+                        icon = {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_baseline_home_24),
+                                contentDescription = null,
+                                modifier = Modifier
+                                    .size(iconSize),
+                            )
+                        },
+                        type = DashboardBottomBarItemType.POST,
+                        label = "Home",
+                        route = Screen.Post.route
+                    ),
                     DashboardBottomBarItem(
                         icon = {
                             Icon(
@@ -69,19 +83,6 @@ fun DashboardScreen() {
                         type = DashboardBottomBarItemType.MANGA,
                         label = "Manga",
                         route = Screen.Manga.route
-                    ),
-                    DashboardBottomBarItem(
-                        icon = {
-                            Icon(
-                                painter = painterResource(id = R.drawable.ic_baseline_person_pin_24),
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .size(iconSize),
-                            )
-                        },
-                        type = DashboardBottomBarItemType.CHARACTER,
-                        label = "Chara",
-                        route = Screen.Character.route
                     ),
                     DashboardBottomBarItem(
                         icon = {
@@ -133,7 +134,7 @@ fun DashboardScreen() {
 @OptIn(ExperimentalMaterialApi::class)
 fun NavGraphBuilder.setupDashboardBottomNavScreens(){
     navigation(
-        startDestination = Screen.Anime.route,
+        startDestination = Screen.Post.route,
         route = "dashboardBottomNav"
     ){
         composable(Screen.Anime.route){
@@ -142,8 +143,8 @@ fun NavGraphBuilder.setupDashboardBottomNavScreens(){
         composable(Screen.Manga.route){
             MangaScreen()
         }
-        composable(Screen.Character.route){
-            CharactersScreen()
+        composable(Screen.Post.route){
+            PostAllScreen()
         }
         composable(Screen.Account.route){
             ProfileScreen()
