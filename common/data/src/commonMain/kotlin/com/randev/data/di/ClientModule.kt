@@ -8,6 +8,8 @@ import com.randev.data.datasource.remote.CategoryApi
 import com.randev.data.datasource.remote.CategoryApiClient
 import com.randev.data.datasource.remote.CharacterApi
 import com.randev.data.datasource.remote.CharactersApiClient
+import com.randev.data.datasource.remote.CommentApi
+import com.randev.data.datasource.remote.CommentApiClient
 import com.randev.data.datasource.remote.MangaApi
 import com.randev.data.datasource.remote.MangaApiClient
 import com.randev.data.datasource.remote.PostApi
@@ -29,4 +31,5 @@ val clientModule = module {
     single<AuthApiClient> { AuthApi(get()) }
     single<UserApiClient> { UserApi(get()) }
     single<PostApiClient> { PostApi(get()) }
+    single<CommentApiClient> { CommentApi(get()) }
 }

@@ -14,6 +14,7 @@ import com.randev.domain.usecase.character.GetCharacterAllUseCase
 import com.randev.domain.usecase.character.GetCharacterAnimeUseCase
 import com.randev.domain.usecase.character.GetCharacterDetailUseCase
 import com.randev.domain.usecase.character.GetCharacterMangaUseCase
+import com.randev.domain.usecase.comment.GetCommentsByPostUseCase
 import com.randev.domain.usecase.manga.GetMangaAllUseCase
 import com.randev.domain.usecase.manga.GetMangaDetailUseCase
 import com.randev.domain.usecase.manga.GetMangaPopularUseCase
@@ -54,4 +55,5 @@ val useCaseModule = module {
     single { CheckUserLoginUseCase(get()) }
     single { GetCurrentUserUseCase(get()) }
     single { GetPostListUseCase(get()) }
+    single { GetCommentsByPostUseCase(get()) }
 }

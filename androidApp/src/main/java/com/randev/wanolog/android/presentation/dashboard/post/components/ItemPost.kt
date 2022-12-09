@@ -12,8 +12,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.Icon
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -24,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -32,6 +35,9 @@ import com.randev.movieapp_kmm.android.composable.components.image.BaseImageView
 import com.randev.movieapp_kmm.android.composable.components.space.HorizontalSpacer
 import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpacer
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.randev.wanolog.android.R
+import com.randev.wanolog.android.composable.components.card.DescriptionPost
+import com.randev.wanolog.android.composable.components.card.UserPost
 import com.randev.wanolog.android.composable.components.text.HtmlText
 import com.randev.wanolog.android.utils.toTimezoneDateToRangeTime
 
@@ -42,7 +48,8 @@ import com.randev.wanolog.android.utils.toTimezoneDateToRangeTime
 
 @Composable
 fun ItemPost(
-    data: PostListModel.PostModel
+    data: PostListModel.PostModel,
+    onClickComment: (String) -> Unit
 ) {
     Surface(
         color = Color.White.copy(alpha = 0.1f),
@@ -52,7 +59,11 @@ fun ItemPost(
         Column(
             modifier = Modifier
         ) {
-            UserPost(data = data)
+            UserPost(
+                name = data.user[0].name,
+                image = data.user[0].avatar?.original.orEmpty(),
+                rangeTime = data.attributes.createdAt.toTimezoneDateToRangeTime()
+            )
             VerticalSpacer(height = 10.dp)
             if (data.upload.isNotEmpty()) {
                 BaseImageView(
@@ -66,7 +77,10 @@ fun ItemPost(
             }
 
             DescriptionPost(html = data.attributes.contentFormatted)
-
+            LikeCommentsCount(
+                data = data,
+                onClickComment = onClickComment
+            )
             Surface(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -80,60 +94,52 @@ fun ItemPost(
 }
 
 @Composable
-fun DescriptionPost(
-    html: String
-) {
-    var expanded by remember {
-        mutableStateOf(false)
-    }
-
-    Box(modifier = Modifier
-        .padding(start = 10.dp, end = 10.dp)) {
-        HtmlText(
-            html = html,
-            maxLines = if (expanded) Int.MAX_VALUE else 5,
-            overflow = TextOverflow.Ellipsis,
-            onClick = {
-                expanded = !expanded
-            }
-        )
-    }
-}
-
-@Composable
-fun UserPost(
-    data: PostListModel.PostModel,
-    modifier: Modifier = Modifier
-) {
+fun LikeCommentsCount(data: PostListModel.PostModel, onClickComment: (String) -> Unit) {
     Row(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 10.dp, end = 10.dp, start = 10.dp),
+            .padding(10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        BaseImageView(
-            url = data.user[0].avatar?.original.orEmpty(),
-            modifier = Modifier
-                .clip(CircleShape)
-                .size(25.dp),
-            contentScale = ContentScale.Crop
-        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+           Icon(
+               painter = painterResource(id = R.drawable.ic_outline_thumb_up_24),
+               contentDescription = null,
+               modifier = Modifier.size(15.dp),
+               tint = Color.Gray
+           )
+           HorizontalSpacer(width = 5.dp)
+           Text(
+               text = "${data.attributes.postLikesCount} likes",
+               style = MovieAppTheme.typography.light,
+               color = Color.Gray,
+               fontSize = 11.sp
+           )
+        }
         HorizontalSpacer(width = 10.dp)
-        Column(
-            verticalArrangement = Arrangement.Center
-        ){
-            Text(
-                text = data.user[0].name,
-                color = Color.White,
-                style = MovieAppTheme.typography.medium,
-                fontSize = 11.sp
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .clickable {
+                    onClickComment(data.id)
+                }
+        ) {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_outline_insert_comment_24),
+                contentDescription = null,
+                modifier = Modifier.size(15.dp),
+                tint = Color.Gray
             )
+            HorizontalSpacer(width = 5.dp)
             Text(
-                text = data.attributes.createdAt.toTimezoneDateToRangeTime(),
-                color = Color.White,
+                text = "${data.attributes.commentsCount} comments",
                 style = MovieAppTheme.typography.light,
-                fontSize = 8.sp
+                color = Color.Gray,
+                fontSize = 11.sp
             )
         }
     }
 }
+

@@ -6,6 +6,7 @@ import com.randev.data.mapper.CategoryListMapper
 import com.randev.data.mapper.CharacterByTypeListMapper
 import com.randev.data.mapper.CharacterDetailMapper
 import com.randev.data.mapper.CharacterListMapper
+import com.randev.data.mapper.CommentListMapper
 import com.randev.data.mapper.MangaDetailMapper
 import com.randev.data.mapper.MangaListMapper
 import com.randev.data.mapper.PostListMapper
@@ -28,4 +29,5 @@ val mapperModule = module {
     single { CharacterDetailMapper() }
     single { UserListMapper() }
     single { PostListMapper() }
+    single { CommentListMapper() }
 }

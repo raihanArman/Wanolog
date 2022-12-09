@@ -30,7 +30,10 @@ fun PostAllScreen(
     ) {
         items(posts) { data ->
             data?.let {
-                ItemPost(data = it)
+                ItemPost(
+                    data = data,
+                    onClickComment = viewModel::onClickComment
+                )
             }
         }
     }

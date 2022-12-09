@@ -22,12 +22,14 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.android.R
+import com.randev.wanolog.android.presentation.comments.CommentsScreen
 import com.randev.wanolog.android.presentation.dashboard.characters.CharactersScreen
 import com.randev.wanolog.android.presentation.dashboard.anime.AnimeScreen
 import com.randev.wanolog.android.presentation.dashboard.manga.MangaScreen
 import com.randev.wanolog.android.presentation.dashboard.post.PostAllScreen
 import com.randev.wanolog.android.presentation.dashboard.profile.ProfileScreen
 import com.randev.wanolog.android.utils.Screen
+import org.koin.androidx.compose.getViewModel
 
 /**
  * @author Raihan Arman
@@ -35,12 +37,13 @@ import com.randev.wanolog.android.utils.Screen
  */
 
 @Composable
-fun DashboardScreen() {
+fun DashboardScreen(
+    viewModel: DashboardViewModel = getViewModel()
+) {
     val dashboardNav = rememberNavController()
     val iconSize = remember { 24.dp }
 
     Scaffold(
-
         bottomBar = {
             DashboardBottomBar(
                 navController = dashboardNav,
@@ -129,6 +132,12 @@ fun DashboardScreen() {
             }
         }
     )
+
+    CommentsScreen(
+        sheetState = viewModel.sheetHandler,
+        postId = viewModel.postId.value
+    )
+
 }
 
 @OptIn(ExperimentalMaterialApi::class)
