@@ -52,6 +52,10 @@ dependencies {
     //Paging
     implementation("androidx.paging:paging-compose:1.0.0-alpha17")
 
+    // Swipe Refresh
+    implementation("com.google.accompanist:accompanist-swiperefresh:0.28.0")
+
+
     implementation("androidx.compose.ui:ui:1.3.1")
     implementation("androidx.compose.ui:ui-tooling:1.3.1")
     implementation("androidx.compose.ui:ui-util:1.3.1")
