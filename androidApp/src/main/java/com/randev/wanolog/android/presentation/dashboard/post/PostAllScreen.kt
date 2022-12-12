@@ -8,13 +8,16 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
+import com.randev.wanolog.android.composable.components.notif.ConnectivityStatus
 import com.randev.wanolog.android.composable.components.progressCircular.ProgressCircularComponent
 import com.randev.wanolog.android.presentation.dashboard.post.components.ItemPost
+import com.randev.wanolog.android.utils.connectivityState
 import org.koin.androidx.compose.getViewModel
 
 /**

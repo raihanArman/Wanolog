@@ -19,6 +19,8 @@ object Colors {
     val sunGlow2: Color = Color(0xFFFF9130)
     val transparent: Color = Color(0xFF00000000)
     val red: Color = Color.Red
+    val greenNotification = Color(0xff6FCF97)
+    val redNotification = Color(0xffEB5757)
 }
 
 @Immutable

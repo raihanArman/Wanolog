@@ -1,6 +1,5 @@
 package com.randev.wanolog.android.application
 
-import android.app.Application
 import com.randev.core.BaseApplication
 import com.randev.navigation.navigatorModule
 import com.randev.wanolog.android.di.featureModule

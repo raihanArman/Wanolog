@@ -7,14 +7,10 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.randev.domain.model.CharacterListModel
 import com.randev.domain.model.PostListModel
 import com.randev.domain.usecase.post.GetPostListUseCase
-import com.randev.wanolog.android.presentation.dashboard.characters.CharacterPagingSource
 import com.randev.wanolog.android.utils.SharingCommentAttr
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 /**
@@ -23,7 +19,7 @@ import kotlinx.coroutines.launch
  */
 class PostAllViewModel(
     private val useCase: GetPostListUseCase,
-    private val commentAttr: SharingCommentAttr
+    private val commentAttr: SharingCommentAttr,
 ): ViewModel() {
 
     val postPagination: Flow<PagingData<PostListModel.PostModel>> = Pager(PagingConfig(pageSize = 20)) {
