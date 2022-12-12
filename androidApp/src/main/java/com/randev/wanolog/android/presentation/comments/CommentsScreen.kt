@@ -19,9 +19,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.randev.wanolog.android.composable.components.progressCircular.ProgressCircularComponent
 import com.randev.wanolog.android.presentation.comments.components.ItemComment
 import com.randev.wanolog.android.utils.SheetHandler
 import kotlinx.coroutines.launch
@@ -78,6 +80,20 @@ fun CommentsScreen(
                     items(data) { comment ->
                         comment?.let {
                             ItemComment(data = it)
+                        }
+                    }
+                    data.apply {
+                        when {
+                            loadState.refresh is LoadState.Loading -> {
+                                item {
+                                    ProgressCircularComponent(modifier = Modifier.fillMaxWidth())
+                                }
+                            }
+                            loadState.append is LoadState.Loading -> {
+                                item {
+                                    ProgressCircularComponent(modifier = Modifier.fillMaxWidth())
+                                }
+                            }
                         }
                     }
                 }

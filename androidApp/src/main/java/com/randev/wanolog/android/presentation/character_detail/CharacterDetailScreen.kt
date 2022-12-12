@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import com.randev.domain.model.AnimeDetailModel
 import com.randev.domain.model.CharacterDetailModel
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.randev.wanolog.android.composable.components.progressCircular.ProgressCircularComponent
 import com.randev.wanolog.android.presentation.anime_detail.CharacterSection
 import com.randev.wanolog.android.presentation.anime_detail.EpisodeCount
 import com.randev.wanolog.android.presentation.anime_detail.components.CategorySection
@@ -35,6 +36,9 @@ fun CharacterDetailScreen(
             content = content,
             onBack = viewModel::onBackScreen,
         )
+    }
+    if (state.isLoading) {
+        ProgressCircularComponent()
     }
 
 }

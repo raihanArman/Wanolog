@@ -30,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.randev.movieapp_kmm.android.composable.components.space.HorizontalSpacer
 import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpacer
@@ -45,6 +46,7 @@ import com.randev.core.listOfSort
 import com.randev.wanolog.android.composable.components.bottom_sheet.FilterBottomDialog
 import com.randev.wanolog.android.composable.components.button.BackButton
 import com.randev.wanolog.android.composable.components.header.HeaderWithBack
+import com.randev.wanolog.android.composable.components.progressCircular.ProgressCircularComponent
 import org.koin.androidx.compose.getViewModel
 
 /**
@@ -105,6 +107,20 @@ fun AnimeAllScreen(
                     onClick = viewModel::onNavigateToDetailsClicked,
                     id = it.id
                 )
+            }
+        }
+        dataAnime.apply {
+            when {
+                loadState.refresh is LoadState.Loading -> {
+                    item(span = { GridItemSpan(2) }) {
+                        ProgressCircularComponent(modifier = Modifier.fillMaxWidth())
+                    }
+                }
+                loadState.append is LoadState.Loading -> {
+                    item(span = { GridItemSpan(2) }) {
+                        ProgressCircularComponent(modifier = Modifier.fillMaxWidth())
+                    }
+                }
             }
         }
     }

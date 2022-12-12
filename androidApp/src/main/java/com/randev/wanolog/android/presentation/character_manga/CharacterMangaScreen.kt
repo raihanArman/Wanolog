@@ -14,10 +14,12 @@ import androidx.compose.material.icons.filled.List
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.randev.movieapp_kmm.android.composable.components.space.HorizontalSpacer
 import com.randev.wanolog.android.composable.components.button.OutlineButtonCustom
 import com.randev.wanolog.android.composable.components.header.HeaderWithBack
+import com.randev.wanolog.android.composable.components.progressCircular.ProgressCircularComponent
 import com.randev.wanolog.android.composable.components.text_field.SearchTextField
 import com.randev.wanolog.android.presentation.home.component.ItemCard
 import com.randev.wanolog.android.utils.items
@@ -57,6 +59,20 @@ fun CharacterMangaScreen(
                     onClick = viewModel::onNavigateToDetailsClicked,
                     id = it.id
                 )
+            }
+        }
+        data.apply {
+            when {
+                loadState.refresh is LoadState.Loading -> {
+                    item(span = { GridItemSpan(2) }) {
+                        ProgressCircularComponent(modifier = Modifier.fillMaxWidth())
+                    }
+                }
+                loadState.append is LoadState.Loading -> {
+                    item(span = { GridItemSpan(2) }) {
+                        ProgressCircularComponent(modifier = Modifier.fillMaxWidth())
+                    }
+                }
             }
         }
     }

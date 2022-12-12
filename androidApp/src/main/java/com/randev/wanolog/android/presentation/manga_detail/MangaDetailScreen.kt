@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -30,6 +31,7 @@ import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpace
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.android.R
 import com.randev.wanolog.android.composable.components.image.GridImageLayout
+import com.randev.wanolog.android.composable.components.progressCircular.ProgressCircularComponent
 import com.randev.wanolog.android.presentation.anime_detail.components.CategorySection
 import com.randev.wanolog.android.presentation.anime_detail.components.RelatedSection
 import com.randev.wanolog.android.presentation.anime_detail.components.ReviewSection
@@ -55,6 +57,9 @@ fun MangaDetailScreen(
             onBack = viewModel::onBackScreen,
             onClickRelated = viewModel::onNavigateToDetailsClicked
         )
+    }
+    if (state.isLoading) {
+        ProgressCircularComponent()
     }
 }
 

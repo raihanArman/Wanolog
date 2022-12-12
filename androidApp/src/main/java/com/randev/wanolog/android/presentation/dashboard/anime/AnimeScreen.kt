@@ -22,6 +22,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
@@ -39,6 +40,7 @@ import androidx.compose.ui.unit.sp
 import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpacer
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.android.composable.components.button.TextButtonCustom
+import com.randev.wanolog.android.composable.components.progressCircular.ProgressCircularComponent
 import com.randev.wanolog.android.presentation.home.ContentStatus
 import com.randev.wanolog.android.presentation.home.ContentType
 import com.randev.wanolog.android.presentation.home.HomeState
@@ -146,27 +148,8 @@ fun AnimeScreen(
             }
 
             item {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    VerticalSpacer(height = 20.dp)
-                    TextButton(
-                        onClick = {}
-                    ) {
-                        Text(
-                            text = "More",
-                            fontSize = 20.sp,
-                            color = Color.White
-                        )
-                        Icon(
-                            imageVector = Icons.Default.ArrowDropDown,
-                            contentDescription = null,
-                            tint = Color.White
-                        )
-                    }
-                    VerticalSpacer(height = 20.dp)
+                if (state.isLoading) {
+                    ProgressCircularComponent()
                 }
             }
         }

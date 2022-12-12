@@ -30,6 +30,7 @@ import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpace
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.android.R
 import com.randev.wanolog.android.composable.components.image.GridImageLayout
+import com.randev.wanolog.android.composable.components.progressCircular.ProgressCircularComponent
 import com.randev.wanolog.android.presentation.anime_detail.components.CategorySection
 import com.randev.wanolog.android.presentation.anime_detail.components.DescriptionSection
 import com.randev.wanolog.android.presentation.anime_detail.components.RelatedSection
@@ -55,6 +56,9 @@ fun DetailAnimeScreen(
             onClickCharacter = viewModel::onNavigateToCharactersClicked,
             onClickRelated = viewModel::onNavigateToDetailsClicked
         )
+    }
+    if (state.isLoading) {
+        ProgressCircularComponent()
     }
 }
 

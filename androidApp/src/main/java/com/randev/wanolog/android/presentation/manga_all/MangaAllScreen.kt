@@ -16,11 +16,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.randev.movieapp_kmm.android.composable.components.space.HorizontalSpacer
 import com.randev.wanolog.android.composable.components.bottom_sheet.FilterBottomDialog
 import com.randev.wanolog.android.composable.components.button.OutlineButtonCustom
 import com.randev.wanolog.android.composable.components.header.HeaderWithBack
+import com.randev.wanolog.android.composable.components.progressCircular.ProgressCircularComponent
 import com.randev.wanolog.android.composable.components.text_field.SearchTextField
 import com.randev.wanolog.android.presentation.anime_all.AnimeAllViewModel
 import com.randev.wanolog.android.presentation.home.component.ItemCard
@@ -37,7 +39,7 @@ fun MangaAllScreen(
 ) {
     val searchQuery by viewModel.searchQuery.collectAsState()
     val sortTypeSelected by viewModel.sortTypeFlow.collectAsState()
-    val dataAnime = viewModel.searchFilterFlow.collectAsLazyPagingItems()
+    val dataManga = viewModel.searchFilterFlow.collectAsLazyPagingItems()
 
     LazyVerticalGrid(
         modifier = Modifier
@@ -77,7 +79,7 @@ fun MangaAllScreen(
                 )
             }
         }
-        items(dataAnime) { data ->
+        items(dataManga) { data ->
             data?.let {
                 ItemCard(
                     title = it.attributes.titles.enJp,
@@ -85,6 +87,20 @@ fun MangaAllScreen(
                     onClick = viewModel::onNavigateToDetailsClicked,
                     id = it.id
                 )
+            }
+        }
+        dataManga.apply {
+            when {
+                loadState.refresh is LoadState.Loading -> {
+                    item(span = { GridItemSpan(2) }) {
+                        ProgressCircularComponent(modifier = Modifier.fillMaxWidth())
+                    }
+                }
+                loadState.append is LoadState.Loading -> {
+                    item(span = { GridItemSpan(2) }) {
+                        ProgressCircularComponent(modifier = Modifier.fillMaxWidth())
+                    }
+                }
             }
         }
     }
