@@ -894,44 +894,44 @@ data class AnimeDetailResponse(
                     @Serializable
                     data class Dimensions(
                         @SerialName("large")
-                        val large: Large?,
+                        val large: Large? = null,
                         @SerialName("medium")
-                        val medium: Medium?,
+                        val medium: Medium? = null,
                         @SerialName("small")
-                        val small: Small?,
+                        val small: Small? = null,
                         @SerialName("tiny")
-                        val tiny: Tiny?
+                        val tiny: Tiny? = null
                     ) {
                         @Serializable
                         data class Large(
                             @SerialName("height")
-                            val height: Int?,
+                            val height: Int? = null,
                             @SerialName("width")
-                            val width: Int?
+                            val width: Int? = null
                         )
 
                         @Serializable
                         data class Medium(
                             @SerialName("height")
-                            val height: Int?,
+                            val height: Int? = null,
                             @SerialName("width")
-                            val width: Int?
+                            val width: Int? = null
                         )
 
                         @Serializable
                         data class Small(
                             @SerialName("height")
-                            val height: Int?,
+                            val height: Int? = null,
                             @SerialName("width")
-                            val width: Int?
+                            val width: Int? = null
                         )
 
                         @Serializable
                         data class Tiny(
                             @SerialName("height")
-                            val height: Int?,
+                            val height: Int? = null,
                             @SerialName("width")
-                            val width: Int?
+                            val width: Int? = null
                         )
                     }
                 }

@@ -38,7 +38,7 @@ fun CharacterDetailScreen(
         )
     }
     if (state.isLoading) {
-        ProgressCircularComponent()
+        ProgressCircularComponent(modifier = Modifier.fillMaxSize())
     }
 
 }

@@ -19,11 +19,10 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ProgressCircularComponent(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier.fillMaxWidth()
 ) {
     Box(
         modifier = modifier
-            .fillMaxWidth()
             .padding(25.dp),
         contentAlignment = Alignment.Center,
     ) {

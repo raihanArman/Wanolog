@@ -55,6 +55,9 @@ dependencies {
     // Swipe Refresh
     implementation("com.google.accompanist:accompanist-swiperefresh:0.28.0")
 
+    // Animate Navigation
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.28.0")
+
 
     implementation("androidx.compose.ui:ui:1.3.1")
     implementation("androidx.compose.ui:ui-tooling:1.3.1")

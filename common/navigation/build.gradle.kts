@@ -51,6 +51,9 @@ dependencies {
     // Compose Navigation
     implementation("androidx.navigation:navigation-compose:2.4.0-beta02")
 
+    // Animate Navigation
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.28.0")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")

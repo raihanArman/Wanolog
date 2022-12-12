@@ -58,7 +58,7 @@ fun DetailAnimeScreen(
         )
     }
     if (state.isLoading) {
-        ProgressCircularComponent()
+        ProgressCircularComponent(modifier = Modifier.fillMaxSize())
     }
 }
 
