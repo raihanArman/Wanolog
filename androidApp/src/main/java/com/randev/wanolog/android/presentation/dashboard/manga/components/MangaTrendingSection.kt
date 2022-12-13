@@ -43,7 +43,8 @@ fun MangaTrendingSection(
                     modifier = Modifier
                         .width(150.dp),
                     onClick = {},
-                    id = it.id
+                    id = it.id,
+                    rating = it.attributes.averageRating
                 )
             }
         }

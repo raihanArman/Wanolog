@@ -105,7 +105,8 @@ fun AnimeAllScreen(
                     title = it.attributes.titles.enJp,
                     image = it.attributes.posterImage.original,
                     onClick = viewModel::onNavigateToDetailsClicked,
-                    id = it.id
+                    id = it.id,
+                    rating = it.attributes.averageRating
                 )
             }
         }

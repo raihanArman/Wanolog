@@ -45,6 +45,7 @@ fun AnimeAllSection(
                 image = it.attributes.posterImage.original,
                 modifier = Modifier.width(itemSize - 30.dp),
                 onClick = onClick,
+                rating = it.attributes.averageRating
             )
         }
     }

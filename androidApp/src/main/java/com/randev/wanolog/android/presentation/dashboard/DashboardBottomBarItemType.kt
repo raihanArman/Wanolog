@@ -59,17 +59,17 @@ fun DashboardBottomBar(
                     item.icon()
                 },
                 alwaysShowLabel = true,
-                selectedContentColor = Color.Black,
-                unselectedContentColor = Color.Gray,
+                selectedContentColor = MovieAppTheme.colors.colorPrimary,
+                unselectedContentColor = Color.Gray.copy(alpha = 0.5f),
                 label = {
                     Text(
                         text = item.label,
                         style = MovieAppTheme.typography.medium,
                         fontSize = 12.sp,
                         color = if (currentRoute == item.route) {
-                            Color.Black
+                            MovieAppTheme.colors.colorPrimary
                         } else {
-                            Color.Gray
+                            Color.Gray.copy(alpha = 0.5f)
                         }
                     )
                 }

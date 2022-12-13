@@ -63,7 +63,7 @@ fun CharacterAnimeScreen(
                     title = it.attributes.canonicalName,
                     image = it.attributes.image.original,
                     onClick = viewModel::onNavigateToDetailsClicked,
-                    id = it.id
+                    id = it.id,
                 )
             }
         }

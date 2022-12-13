@@ -1,4 +1,4 @@
-package com.randev.wanolog.android.presentation.anime_detail.components
+package com.randev.wanolog.android.composable.components.section
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

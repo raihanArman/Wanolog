@@ -33,7 +33,7 @@ import com.randev.wanolog.android.composable.components.image.GridImageLayout
 import com.randev.wanolog.android.composable.components.progressCircular.ProgressCircularComponent
 import com.randev.wanolog.android.presentation.anime_detail.components.CategorySection
 import com.randev.wanolog.android.presentation.anime_detail.components.DescriptionSection
-import com.randev.wanolog.android.presentation.anime_detail.components.RelatedSection
+import com.randev.wanolog.android.composable.components.section.RelatedSection
 import com.randev.wanolog.android.presentation.anime_detail.components.ReviewSection
 import com.randev.wanolog.android.presentation.anime_detail.components.StatsSection
 import org.koin.androidx.compose.getViewModel

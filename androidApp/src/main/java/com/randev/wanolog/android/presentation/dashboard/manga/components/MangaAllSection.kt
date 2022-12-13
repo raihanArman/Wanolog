@@ -58,7 +58,8 @@ fun MangaAllSection(
                 image = it.attributes.posterImage.original,
                 modifier = Modifier.width(itemSize - 30.dp),
                 onClick = onClick,
-                id = it.id
+                id = it.id,
+                rating = it.attributes.averageRating
             )
         }
     }

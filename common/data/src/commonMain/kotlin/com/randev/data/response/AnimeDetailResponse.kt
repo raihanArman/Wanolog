@@ -874,22 +874,22 @@ data class AnimeDetailResponse(
             @Serializable
             data class PosterImage(
                 @SerialName("large")
-                val large: String?,
+                val large: String? = null,
                 @SerialName("medium")
-                val medium: String?,
+                val medium: String? = null,
                 @SerialName("meta")
-                val meta: Meta?,
+                val meta: Meta? = null,
                 @SerialName("original")
-                val original: String?,
+                val original: String? = null,
                 @SerialName("small")
-                val small: String?,
+                val small: String? = null,
                 @SerialName("tiny")
-                val tiny: String?
+                val tiny: String? = null
             ) {
                 @Serializable
                 data class Meta(
                     @SerialName("dimensions")
-                    val dimensions: Dimensions?
+                    val dimensions: Dimensions? = null
                 ) {
                     @Serializable
                     data class Dimensions(

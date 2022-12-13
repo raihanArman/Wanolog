@@ -209,9 +209,9 @@ data class CharacterByTypeListResponse(
             @Serializable
             data class Names(
                 @SerialName("en")
-                val en: String?,
+                val en: String? = null,
                 @SerialName("ja_jp")
-                val jaJp: String?
+                val jaJp: String? = null
             )
         }
 
