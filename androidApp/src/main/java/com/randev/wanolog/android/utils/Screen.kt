@@ -12,6 +12,6 @@ sealed class Screen(
     object Anime: Screen("anime")
     object Manga: Screen("manga")
     object Post: Screen("post")
-    object Favorite: Screen("favorite")
+    object Quote: Screen("quote")
     object Account: Screen("account")
 }

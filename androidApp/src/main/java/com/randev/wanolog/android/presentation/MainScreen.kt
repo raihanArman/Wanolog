@@ -19,6 +19,7 @@ import com.randev.wanolog.android.presentation.character_anime.CharacterAnimeScr
 import com.randev.wanolog.android.presentation.character_detail.CharacterDetailScreen
 import com.randev.wanolog.android.presentation.character_manga.CharacterMangaScreen
 import com.randev.wanolog.android.presentation.dashboard.DashboardScreen
+import com.randev.wanolog.android.presentation.dashboard.quote.QuoteAllScreen
 import com.randev.wanolog.android.presentation.manga_all.MangaAllScreen
 import com.randev.wanolog.android.presentation.manga_by_category.MangaByCategoryScreen
 import com.randev.wanolog.android.presentation.manga_detail.MangaDetailScreen

@@ -37,6 +37,7 @@ import com.randev.wanolog.android.presentation.anime_detail.components.Descripti
 import com.randev.wanolog.android.composable.components.section.RelatedSection
 import com.randev.wanolog.android.presentation.anime_detail.components.ReviewSection
 import com.randev.wanolog.android.presentation.anime_detail.components.StatsSection
+import com.randev.wanolog.android.presentation.review_anime.ReviewsAnimeScreen
 import org.koin.androidx.compose.getViewModel
 
 /**
@@ -56,11 +57,19 @@ fun DetailAnimeScreen(
             onBack = viewModel::onBackScreen,
             onClickCharacter = viewModel::onNavigateToCharactersClicked,
             onClickRelated = viewModel::onNavigateToDetailsClicked,
-            onClickCategory = viewModel::onNavigateToAnimeByCategoryClicked
+            onClickCategory = viewModel::onNavigateToAnimeByCategoryClicked,
+            onClickReviewMore = viewModel::openReviewBottomSheet
         )
     }
     if (state.isLoading) {
         ProgressCircularComponent(modifier = Modifier.fillMaxSize())
+    }
+
+    viewModel.animeId?.let {
+        ReviewsAnimeScreen(
+            sheetHandler = viewModel.sheetHandler,
+            animeId = it
+        )
     }
 }
 
@@ -70,7 +79,8 @@ fun ContentDetail(
     onClickCharacter: () -> Unit,
     onClickRelated: (String) -> Unit,
     onBack: () -> Unit,
-    onClickCategory: (CategoryModel) -> Unit
+    onClickCategory: (CategoryModel) -> Unit,
+    onClickReviewMore: () -> Unit,
 ) {
     Box(
         modifier = Modifier
@@ -101,7 +111,7 @@ fun ContentDetail(
             }
             if (content.reviews.isNotEmpty()) {
                 item {
-                    ReviewSection(data = content.reviews, onClickReviewAll = {})
+                    ReviewSection(data = content.reviews, onClickReviewAll = onClickReviewMore)
                 }
             }
             if (content.characters.isNotEmpty()) {

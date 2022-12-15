@@ -1,5 +1,7 @@
 package com.randev.wanolog.android.presentation.manga_detail
 
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ModalBottomSheetValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,6 +11,7 @@ import com.randev.domain.usecase.manga.GetMangaDetailUseCase
 import com.randev.navigation.AppNavigator
 import com.randev.navigation.Destination
 import com.randev.wanolog.android.presentation.anime_detail.DetailAnimeState
+import com.randev.wanolog.android.utils.SheetHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -23,7 +26,16 @@ class MangaDetailViewModel(
     private val appNavigator: AppNavigator,
     private val stateHandle: SavedStateHandle,
 ): ViewModel() {
-    private var mangaId: String ?= null
+    var mangaId: String ?= null
+
+    @OptIn(ExperimentalMaterialApi::class)
+    val sheetHandler = SheetHandler(
+        initialValue = ModalBottomSheetValue.Hidden,
+        skipHalfExpanded = true,
+        confirmStateChange = {
+            true
+        }
+    )
 
     private val _observeDetailState: MutableStateFlow<MangaDetailState> = MutableStateFlow(
         MangaDetailState()
@@ -107,6 +119,13 @@ class MangaDetailViewModel(
                 id = id
             )
         )
+    }
+
+    @OptIn(ExperimentalMaterialApi::class)
+    fun openReviewBottomSheet() {
+        sheetHandler.state {
+            show()
+        }
     }
 
 }

@@ -28,6 +28,7 @@ import com.randev.wanolog.android.presentation.dashboard.anime.AnimeScreen
 import com.randev.wanolog.android.presentation.dashboard.manga.MangaScreen
 import com.randev.wanolog.android.presentation.dashboard.post.PostAllScreen
 import com.randev.wanolog.android.presentation.dashboard.profile.ProfileScreen
+import com.randev.wanolog.android.presentation.dashboard.quote.QuoteAllScreen
 import com.randev.wanolog.android.utils.Screen
 import org.koin.androidx.compose.getViewModel
 
@@ -97,8 +98,8 @@ fun DashboardScreen(
                             )
                         },
                         type = DashboardBottomBarItemType.FAVORITE,
-                        label = "Favorite",
-                        route = Screen.Favorite.route
+                        label = "Quote",
+                        route = Screen.Quote.route
                     ),
                     DashboardBottomBarItem(
                         icon = {
@@ -154,6 +155,9 @@ fun NavGraphBuilder.setupDashboardBottomNavScreens(){
         }
         composable(Screen.Post.route){
             PostAllScreen()
+        }
+        composable(Screen.Quote.route){
+            QuoteAllScreen()
         }
         composable(Screen.Account.route){
             ProfileScreen()

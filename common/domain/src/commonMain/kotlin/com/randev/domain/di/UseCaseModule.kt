@@ -25,6 +25,9 @@ import com.randev.domain.usecase.manga.GetMangaTopRatingUseCase
 import com.randev.domain.usecase.manga.GetMangaTopUpcomingUseCase
 import com.randev.domain.usecase.manga.GetMangaTrendingUseCase
 import com.randev.domain.usecase.post.GetPostListUseCase
+import com.randev.domain.usecase.quotes.GetQuoteListUseCase
+import com.randev.domain.usecase.review.GetAnimeReviewUseCase
+import com.randev.domain.usecase.review.GetMangaReviewUseCase
 import com.randev.domain.usecase.user.GetCurrentUserUseCase
 import org.koin.dsl.module
 
@@ -60,4 +63,7 @@ val useCaseModule = module {
     single { GetCurrentUserUseCase(get()) }
     single { GetPostListUseCase(get()) }
     single { GetCommentsByPostUseCase(get()) }
+    single { GetAnimeReviewUseCase(get()) }
+    single { GetMangaReviewUseCase(get()) }
+    single { GetQuoteListUseCase(get()) }
 }

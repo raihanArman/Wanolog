@@ -10,6 +10,8 @@ import com.randev.data.mapper.CommentListMapper
 import com.randev.data.mapper.MangaDetailMapper
 import com.randev.data.mapper.MangaListMapper
 import com.randev.data.mapper.PostListMapper
+import com.randev.data.mapper.QuoteListMapper
+import com.randev.data.mapper.ReviewListMapper
 import com.randev.data.mapper.UserListMapper
 import org.koin.dsl.module
 
@@ -30,4 +32,6 @@ val mapperModule = module {
     single { UserListMapper() }
     single { PostListMapper() }
     single { CommentListMapper() }
+    single { ReviewListMapper() }
+    single { QuoteListMapper() }
 }

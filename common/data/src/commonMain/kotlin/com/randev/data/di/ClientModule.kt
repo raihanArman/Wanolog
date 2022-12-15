@@ -14,8 +14,13 @@ import com.randev.data.datasource.remote.MangaApi
 import com.randev.data.datasource.remote.MangaApiClient
 import com.randev.data.datasource.remote.PostApi
 import com.randev.data.datasource.remote.PostApiClient
+import com.randev.data.datasource.remote.QuoteApi
+import com.randev.data.datasource.remote.QuoteApiClient
+import com.randev.data.datasource.remote.ReviewApi
+import com.randev.data.datasource.remote.ReviewApiClient
 import com.randev.data.datasource.remote.UserApi
 import com.randev.data.datasource.remote.UserApiClient
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 /**
@@ -24,12 +29,14 @@ import org.koin.dsl.module
  */
 
 val clientModule = module {
-    single<AnimeApiClient> { AnimeApi(get()) }
-    single<CategoryApiClient> { CategoryApi(get()) }
-    single<MangaApiClient> { MangaApi(get()) }
-    single<CharactersApiClient> { CharacterApi(get()) }
-    single<AuthApiClient> { AuthApi(get()) }
-    single<UserApiClient> { UserApi(get()) }
-    single<PostApiClient> { PostApi(get()) }
-    single<CommentApiClient> { CommentApi(get()) }
+    single<AnimeApiClient> { AnimeApi(get(named("kitsu"))) }
+    single<CategoryApiClient> { CategoryApi(get(named("kitsu"))) }
+    single<MangaApiClient> { MangaApi(get(named("kitsu"))) }
+    single<CharactersApiClient> { CharacterApi(get(named("kitsu"))) }
+    single<AuthApiClient> { AuthApi(get(named("kitsu"))) }
+    single<UserApiClient> { UserApi(get(named("kitsu"))) }
+    single<PostApiClient> { PostApi(get(named("kitsu"))) }
+    single<CommentApiClient> { CommentApi(get(named("kitsu"))) }
+    single<ReviewApiClient> { ReviewApi(get(named("kitsu"))) }
+    single<QuoteApiClient> { QuoteApi(get(named("animechan"))) }
 }

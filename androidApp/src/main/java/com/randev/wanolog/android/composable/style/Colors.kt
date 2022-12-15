@@ -10,6 +10,7 @@ import com.randev.movieapp_kmm.android.composable.utils.asDisabledColor
  */
 
 object Colors {
+    val whiteaa: Color = Color(0xFFD864BB)
     val white: Color = Color(0xFFFFFFFF)
     val black: Color = Color(0xFF000000)
     val white2: Color = Color(0xFFC2C2C2)

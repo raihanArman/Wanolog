@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 /**
@@ -25,7 +26,8 @@ import org.koin.dsl.module
 
 val networkModule = module {
     single { createJson() }
-    single { createKtorClient(get(), get(), get()) }
+    single(named("kitsu")) { createKtorClient(get(), get(), get(), BaseUrl.KITSU) }
+    single(named("animechan")) { createKtorClient(get(), get(), get(), BaseUrl.ANIMECHAN) }
 }
 
 
@@ -35,7 +37,8 @@ fun createJson() = Json {
     useAlternativeNames = false
 }
 
-fun createKtorClient(httpClientEngine: HttpClientEngine, json: Json, preferences: Preferences) = HttpClient(httpClientEngine) {
+
+fun createKtorClient(httpClientEngine: HttpClientEngine, json: Json, preferences: Preferences, baseUrl: BaseUrl) = HttpClient(httpClientEngine) {
     val accessToken = runBlocking {
         preferences.getStringOrDefault(ACCESS_TOKEN_KEY, "").first()
     }
@@ -47,7 +50,7 @@ fun createKtorClient(httpClientEngine: HttpClientEngine, json: Json, preferences
     defaultRequest {
         url {
             protocol = URLProtocol.HTTPS
-            host = Configs.BASE_URL
+            host = baseUrl.url
 
             headers {
                 append(HttpHeaders.Accept, "application/vnd.api+json")

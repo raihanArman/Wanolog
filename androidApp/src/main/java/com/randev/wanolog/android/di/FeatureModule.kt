@@ -15,9 +15,12 @@ import com.randev.wanolog.android.presentation.dashboard.anime.AnimeViewModel
 import com.randev.wanolog.android.presentation.dashboard.manga.MangaViewModel
 import com.randev.wanolog.android.presentation.dashboard.post.PostAllViewModel
 import com.randev.wanolog.android.presentation.dashboard.profile.ProfileViewModel
+import com.randev.wanolog.android.presentation.dashboard.quote.QuoteAllViewModel
 import com.randev.wanolog.android.presentation.manga_all.MangaAllViewModel
 import com.randev.wanolog.android.presentation.manga_by_category.MangaByCategoryViewModel
 import com.randev.wanolog.android.presentation.manga_detail.MangaDetailViewModel
+import com.randev.wanolog.android.presentation.review_anime.ReviewsAnimeViewModel
+import com.randev.wanolog.android.presentation.review_manga.ReviewsMangaViewModel
 import com.randev.wanolog.android.utils.SharingCommentAttr
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -96,5 +99,14 @@ val featureModule = module {
             stateHandle = params.get(),
             useCase = get(),
         )
+    }
+    viewModel {
+        ReviewsAnimeViewModel(get())
+    }
+    viewModel {
+        ReviewsMangaViewModel(get())
+    }
+    viewModel {
+        QuoteAllViewModel(get())
     }
 }

@@ -75,6 +75,7 @@ sealed class Destination(protected val route: String, vararg params: String) {
     object MangaAllScreen : NoArgumentsDestination("manga_all")
     object SearchScreen : NoArgumentsDestination("search")
     object FavoriteScreen : NoArgumentsDestination("favorite")
+    object QuoteScreen : NoArgumentsDestination("quote")
 }
 
 
