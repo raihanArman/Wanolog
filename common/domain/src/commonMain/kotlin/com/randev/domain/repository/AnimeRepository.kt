@@ -18,4 +18,5 @@ interface AnimeRepository {
     suspend fun getAnimePopular(): Flow<Resource<AnimeListModel>>
     suspend fun getAnimeSearchFilter(query: String, page: Int, sortType: SortType): Flow<Resource<AnimeListModel>>
     suspend fun getAnimeDetail(id: String): Flow<Resource<AnimeDetailModel>>
+    suspend fun getAnimeByCategory(categoryId: String, page: Int): Flow<Resource<AnimeListModel>>
 }

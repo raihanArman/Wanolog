@@ -20,4 +20,5 @@ interface MangaRepository {
     suspend fun getMangaPopular(): Flow<Resource<MangaListModel>>
     suspend fun getMangaSearchFilter(query: String, page: Int, sortType: SortType): Flow<Resource<MangaListModel>>
     suspend fun getMangaDetail(id: String): Flow<Resource<MangaDetailModel>>
+    suspend fun getMangaByCategory(categoryId: String, page: Int): Flow<Resource<MangaListModel>>
 }

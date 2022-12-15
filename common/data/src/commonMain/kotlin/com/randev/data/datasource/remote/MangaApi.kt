@@ -79,4 +79,11 @@ class MangaApi(
         }.body()
     }
 
+    override suspend fun fetchMangaByCategory(categoryId: String, page: Int): MangaListResponse {
+        return ktor.get("api/edge/categories/$categoryId/manga") {
+            parameter("page[limit]", 20)
+            parameter("page[offset]", page)
+        }.body()
+    }
+
 }

@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.randev.core.wrapper.Resource
+import com.randev.domain.model.CategoryModel
 import com.randev.domain.usecase.anime.GetAnimeDetailUseCase
 import com.randev.navigation.AppNavigator
 import com.randev.navigation.Destination
@@ -92,6 +93,15 @@ class DetailAnimeViewModel(
         appNavigator.tryNavigateTo(
             Destination.AnimeDetailScreen(
                 id = id
+            )
+        )
+    }
+
+    fun onNavigateToAnimeByCategoryClicked(categoryModel: CategoryModel) {
+        appNavigator.tryNavigateTo(
+            Destination.AnimeByCategoryScreen(
+                id = categoryModel.id,
+                name = categoryModel.title
             )
         )
     }

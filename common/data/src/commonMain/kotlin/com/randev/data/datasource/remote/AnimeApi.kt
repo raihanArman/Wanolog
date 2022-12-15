@@ -77,4 +77,11 @@ class AnimeApi(
             parameter("fields[characters]", "image,name")
         }.body()
     }
+
+    override suspend fun fetchAnimeByCategory(categoryId: String, page: Int): AnimeListResponse {
+        return ktor.get("api/edge/categories/$categoryId/anime") {
+            parameter("page[limit]", 20)
+            parameter("page[offset]", page)
+        }.body()
+    }
 }

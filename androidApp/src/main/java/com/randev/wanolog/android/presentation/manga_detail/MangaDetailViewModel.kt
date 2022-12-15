@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.randev.core.wrapper.Resource
+import com.randev.domain.model.CategoryModel
 import com.randev.domain.usecase.manga.GetMangaDetailUseCase
 import com.randev.navigation.AppNavigator
 import com.randev.navigation.Destination
@@ -85,6 +86,15 @@ class MangaDetailViewModel(
                 )
             )
         }
+    }
+
+    fun onNavigateToMangaByCategoryClicked(categoryModel: CategoryModel) {
+        appNavigator.tryNavigateTo(
+            Destination.MangaByCategoryScreen(
+                id = categoryModel.id,
+                name = categoryModel.title
+            )
+        )
     }
 
     fun onBackScreen() {

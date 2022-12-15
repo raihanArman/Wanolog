@@ -87,4 +87,13 @@ class AnimeRepositoryImpl(
             }
         }.asFlow()
     }
+
+    override suspend fun getAnimeByCategory(categoryId: String, page: Int): Flow<Resource<AnimeListModel>> {
+        return object : NetworkResource<AnimeListModel>() {
+            override suspend fun remoteFetch(): AnimeListModel {
+                val request = api.fetchAnimeByCategory(categoryId, page*20)
+                return mapper.map(request)
+            }
+        }.asFlow()
+    }
 }

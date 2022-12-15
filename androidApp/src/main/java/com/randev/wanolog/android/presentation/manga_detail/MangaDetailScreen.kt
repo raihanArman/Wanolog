@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.randev.domain.model.CategoryModel
 import com.randev.domain.model.MangaDetailModel
 import com.randev.movieapp_kmm.android.composable.components.space.HorizontalSpacer
 import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpacer
@@ -30,7 +31,7 @@ import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.android.R
 import com.randev.wanolog.android.composable.components.image.GridImageLayout
 import com.randev.wanolog.android.composable.components.progressCircular.ProgressCircularComponent
-import com.randev.wanolog.android.presentation.anime_detail.components.CategorySection
+import com.randev.wanolog.android.composable.components.section.CategorySection
 import com.randev.wanolog.android.composable.components.section.RelatedSection
 import com.randev.wanolog.android.presentation.anime_detail.components.ReviewSection
 import com.randev.wanolog.android.presentation.manga_detail.composable.DescriptionSection
@@ -53,7 +54,8 @@ fun MangaDetailScreen(
             content = content,
             onClickCharacter = viewModel::onNavigateToCharactersClicked,
             onBack = viewModel::onBackScreen,
-            onClickRelated = viewModel::onNavigateToDetailsClicked
+            onClickRelated = viewModel::onNavigateToDetailsClicked,
+            onClickCategory = viewModel::onNavigateToMangaByCategoryClicked
         )
     }
     if (state.isLoading) {
@@ -63,7 +65,13 @@ fun MangaDetailScreen(
 
 
 @Composable
-fun ContentDetail(content: MangaDetailModel, onClickCharacter: () -> Unit, onClickRelated: (String) -> Unit, onBack: () -> Unit) {
+fun ContentDetail(
+    content: MangaDetailModel,
+    onClickCharacter: () -> Unit,
+    onClickRelated: (String) -> Unit,
+    onBack: () -> Unit,
+    onClickCategory: (CategoryModel) -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -80,7 +88,10 @@ fun ContentDetail(content: MangaDetailModel, onClickCharacter: () -> Unit, onCli
                 )
             }
             item {
-                CategorySection(content.categories)
+                CategorySection(
+                    categories = content.categories,
+                    onClick = onClickCategory
+                )
             }
             item {
                 ChapterCount(content)

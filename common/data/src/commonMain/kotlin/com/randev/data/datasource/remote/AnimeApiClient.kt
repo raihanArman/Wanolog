@@ -20,4 +20,5 @@ interface AnimeApiClient {
         sortType: SortType
     ): AnimeListResponse
     suspend fun fetchAnimeDetail(id: String): AnimeDetailResponse
+    suspend fun fetchAnimeByCategory(categoryId: String, page: Int): AnimeListResponse
 }

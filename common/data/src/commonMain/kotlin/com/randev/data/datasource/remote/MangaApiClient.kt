@@ -22,4 +22,5 @@ interface MangaApiClient {
         sortType: SortType
     ): MangaListResponse
     suspend fun fetchMangaDetail(id: String): MangaDetailResponse
+    suspend fun fetchMangaByCategory(categoryId: String, page: Int): MangaListResponse
 }

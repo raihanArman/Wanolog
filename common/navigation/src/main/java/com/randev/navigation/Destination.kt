@@ -53,6 +53,24 @@ sealed class Destination(protected val route: String, vararg params: String) {
         )
     }
 
+    object AnimeByCategoryScreen : Destination("anime_category", *arrayOf("category_id", "category_name")) {
+        const val CATEGORY_ID_KEY = "category_id"
+        const val CATEGORY_NAME_KEY = "category_name"
+        operator fun invoke(id: String, name: String): String = route.appendParams(
+            CATEGORY_ID_KEY to id,
+            CATEGORY_NAME_KEY to name
+        )
+    }
+
+    object MangaByCategoryScreen : Destination("manga_category", *arrayOf("category_id", "category_name")) {
+        const val CATEGORY_ID_KEY = "category_id"
+        const val CATEGORY_NAME_KEY = "category_name"
+        operator fun invoke(id: String, name: String): String = route.appendParams(
+            CATEGORY_ID_KEY to id,
+            CATEGORY_NAME_KEY to name
+        )
+    }
+
     object AnimeAllScreen : NoArgumentsDestination("anime_all")
     object MangaAllScreen : NoArgumentsDestination("manga_all")
     object SearchScreen : NoArgumentsDestination("search")

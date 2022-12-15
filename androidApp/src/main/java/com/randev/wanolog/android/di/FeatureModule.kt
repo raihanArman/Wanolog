@@ -2,6 +2,7 @@ package com.randev.wanolog.android.di
 
 import com.randev.wanolog.android.presentation.MainViewModel
 import com.randev.wanolog.android.presentation.anime_all.AnimeAllViewModel
+import com.randev.wanolog.android.presentation.anime_by_category.AnimeByCategoryViewModel
 import com.randev.wanolog.android.presentation.anime_detail.DetailAnimeViewModel
 import com.randev.wanolog.android.presentation.character_anime.CharacterAnimeViewModel
 import com.randev.wanolog.android.presentation.character_detail.CharacterDetailViewModel
@@ -15,6 +16,7 @@ import com.randev.wanolog.android.presentation.dashboard.manga.MangaViewModel
 import com.randev.wanolog.android.presentation.dashboard.post.PostAllViewModel
 import com.randev.wanolog.android.presentation.dashboard.profile.ProfileViewModel
 import com.randev.wanolog.android.presentation.manga_all.MangaAllViewModel
+import com.randev.wanolog.android.presentation.manga_by_category.MangaByCategoryViewModel
 import com.randev.wanolog.android.presentation.manga_detail.MangaDetailViewModel
 import com.randev.wanolog.android.utils.SharingCommentAttr
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -80,5 +82,19 @@ val featureModule = module {
     }
     viewModel {
         DashboardViewModel(get())
+    }
+    viewModel { params ->
+        AnimeByCategoryViewModel(
+            navigator = get(),
+            stateHandle = params.get(),
+            useCase = get(),
+        )
+    }
+    viewModel { params ->
+        MangaByCategoryViewModel(
+            navigator = get(),
+            stateHandle = params.get(),
+            useCase = get(),
+        )
     }
 }

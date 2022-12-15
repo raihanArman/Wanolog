@@ -1,4 +1,4 @@
-package com.randev.wanolog.android.presentation.anime_detail.components
+package com.randev.wanolog.android.composable.components.section
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowRow
-import com.randev.domain.model.AnimeDetailModel
 import com.randev.domain.model.CategoryModel
+import com.randev.wanolog.android.composable.components.card.DetailCategoryItem
 
 /**
  * @author Raihan Arman
@@ -15,7 +15,7 @@ import com.randev.domain.model.CategoryModel
  */
 
 @Composable
-fun CategorySection(categories: List<CategoryModel>) {
+fun CategorySection(categories: List<CategoryModel>, onClick: (CategoryModel) -> Unit) {
     Box(
         modifier = Modifier
             .padding(top = 10.dp, end = 25.dp, start = 25.dp, bottom = 20.dp)
@@ -26,7 +26,8 @@ fun CategorySection(categories: List<CategoryModel>) {
         ) {
             categories.forEach {
                 DetailCategoryItem(
-                    category = it
+                    category = it,
+                    onClick = onClick
                 )
             }
         }

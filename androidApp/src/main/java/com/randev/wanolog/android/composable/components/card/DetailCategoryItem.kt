@@ -1,5 +1,6 @@
-package com.randev.wanolog.android.presentation.anime_detail.components
+package com.randev.wanolog.android.composable.components.card
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
@@ -21,10 +22,14 @@ import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 @Composable
 fun DetailCategoryItem(
     modifier: Modifier = Modifier,
-    category: CategoryModel
+    category: CategoryModel,
+    onClick: (CategoryModel) -> Unit
 ) {
     Surface(
-        modifier = modifier,
+        modifier = modifier
+            .clickable {
+                onClick(category)
+            },
         shape = RoundedCornerShape(5.dp),
         color = Colors.raisinBlack
     ) {

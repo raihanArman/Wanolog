@@ -13,12 +13,14 @@ import com.randev.navigation.NavHostApp
 import com.randev.navigation.NavigationIntent
 import com.randev.navigation.composable
 import com.randev.wanolog.android.presentation.anime_all.AnimeAllScreen
+import com.randev.wanolog.android.presentation.anime_by_category.AnimeByCategoryScreen
 import com.randev.wanolog.android.presentation.anime_detail.DetailAnimeScreen
 import com.randev.wanolog.android.presentation.character_anime.CharacterAnimeScreen
 import com.randev.wanolog.android.presentation.character_detail.CharacterDetailScreen
 import com.randev.wanolog.android.presentation.character_manga.CharacterMangaScreen
 import com.randev.wanolog.android.presentation.dashboard.DashboardScreen
 import com.randev.wanolog.android.presentation.manga_all.MangaAllScreen
+import com.randev.wanolog.android.presentation.manga_by_category.MangaByCategoryScreen
 import com.randev.wanolog.android.presentation.manga_detail.MangaDetailScreen
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -67,6 +69,12 @@ fun MainScreen(
         }
         composable(Destination.CharacterDetailScreen) {
             CharacterDetailScreen()
+        }
+        composable(Destination.AnimeByCategoryScreen){
+            AnimeByCategoryScreen()
+        }
+        composable(Destination.MangaByCategoryScreen){
+            MangaByCategoryScreen()
         }
     }
 

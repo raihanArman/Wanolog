@@ -87,4 +87,16 @@ class MangaRepositoryImpl(
             }
         }.asFlow()
     }
+
+    override suspend fun getMangaByCategory(
+        categoryId: String,
+        page: Int
+    ): Flow<Resource<MangaListModel>> {
+        return object : NetworkResource<MangaListModel>() {
+            override suspend fun remoteFetch(): MangaListModel {
+                val request = api.fetchMangaByCategory(categoryId, page*20)
+                return mapper.map(request)
+            }
+        }.asFlow()
+    }
 }
