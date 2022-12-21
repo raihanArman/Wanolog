@@ -1,8 +1,16 @@
 package com.randev.wanolog.android.utils
 
+import android.content.Context
+import android.graphics.Bitmap
+import android.net.Uri
 import androidx.compose.material.BottomSheetScaffoldState
 import androidx.compose.material.BottomSheetValue
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.core.content.FileProvider
+import com.randev.wanolog.android.BuildConfig
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 
 /**
  * @author Raihan Arman
@@ -27,3 +35,26 @@ val BottomSheetScaffoldState.currentSheetFraction: Float
             else -> fraction
         }
     }
+
+fun File?.toUriPath(context: Context): Uri? {
+    return this?.let {
+        FileProvider.getUriForFile(
+            context, BuildConfig.APPLICATION_ID, it
+        )
+    }
+}
+
+fun Bitmap?.bitmapToCacheUri(context: Context?): Uri?{
+    var bmpUri: Uri? = null
+    try{
+        val file = File(context?.externalCacheDir, System.currentTimeMillis().toString() + ".jpg")
+        val out = FileOutputStream(file)
+        this?.compress(Bitmap.CompressFormat.JPEG, 90, out)
+        out.close()
+        bmpUri = context?.let { file.toUriPath(it) }
+    }catch (e: IOException){
+        e.printStackTrace()
+    }
+
+    return bmpUri
+}

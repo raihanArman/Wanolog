@@ -1,5 +1,6 @@
 package com.randev.wanolog.android.presentation.dashboard.quote.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -27,11 +28,15 @@ import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 @Composable
 fun ItemQuote(
     quote: QuoteListModel.QuoteModel,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit
 ) {
     Card(
         modifier = modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable {
+                onClick()
+            },
         shape = RoundedCornerShape(8.dp),
         backgroundColor = Color(quote.backgroundColor)
     ) {

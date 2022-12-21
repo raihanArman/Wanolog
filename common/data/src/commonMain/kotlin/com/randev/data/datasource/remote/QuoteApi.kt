@@ -1,6 +1,7 @@
 package com.randev.data.datasource.remote
 
 import com.randev.data.response.QuoteListResponseItem
+import com.randev.data.response.QuoteRandomResponse
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -15,6 +16,11 @@ class QuoteApi(
     override suspend fun fetchQuotes(page: Int): List<QuoteListResponseItem> {
         return ktor.get("api/quotes") {
             parameter("page", page)
+        }.body()
+    }
+
+    override suspend fun fetchQuoteRandom(): QuoteRandomResponse {
+        return ktor.get("api/random") {
         }.body()
     }
 }

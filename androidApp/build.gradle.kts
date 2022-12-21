@@ -36,6 +36,8 @@ dependencies {
     implementation(project(":common:core"))
     implementation(project(":common:domain"))
     implementation(project(":common:navigation"))
+    implementation(project(":common:widget"))
+    implementation(project(mapOf("path" to ":libraries:work-manager")))
 
     implementation("io.insert-koin:koin-androidx-compose:3.2.2")
     // Compose Coil

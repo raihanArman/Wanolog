@@ -2,6 +2,7 @@ package com.randev.data.datasource.remote
 
 import com.randev.data.response.PostListResponse
 import com.randev.data.response.QuoteListResponseItem
+import com.randev.data.response.QuoteRandomResponse
 
 /**
  * @author Raihan Arman
@@ -9,4 +10,5 @@ import com.randev.data.response.QuoteListResponseItem
  */
 interface QuoteApiClient {
     suspend fun fetchQuotes(page: Int): List<QuoteListResponseItem>
+    suspend fun fetchQuoteRandom(): QuoteRandomResponse
 }
