@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.randev.navigation.Destination
 import com.randev.navigation.NavHostApp
@@ -19,7 +18,6 @@ import com.randev.wanolog.android.presentation.character_anime.CharacterAnimeScr
 import com.randev.wanolog.android.presentation.character_detail.CharacterDetailScreen
 import com.randev.wanolog.android.presentation.character_manga.CharacterMangaScreen
 import com.randev.wanolog.android.presentation.dashboard.DashboardScreen
-import com.randev.wanolog.android.presentation.dashboard.quote.QuoteAllScreen
 import com.randev.wanolog.android.presentation.manga_all.MangaAllScreen
 import com.randev.wanolog.android.presentation.manga_by_category.MangaByCategoryScreen
 import com.randev.wanolog.android.presentation.manga_detail.MangaDetailScreen

@@ -8,9 +8,6 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.randev.domain.model.AnimeListModel
-import com.randev.domain.usecase.anime.GetAnimeAllUseCase
-import com.randev.domain.usecase.anime.GetAnimeSearchFilterUseCase
 import com.randev.wanolog.android.utils.SheetHandler
 import com.randev.core.SortType
 import com.randev.domain.model.MangaListModel

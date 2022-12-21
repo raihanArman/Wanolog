@@ -10,7 +10,6 @@ import com.randev.domain.model.CategoryModel
 import com.randev.domain.usecase.manga.GetMangaDetailUseCase
 import com.randev.navigation.AppNavigator
 import com.randev.navigation.Destination
-import com.randev.wanolog.android.presentation.anime_detail.DetailAnimeState
 import com.randev.wanolog.android.utils.SheetHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

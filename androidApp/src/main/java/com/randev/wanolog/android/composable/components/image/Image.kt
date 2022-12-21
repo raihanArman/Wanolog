@@ -1,12 +1,17 @@
 package com.randev.movieapp_kmm.android.composable.components.image
 
+import android.os.Build.VERSION.SDK_INT
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import coil.ImageLoader
 import coil.compose.AsyncImagePainter
 import coil.compose.SubcomposeAsyncImage
+import coil.decode.GifDecoder
+import coil.decode.ImageDecoderDecoder
 import com.randev.wanolog.android.R
 import com.randev.wanolog.android.utils.emptyString
 
@@ -35,6 +40,16 @@ fun BaseImageView(
     modifier: Modifier,
     contentScale: ContentScale? = null,
 ) {
+    val imageLoader = ImageLoader.Builder(LocalContext.current)
+        .components {
+            if (SDK_INT >= 28) {
+                add(ImageDecoderDecoder.Factory())
+            } else {
+                add(GifDecoder.Factory())
+            }
+        }
+        .build()
+
     SubcomposeAsyncImage(
         model = url,
         modifier = modifier,
@@ -56,6 +71,7 @@ fun BaseImageView(
 
 
         },
-        contentDescription = emptyString()
+        contentDescription = emptyString(),
+        imageLoader = imageLoader
     )
 }

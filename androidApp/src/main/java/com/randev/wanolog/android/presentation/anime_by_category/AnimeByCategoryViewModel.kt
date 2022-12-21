@@ -11,11 +11,9 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.randev.domain.model.AnimeListModel
-import com.randev.domain.model.CharacterListModel
 import com.randev.domain.usecase.anime.GetAnimeByCategoryUseCase
 import com.randev.navigation.AppNavigator
 import com.randev.navigation.Destination
-import com.randev.wanolog.android.presentation.character_anime.CharacterAnimePagingSource
 import kotlinx.coroutines.flow.Flow
 
 /**

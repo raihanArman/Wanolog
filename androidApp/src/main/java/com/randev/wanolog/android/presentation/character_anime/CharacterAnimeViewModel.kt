@@ -9,7 +9,6 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.randev.domain.model.CharacterListModel
 import com.randev.domain.usecase.character.GetCharacterAnimeUseCase
-import com.randev.domain.usecase.character.GetCharacterMangaUseCase
 import com.randev.navigation.AppNavigator
 import com.randev.navigation.Destination
 import kotlinx.coroutines.flow.Flow

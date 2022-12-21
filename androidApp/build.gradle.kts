@@ -35,8 +35,8 @@ dependencies {
     implementation(project(":shared"))
     implementation(project(":common:core"))
     implementation(project(":common:domain"))
-    implementation(project(":common:navigation"))
-    implementation(project(":common:widget"))
+    implementation(project(":common:ui:navigation"))
+    implementation(project(":common:ui:widget"))
     implementation(project(mapOf("path" to ":libraries:work-manager")))
 
     implementation("io.insert-koin:koin-androidx-compose:3.2.2")
@@ -59,6 +59,9 @@ dependencies {
 
     // Animate Navigation
     implementation("com.google.accompanist:accompanist-navigation-animation:0.28.0")
+
+    //Coil
+    implementation("io.coil-kt:coil-gif:2.2.2")
 
 
     implementation("androidx.compose.ui:ui:1.3.1")

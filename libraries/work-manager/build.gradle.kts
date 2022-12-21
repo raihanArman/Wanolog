@@ -44,7 +44,7 @@ dependencies {
     implementation("io.insert-koin:koin-androidx-workmanager:3.1.2")
 
     implementation(project(mapOf("path" to ":common:data")))
-    implementation(project(mapOf("path" to ":common:widget")))
+    implementation(project(mapOf("path" to ":common:ui:widget")))
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.4")

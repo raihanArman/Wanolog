@@ -4,13 +4,11 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.randev.core.wrapper.Resource
-import com.randev.domain.usecase.anime.GetAnimeDetailUseCase
 import com.randev.domain.usecase.character.GetCharacterDetailUseCase
 import com.randev.navigation.AppNavigator
 import com.randev.navigation.Destination
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 

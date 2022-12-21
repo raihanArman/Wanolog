@@ -13,8 +13,6 @@ import com.randev.domain.usecase.anime.GetAnimeAllUseCase
 import com.randev.domain.usecase.anime.GetAnimeSearchFilterUseCase
 import com.randev.wanolog.android.utils.SheetHandler
 import com.randev.core.SortType
-import com.randev.domain.usecase.auth.LoginRequest
-import com.randev.domain.usecase.auth.PostLoginUseCase
 import com.randev.navigation.AppNavigator
 import com.randev.navigation.Destination
 import kotlinx.coroutines.ExperimentalCoroutinesApi

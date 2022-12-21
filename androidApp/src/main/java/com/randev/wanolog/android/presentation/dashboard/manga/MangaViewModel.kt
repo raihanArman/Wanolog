@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.randev.core.wrapper.Resource
-import com.randev.domain.usecase.manga.GetMangaAllUseCase
 import com.randev.domain.usecase.manga.GetMangaPopularUseCase
 import com.randev.domain.usecase.manga.GetMangaTopRatingUseCase
 import com.randev.domain.usecase.manga.GetMangaTopUpcomingUseCase
@@ -15,10 +14,7 @@ import com.randev.navigation.AppNavigator
 import com.randev.navigation.Destination
 import com.randev.wanolog.android.presentation.home.ContentStatus
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 

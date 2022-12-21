@@ -1,34 +1,20 @@
 package com.randev.wanolog.android.presentation.dashboard.anime
 
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.randev.core.wrapper.Resource
-import com.randev.domain.usecase.anime.GetAnimeAllUseCase
-import com.randev.domain.usecase.anime.GetAnimeDetailUseCase
 import com.randev.domain.usecase.anime.GetAnimePopularUseCase
 import com.randev.domain.usecase.anime.GetAnimeTopRatingUseCase
 import com.randev.domain.usecase.anime.GetAnimeTopUpcomingUseCase
 import com.randev.domain.usecase.anime.GetAnimeTrendingUseCase
-import com.randev.domain.usecase.category.GetCategoryAllUseCase
 import com.randev.navigation.AppNavigator
 import com.randev.navigation.Destination
 import com.randev.wanolog.android.presentation.home.ContentStatus
-import com.randev.wanolog.android.presentation.home.ContentType
-import com.randev.wanolog.android.presentation.home.HomeState
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
