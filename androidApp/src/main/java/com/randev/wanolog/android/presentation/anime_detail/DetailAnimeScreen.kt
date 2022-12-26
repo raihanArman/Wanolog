@@ -50,6 +50,7 @@ fun DetailAnimeScreen(
 ) {
 
     val state by viewModel.observeDetailState.collectAsState()
+    val isFavorite = viewModel.isFavorite
 
     state.data?.let { content ->
         ContentDetail(
@@ -58,7 +59,9 @@ fun DetailAnimeScreen(
             onClickCharacter = viewModel::onNavigateToCharactersClicked,
             onClickRelated = viewModel::onNavigateToDetailsClicked,
             onClickCategory = viewModel::onNavigateToAnimeByCategoryClicked,
-            onClickReviewMore = viewModel::openReviewBottomSheet
+            onClickReviewMore = viewModel::openReviewBottomSheet,
+            onClickFavorite = viewModel::insertDeleteFavorite,
+            isFavorite = { isFavorite }
         )
     }
     if (state.isLoading) {
@@ -81,6 +84,8 @@ fun ContentDetail(
     onBack: () -> Unit,
     onClickCategory: (CategoryModel) -> Unit,
     onClickReviewMore: () -> Unit,
+    onClickFavorite: (AnimeDetailModel) -> Unit,
+    isFavorite: () -> Boolean
 ) {
     Box(
         modifier = Modifier
@@ -94,7 +99,9 @@ fun ContentDetail(
             item {
                 DescriptionSection(
                     content = content,
-                    onBack = onBack
+                    onBack = onBack,
+                    onClickFavorite = onClickFavorite,
+                    isFavorite = isFavorite
                 )
             }
             item {

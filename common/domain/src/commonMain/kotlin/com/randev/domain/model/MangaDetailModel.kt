@@ -10,6 +10,7 @@ data class MangaDetailModel(
     val categories: List<CategoryModel>,
     val reviews: List<ReviewModel>,
     val relates: List<RelatedModel>,
+    var isFavorite: Boolean = false,
 ) {
     data class MangaModel(
         val attributes: AttributesModel,

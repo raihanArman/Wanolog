@@ -12,6 +12,7 @@ data class AnimeDetailModel(
     val categories: List<CategoryModel>,
     val reviews: List<ReviewModel>,
     val relates: List<RelatedModel>,
+    var isFavorite: Boolean = false,
 ): BaseModel() {
     data class AnimeModel(
         val attributes: AttributesModel,

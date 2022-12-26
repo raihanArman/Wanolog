@@ -52,12 +52,6 @@ fun QuoteAllScreen(
         mutableStateOf(false)
     }
 
-//    LazyVerticalStaggeredGrid(columns = StaggeredGridCells.Fixed(2)) {
-//        items(data) {
-//
-//        }
-//    }
-
     Box {
         LazyVerticalGrid(
             modifier = Modifier
@@ -68,6 +62,7 @@ fun QuoteAllScreen(
             horizontalArrangement = Arrangement.spacedBy(15.dp)
         ){
             items(data) { quote ->
+
                 quote?.let {
                     ItemQuote(quote = quote, onClick = {
                         openDialog = true
@@ -81,9 +76,10 @@ fun QuoteAllScreen(
         if (uiEvent is QuoteAllViewModel.UIEvent.ShowDialog) {
             if (openDialog) {
                 Dialog(onDismissRequest = { openDialog = false }) {
+                    val data = (uiEvent as QuoteAllViewModel.UIEvent.ShowDialog).quote
                     DialogQuote(
-                        quote = (uiEvent as QuoteAllViewModel.UIEvent.ShowDialog).quote,
-                        openDialog = { openDialog = it }
+                        quote = data,
+                        openDialog = { openDialog = it },
                     )
                 }
             }

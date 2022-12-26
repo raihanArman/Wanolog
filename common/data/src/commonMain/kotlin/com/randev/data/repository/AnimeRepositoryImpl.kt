@@ -3,6 +3,7 @@ package com.randev.data.repository
 import com.randev.core.SortType
 import com.randev.core.wrapper.NetworkResource
 import com.randev.core.wrapper.Resource
+import com.randev.data.datasource.local.AnimeFavoriteDataSource
 import com.randev.data.datasource.remote.AnimeApi
 import com.randev.data.datasource.remote.AnimeApiClient
 import com.randev.data.mapper.AnimeDetailMapper
@@ -19,7 +20,8 @@ import kotlinx.coroutines.flow.Flow
 class AnimeRepositoryImpl(
     private val mapper: AnimeListMapper,
     private val mapperDetail: AnimeDetailMapper,
-    private val api: AnimeApiClient
+    private val api: AnimeApiClient,
+    private val favoriteDataSource: AnimeFavoriteDataSource
 ): AnimeRepository {
     override suspend fun getAnimeAll(page: Int): Flow<Resource<AnimeListModel>> {
         return object : NetworkResource<AnimeListModel>() {
@@ -83,7 +85,10 @@ class AnimeRepositoryImpl(
         return object : NetworkResource<AnimeDetailModel>() {
             override suspend fun remoteFetch(): AnimeDetailModel {
                 val request = api.fetchAnimeDetail(id)
-                return mapperDetail.map(request)
+                return mapperDetail.map(request).apply {
+                    val favorite = favoriteDataSource.getFavoriteById(id.toLong())
+                    isFavorite = favorite != null
+                }
             }
         }.asFlow()
     }

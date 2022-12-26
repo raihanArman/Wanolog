@@ -11,6 +11,7 @@ data class QuoteListModel(
         val backgroundColor: Long,
         val anime: String,
         val character: String,
-        val quote: String
+        val quote: String,
+        var isFavorite: Boolean = false,
     )
 }

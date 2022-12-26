@@ -2,6 +2,7 @@ package com.randev.data.repository
 
 import com.randev.core.wrapper.NetworkResource
 import com.randev.core.wrapper.Resource
+import com.randev.data.datasource.local.QuoteFavoriteDataSource
 import com.randev.data.datasource.remote.QuoteApiClient
 import com.randev.data.mapper.QuoteListMapper
 import com.randev.domain.model.QuoteListModel
@@ -15,7 +16,7 @@ import kotlinx.coroutines.flow.Flow
  */
 class QuoteRepositoryImpl(
     private val mapper: QuoteListMapper,
-    private val api: QuoteApiClient
+    private val api: QuoteApiClient,
 ): QuoteRepository {
     override suspend fun getQuotes(page: Int): Flow<Resource<QuoteListModel>> {
         return object : NetworkResource<QuoteListModel>() {

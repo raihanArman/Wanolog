@@ -51,6 +51,7 @@ import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpace
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.android.R
 import com.randev.wanolog.android.composable.components.button.BackButton
+import com.randev.wanolog.android.composable.components.icon.FavoriteIcon
 import com.randev.wanolog.android.utils.releaseSummary
 import com.randev.wanolog.android.utils.typeManga
 import kotlinx.coroutines.launch
@@ -63,7 +64,9 @@ import kotlinx.coroutines.launch
 @Composable
 fun DescriptionSection(
     content: MangaDetailModel,
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    isFavorite: () -> Boolean,
+    onClickFavorite: (MangaDetailModel) -> Unit
 ) {
 
     var expanded by remember {
@@ -110,13 +113,22 @@ fun DescriptionSection(
             Box(modifier = Modifier
                 .fillMaxSize()
                 .padding(25.dp)) {
-                Row {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
                     BackButton(
                         modifier = Modifier
                             .clip(CircleShape)
                             .background(Color.White.copy(0.5f))
                             .padding(5.dp),
                         onClick = onBack
+                    )
+                    FavoriteIcon(
+                        isFavorite = isFavorite(),
+                        onClickFavorite = {
+                            onClickFavorite(content)
+                        }
                     )
                 }
             }

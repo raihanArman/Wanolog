@@ -1,0 +1,31 @@
+CREATE TABLE MangaFavoriteEntity (
+    id INTEGER NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    poster TEXT NOT NULL,
+    rate TEXT NOT NULL
+);
+
+selectAll:
+SELECT *
+FROM MangaFavoriteEntity;
+
+selectById:
+SELECT *
+FROM MangaFavoriteEntity WHERE id=:id;
+
+insertItem:
+INSERT OR REPLACE INTO
+MangaFavoriteEntity(id, title, poster, rate)
+VALUES (?, ?, ?, ?);
+
+deleteById:
+DELETE FROM MangaFavoriteEntity WHERE  id=:id;
+
+deleteAll:
+DELETE FROM MangaFavoriteEntity;
+
+selectLastInsertedRowId:
+SELECT last_insert_rowid();
+
+selectChanges:
+SELECT changes();

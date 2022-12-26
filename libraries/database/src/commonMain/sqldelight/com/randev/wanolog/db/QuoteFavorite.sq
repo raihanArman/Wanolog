@@ -1,0 +1,30 @@
+CREATE TABLE QuoteFavoriteEntity (
+    quote TEXT NOT NULL,
+    anime TEXT NOT NULL,
+    character TEXT NOT NULL
+);
+
+selectAll:
+SELECT *
+FROM QuoteFavoriteEntity;
+
+selectByQuote:
+SELECT *
+FROM QuoteFavoriteEntity WHERE quote=:quote;
+
+insertItem:
+INSERT OR REPLACE INTO
+QuoteFavoriteEntity(quote, anime, character)
+VALUES ( ?, ?, ?);
+
+deleteByQuote:
+DELETE FROM QuoteFavoriteEntity WHERE  quote=:quote;
+
+deleteAll:
+DELETE FROM QuoteFavoriteEntity;
+
+selectLastInsertedRowId:
+SELECT last_insert_rowid();
+
+selectChanges:
+SELECT changes();

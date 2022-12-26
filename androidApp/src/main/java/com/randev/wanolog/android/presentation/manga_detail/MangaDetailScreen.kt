@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.randev.domain.model.AnimeDetailModel
 import com.randev.domain.model.CategoryModel
 import com.randev.domain.model.MangaDetailModel
 import com.randev.movieapp_kmm.android.composable.components.space.HorizontalSpacer
@@ -50,6 +51,7 @@ fun MangaDetailScreen(
     viewModel: MangaDetailViewModel = getViewModel()
 ) {
     val state by viewModel.observeDetailState.collectAsState()
+    val isFavorite = viewModel.isFavorite
 
     state.data?.let { content ->
         ContentDetail(
@@ -58,7 +60,9 @@ fun MangaDetailScreen(
             onBack = viewModel::onBackScreen,
             onClickRelated = viewModel::onNavigateToDetailsClicked,
             onClickCategory = viewModel::onNavigateToMangaByCategoryClicked,
-            onClickReviewMore = viewModel::openReviewBottomSheet
+            onClickReviewMore = viewModel::openReviewBottomSheet,
+            onClickFavorite = viewModel::insertDeleteFavorite,
+            isFavorite = { isFavorite }
         )
     }
     if (state.isLoading) {
@@ -82,6 +86,8 @@ fun ContentDetail(
     onBack: () -> Unit,
     onClickCategory: (CategoryModel) -> Unit,
     onClickReviewMore: () -> Unit,
+    onClickFavorite: (MangaDetailModel) -> Unit,
+    isFavorite: () -> Boolean
 ) {
     Box(
         modifier = Modifier
@@ -95,7 +101,9 @@ fun ContentDetail(
             item {
                 DescriptionSection(
                     content = content,
-                    onBack = onBack
+                    onBack = onBack,
+                    onClickFavorite = onClickFavorite,
+                    isFavorite = isFavorite
                 )
             }
             item {

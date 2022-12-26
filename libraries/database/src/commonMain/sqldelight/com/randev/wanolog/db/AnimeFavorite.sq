@@ -1,0 +1,31 @@
+CREATE TABLE AnimeFavoriteEntity (
+    id INTEGER NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    poster TEXT NOT NULL,
+    rate TEXT NOT NULL
+);
+
+selectAll:
+SELECT *
+FROM AnimeFavoriteEntity;
+
+selectById:
+SELECT *
+FROM AnimeFavoriteEntity WHERE id=:id;
+
+insertItem:
+INSERT OR REPLACE INTO
+AnimeFavoriteEntity(id, title, poster, rate)
+VALUES (?, ?, ?, ?);
+
+deleteById:
+DELETE FROM AnimeFavoriteEntity WHERE  id=:id;
+
+deleteAll:
+DELETE FROM AnimeFavoriteEntity;
+
+selectLastInsertedRowId:
+SELECT last_insert_rowid();
+
+selectChanges:
+SELECT changes();

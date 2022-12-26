@@ -1,6 +1,8 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("com.squareup.sqldelight")
+    id("koin")
 }
 
 kotlin {
@@ -17,13 +19,24 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation("com.squareup.sqldelight:runtime:1.5.4")
+                implementation("com.squareup.sqldelight:coroutines-extensions:1.5.4")
+                implementation("io.insert-koin:koin-core:3.2.2")
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation("com.squareup.sqldelight:android-driver:1.5.4")
+                implementation("io.insert-koin:koin-android:3.1.6")
+            }
+        }
         val androidTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
@@ -33,6 +46,9 @@ kotlin {
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+            dependencies {
+                implementation("com.squareup.sqldelight:native-driver:1.5.4")
+            }
         }
         val iosX64Test by getting
         val iosArm64Test by getting
@@ -52,5 +68,12 @@ android {
     defaultConfig {
         minSdk = 23
         targetSdk = 32
+    }
+}
+
+sqldelight {
+    database("WanologDatabase") {
+        packageName = "com.randev.wanolog.db"
+        sourceFolders = listOf("sqldelight")
     }
 }

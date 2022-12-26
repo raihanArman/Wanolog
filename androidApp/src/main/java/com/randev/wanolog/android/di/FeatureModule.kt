@@ -16,6 +16,7 @@ import com.randev.wanolog.android.presentation.dashboard.manga.MangaViewModel
 import com.randev.wanolog.android.presentation.dashboard.post.PostAllViewModel
 import com.randev.wanolog.android.presentation.dashboard.profile.ProfileViewModel
 import com.randev.wanolog.android.presentation.dashboard.quote.QuoteAllViewModel
+import com.randev.wanolog.android.presentation.dashboard.quote.QuoteDialogViewModel
 import com.randev.wanolog.android.presentation.manga_all.MangaAllViewModel
 import com.randev.wanolog.android.presentation.manga_by_category.MangaByCategoryViewModel
 import com.randev.wanolog.android.presentation.manga_detail.MangaDetailViewModel
@@ -44,6 +45,8 @@ val featureModule = module {
             appNavigator = get(),
             stateHandle = params.get(),
             useCase = get(),
+            insertAnimeFavoriteUseCase = get(),
+            deleteAnimeFavoriteUseCase = get()
         )
     }
     viewModel { params ->
@@ -51,6 +54,8 @@ val featureModule = module {
             appNavigator = get(),
             stateHandle = params.get(),
             useCase = get(),
+            insertMangaFavoriteUseCase = get(),
+            deleteMangaFavoriteUseCase = get()
         )
     }
     viewModel { params ->
@@ -108,5 +113,8 @@ val featureModule = module {
     }
     viewModel {
         QuoteAllViewModel(get())
+    }
+    viewModel {
+        QuoteDialogViewModel(get(), get(), get())
     }
 }

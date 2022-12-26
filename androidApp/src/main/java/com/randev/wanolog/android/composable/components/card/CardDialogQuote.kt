@@ -27,6 +27,11 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -42,9 +47,11 @@ import com.randev.domain.model.QuoteListModel
 import com.randev.movieapp_kmm.android.composable.components.space.VerticalSpacer
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
 import com.randev.wanolog.android.presentation.dashboard.quote.QuoteAllViewModel
+import com.randev.wanolog.android.presentation.dashboard.quote.QuoteDialogViewModel
 import com.randev.wanolog.android.utils.ImageUtils
 import com.randev.wanolog.android.utils.IntentUtils
 import com.randev.wanolog.android.utils.bitmapToCacheUri
+import org.koin.androidx.compose.getViewModel
 
 /**
  * @author Raihan Arman
@@ -80,10 +87,18 @@ class CardDialogQuoteView @JvmOverloads constructor(
 
 @Composable
 fun DialogQuote(
+    viewModel: QuoteDialogViewModel = getViewModel(),
     modifier: Modifier = Modifier,
     quote: QuoteListModel.QuoteModel,
     openDialog: (Boolean) -> Unit,
 ) {
+
+    val isFavorite = viewModel.isFavorite
+
+    LaunchedEffect(key1 = openDialog) {
+        viewModel.checkQuoteFavorite(quote)
+    }
+
     var captureView: CardDialogQuoteView? = null
     Card(
         modifier = modifier
@@ -117,7 +132,11 @@ fun DialogQuote(
                     captureView?.apply {
                         onShareQuote(this)
                     }
-                }
+                },
+                onFavoriteQuote = {
+                    viewModel.insertDeleteFavorite(quote)
+                },
+                isFavorite = { isFavorite }
             )
         }
     }
@@ -127,22 +146,28 @@ fun DialogQuote(
 fun OptionQuote(
     modifier: Modifier = Modifier,
     openDialog: (Boolean) -> Unit,
-    onShareQuote: () -> Unit
+    onShareQuote: () -> Unit,
+    onFavoriteQuote: () -> Unit,
+    isFavorite: () -> Boolean
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceAround,
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .padding(20.dp)
-        .fillMaxWidth()
+            .fillMaxWidth()
     ) {
         IconButton(onClick = {
             openDialog.invoke(false)
         }) {
             Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null, tint = Color.White)
         }
-        IconButton(onClick = {}) {
-            Icon(imageVector = Icons.Default.FavoriteBorder, contentDescription = null, tint = Color.White)
+        IconButton(onClick = onFavoriteQuote) {
+            Icon(
+                imageVector = if (isFavorite()) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                contentDescription = null,
+                tint = Color.White
+            )
         }
         IconButton(onClick = onShareQuote) {
             Icon(imageVector = Icons.Default.Share, contentDescription = null, tint = Color.White)
