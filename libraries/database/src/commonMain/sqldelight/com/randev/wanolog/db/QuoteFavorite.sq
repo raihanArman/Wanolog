@@ -1,7 +1,8 @@
 CREATE TABLE QuoteFavoriteEntity (
     quote TEXT NOT NULL,
     anime TEXT NOT NULL,
-    character TEXT NOT NULL
+    character TEXT NOT NULL,
+    backgroundColor TEXT NOT NULL
 );
 
 selectAll:
@@ -14,8 +15,8 @@ FROM QuoteFavoriteEntity WHERE quote=:quote;
 
 insertItem:
 INSERT OR REPLACE INTO
-QuoteFavoriteEntity(quote, anime, character)
-VALUES ( ?, ?, ?);
+QuoteFavoriteEntity(quote, anime, character, backgroundColor)
+VALUES ( ?, ?, ?, ?);
 
 deleteByQuote:
 DELETE FROM QuoteFavoriteEntity WHERE  quote=:quote;

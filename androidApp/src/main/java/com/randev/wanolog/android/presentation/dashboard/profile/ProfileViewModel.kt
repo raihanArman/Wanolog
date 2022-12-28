@@ -2,14 +2,19 @@ package com.randev.wanolog.android.presentation.dashboard.profile
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.randev.core.wrapper.Resource
+import com.randev.domain.usecase.anime_favorite.GetAnimeFavoriteUseCase
 import com.randev.domain.usecase.auth.CheckUserLoginUseCase
 import com.randev.domain.usecase.auth.LoginRequest
 import com.randev.domain.usecase.auth.PostLoginUseCase
+import com.randev.domain.usecase.manga_favorite.GetMangaFavoriteUseCase
+import com.randev.domain.usecase.quote_favorite.GetQuoteFavoriteUseCase
 import com.randev.domain.usecase.user.GetCurrentUserUseCase
+import com.randev.wanolog.android.utils.FavoriteTabEnum
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -25,7 +30,10 @@ import kotlinx.coroutines.launch
 class ProfileViewModel(
     private val loginUseCase: PostLoginUseCase,
     private val checkUserLoginUseCase: CheckUserLoginUseCase,
-    private val getCurrentUserUseCase: GetCurrentUserUseCase
+    private val getCurrentUserUseCase: GetCurrentUserUseCase,
+    private val getQuoteFavoriteUseCase: GetQuoteFavoriteUseCase,
+    private val getAnimeFavoriteUseCase: GetAnimeFavoriteUseCase,
+    private val getMangaFavoriteUseCase: GetMangaFavoriteUseCase
 ): ViewModel() {
 
     var isLoading by mutableStateOf(false)
@@ -35,9 +43,14 @@ class ProfileViewModel(
     private val _observeProfileState: MutableStateFlow<ProfileState> = MutableStateFlow(ProfileState())
     val observeProfileState = _observeProfileState.asStateFlow()
 
+    var selectedTabFavorite by mutableStateOf(FavoriteTabEnum.ANIME)
 
     private val _eventFlow = MutableSharedFlow<UIEvent>()
     val eventFlow = _eventFlow.asSharedFlow()
+
+    init {
+        onChangeFavoriteType(FavoriteTabEnum.ANIME)
+    }
 
     fun setEmailValue(value: String) {
         emailState = value
@@ -58,6 +71,72 @@ class ProfileViewModel(
                 if (status) {
                     println("Hit get current user")
                     getCurrentUser()
+                }
+            }
+        }
+    }
+
+    fun onChangeFavoriteType(tab: FavoriteTabEnum) {
+        selectedTabFavorite = tab
+        println("Anime Favorite -> $tab")
+        when (tab) {
+            FavoriteTabEnum.ANIME -> {
+                getAnimeFavorite()
+            }
+            FavoriteTabEnum.MANGA -> {
+                getMangaFavorite()
+            }
+            FavoriteTabEnum.QUOTE -> {
+                getQuoteFavorite()
+            }
+        }
+    }
+
+    private fun getQuoteFavorite() {
+        viewModelScope.launch {
+            getQuoteFavoriteUseCase.invoke().collect { resource ->
+                when(resource) {
+                    is Resource.Success -> {
+                        _observeProfileState.update {
+                            it.copy(
+                                favQuoteList = resource.model
+                            )
+                        }
+                    } else -> {}
+                }
+            }
+        }
+    }
+
+    private fun getMangaFavorite() {
+        viewModelScope.launch {
+            getMangaFavoriteUseCase.invoke().collect { resource ->
+                when(resource) {
+                    is Resource.Success -> {
+                        _observeProfileState.update {
+                            it.copy(
+                                favMangaList = resource.model
+                            )
+                        }
+                    } else -> {}
+                }
+            }
+        }
+    }
+
+    private fun getAnimeFavorite() {
+        viewModelScope.launch {
+            println("Anime Favorite -> getAnimeFavorite")
+            getAnimeFavoriteUseCase.invoke().collect { resource ->
+                println("Anime Favorite -> $resource")
+                when(resource) {
+                    is Resource.Success -> {
+                        _observeProfileState.update {
+                            it.copy(
+                                favAnimeList = resource.model
+                            )
+                        }
+                    } else -> {}
                 }
             }
         }

@@ -8,5 +8,6 @@ package com.randev.domain.model
 data class QuoteFavoriteModel(
     val quote: String,
     val anime: String,
-    val character: String
+    val character: String,
+    val backgroundColor: Long
 )

@@ -64,10 +64,15 @@ fun QuoteAllScreen(
             items(data) { quote ->
 
                 quote?.let {
-                    ItemQuote(quote = quote, onClick = {
-                        openDialog = true
-                        viewModel.clickQuote(quote)
-                    })
+                    ItemQuote(
+                        quote = quote.quote,
+                        anime = quote.anime,
+                        backgroundColor = quote.backgroundColor,
+                        onClick = {
+                            openDialog = true
+                            viewModel.clickQuote(quote)
+                        }
+                    )
                 }
             }
         }

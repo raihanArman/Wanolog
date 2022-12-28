@@ -16,6 +16,7 @@ interface QuoteFavoriteRepository {
         quote: String,
         anime: String,
         character: String,
+        backgroundColor: String
     ): Flow<Resource<Long>>
     suspend fun deleteFavorite(quote: String): Flow<Resource<Long>>
 }

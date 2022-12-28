@@ -19,8 +19,10 @@ class AnimeFavoriteRepositoryImpl(
 ): AnimeFavoriteRepository {
     override suspend fun getFavorite(): Flow<Resource<List<AnimeFavoriteModel>>> {
         return flow {
+            val data = dataSource.getFavoriteAll().map { mapper.map(it) }
+            println("Anime Favorite Repo -> $data")
             emit(
-                Resource.Success(dataSource.getFavoriteAll().map { mapper.map(it) })
+                Resource.Success(data)
             )
         }
     }

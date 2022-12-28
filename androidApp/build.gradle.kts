@@ -63,7 +63,12 @@ dependencies {
     //Coil
     implementation("io.coil-kt:coil-gif:2.2.2")
 
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
+    implementation("com.google.accompanist:accompanist-pager:0.13.0")
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.13.0")
 
+
+    implementation("androidx.startup:startup-runtime:1.1.1")
     implementation("androidx.compose.ui:ui:1.3.1")
     implementation("androidx.compose.ui:ui-tooling:1.3.1")
     implementation("androidx.compose.ui:ui-util:1.3.1")

@@ -17,7 +17,8 @@ class QuoteFavoriteMapper: BaseMapper<QuoteFavoriteEntity, QuoteFavoriteModel>()
         return QuoteFavoriteModel(
             quote = value.quote,
             anime = value.anime,
-            character = value.character
+            character = value.character,
+            backgroundColor = value.backgroundColor.toLong()
         )
     }
 }

@@ -9,6 +9,7 @@ import com.randev.domain.usecase.anime.GetAnimeTopRatingUseCase
 import com.randev.domain.usecase.anime.GetAnimeTopUpcomingUseCase
 import com.randev.domain.usecase.anime.GetAnimeTrendingUseCase
 import com.randev.domain.usecase.anime_favorite.DeleteAnimeFavoriteUseCase
+import com.randev.domain.usecase.anime_favorite.GetAnimeFavoriteUseCase
 import com.randev.domain.usecase.anime_favorite.InsertAnimeFavoriteUseCase
 import com.randev.domain.usecase.auth.CheckUserLoginUseCase
 import com.randev.domain.usecase.auth.PostLoginUseCase
@@ -27,9 +28,11 @@ import com.randev.domain.usecase.manga.GetMangaTopRatingUseCase
 import com.randev.domain.usecase.manga.GetMangaTopUpcomingUseCase
 import com.randev.domain.usecase.manga.GetMangaTrendingUseCase
 import com.randev.domain.usecase.manga_favorite.DeleteMangaFavoriteUseCase
+import com.randev.domain.usecase.manga_favorite.GetMangaFavoriteUseCase
 import com.randev.domain.usecase.manga_favorite.InsertMangaFavoriteUseCase
 import com.randev.domain.usecase.post.GetPostListUseCase
 import com.randev.domain.usecase.quote_favorite.DeleteQuoteFavoriteUseCase
+import com.randev.domain.usecase.quote_favorite.GetQuoteFavoriteUseCase
 import com.randev.domain.usecase.quote_favorite.InsertQuoteFavoriteUseCase
 import com.randev.domain.usecase.quote_favorite.IsQuoteFavoriteUseCase
 import com.randev.domain.usecase.quotes.GetQuoteListUseCase
@@ -80,4 +83,7 @@ val useCaseModule = module {
     single { InsertQuoteFavoriteUseCase(get()) }
     single { DeleteQuoteFavoriteUseCase(get()) }
     single { IsQuoteFavoriteUseCase(get()) }
+    single { GetAnimeFavoriteUseCase(get()) }
+    single { GetMangaFavoriteUseCase(get()) }
+    single { GetQuoteFavoriteUseCase(get()) }
 }

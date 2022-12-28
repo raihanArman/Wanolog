@@ -16,7 +16,7 @@ class MangaFavoriteMapper: BaseMapper<MangaFavoriteEntity, MangaFavoriteModel>()
             id = value.id.toInt(),
             title = value.title,
             poster = value.poster,
-            rate = value.rate.toInt()
+            rate = value.rate.toFloat().toInt()
         )
     }
 }

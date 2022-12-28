@@ -38,6 +38,7 @@ class QuoteTask(
                 Result.retry()
             }
         } catch (e: Exception) {
+            println("Quote Task -> $e")
             e.printStackTrace()
             Result.retry()
         }

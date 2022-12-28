@@ -42,14 +42,16 @@ class QuoteFavoriteRepositoryImpl(
     override suspend fun insertFavorite(
         quote: String,
         anime: String,
-        character: String
+        character: String,
+        backgroundColor: String
     ): Flow<Resource<Long>> {
         return flow {
             val result = dataSource.insertFavorite(
                 entity = QuoteFavoriteEntity(
                     anime = anime,
                     quote = quote,
-                    character = character
+                    character = character,
+                    backgroundColor = backgroundColor
                 )
             )
             println("Result -> $result")

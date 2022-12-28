@@ -27,9 +27,11 @@ import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
  */
 @Composable
 fun ItemQuote(
-    quote: QuoteListModel.QuoteModel,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    quote: String,
+    anime: String,
+    backgroundColor: Long
 ) {
     Card(
         modifier = modifier
@@ -38,7 +40,7 @@ fun ItemQuote(
                 onClick()
             },
         shape = RoundedCornerShape(8.dp),
-        backgroundColor = Color(quote.backgroundColor)
+        backgroundColor = Color(backgroundColor)
     ) {
         Column(
             modifier = Modifier
@@ -48,7 +50,7 @@ fun ItemQuote(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = quote.anime,
+                text = anime,
                 style = MovieAppTheme.typography.bold,
                 color = Color.White,
                 fontSize = 12.sp,
@@ -56,7 +58,7 @@ fun ItemQuote(
             )
             VerticalSpacer(height = 6.dp)
             Text(
-                text = quote.quote,
+                text = quote,
                 style = MovieAppTheme.typography.light,
                 color = Color.White,
                 overflow = TextOverflow.Ellipsis,

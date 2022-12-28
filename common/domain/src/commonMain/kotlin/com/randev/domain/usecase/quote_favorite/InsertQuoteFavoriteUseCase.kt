@@ -19,6 +19,7 @@ class InsertQuoteFavoriteUseCase(
             quote = parameters?.quote.orEmpty(),
             anime = parameters?.anime.orEmpty(),
             character = parameters?.character.orEmpty(),
+            backgroundColor = parameters?.backgroundColor.orEmpty()
         )
     }
 }
@@ -27,4 +28,5 @@ data class QuoteFavoriteParams(
     val quote: String,
     val anime: String,
     val character: String,
+    val backgroundColor: String
 )

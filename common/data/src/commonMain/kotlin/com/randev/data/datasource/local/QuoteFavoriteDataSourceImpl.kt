@@ -36,7 +36,8 @@ class QuoteFavoriteDataSourceImpl(
         queries.insertItem(
             entity.quote,
             entity.anime,
-            entity.character
+            entity.character,
+            entity.backgroundColor
         )
         val id = queries.selectLastInsertedRowId().executeAsOne()
         return id

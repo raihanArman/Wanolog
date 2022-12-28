@@ -50,7 +50,8 @@ class QuoteDialogViewModel(
                     QuoteFavoriteParams(
                         quote = data.quote,
                         anime = data.anime,
-                        character = data.character
+                        character = data.character,
+                        backgroundColor = data.backgroundColor.toString()
                     )
                 ).collectLatest {
                     isFavorite = true
