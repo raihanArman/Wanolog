@@ -6,6 +6,8 @@ pluginManagement {
     }
 }
 
+enableFeaturePreview("VERSION_CATALOGS")
+
 dependencyResolutionManagement {
     repositories {
         google()

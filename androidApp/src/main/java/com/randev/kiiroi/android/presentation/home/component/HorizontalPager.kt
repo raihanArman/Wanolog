@@ -35,11 +35,10 @@ fun HorizontalPagerWithTransition(
 ) {
     HorizontalPager(
         state = PagerState(
-            pageCount = data.size,
             currentPage = 0,
-            infiniteLoop = data.size != 1,
         ),
         modifier = modifier,
+        count = data.size,
     ) { page ->
         Card(
             shape = RoundedCornerShape(5.dp),

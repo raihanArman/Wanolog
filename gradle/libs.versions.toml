@@ -1,0 +1,41 @@
+[versions]
+accompanist = "0.23.0"
+koin-androidx-compose = "3.2.2"
+coil = "2.2.2"
+lifecycle = "2.6.0-alpha01"
+paging = "1.0.0-alpha17"
+work-manager = "2.7.1"
+compose-ui = "1.3.1"
+constraintlayout-compose = "1.0.1"
+activity-compose = "1.6.1"
+joda-time = "2.12.2"
+androidx-startup = "1.1.1"
+
+
+[libraries]
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin-androidx-compose" }
+coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+coil-gif = { module = "io.coil-kt:coil-gif", version.ref = "coil" }
+accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist" }
+accompanist-flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
+accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
+accompanist-navigation-animation = { module = "com.google.accompanist:accompanist-navigation-animation", version.ref = "accompanist" }
+accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
+androidx-startup = { module = "androidx.startup:startup-runtime", version.ref = "androidx-startup" }
+androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
+androidx-work-manager = { module = "androidx.work:work-runtime-ktx", version.ref = "work-manager" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-ui" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-ui" }
+compose-ui-util = { module = "androidx.compose.ui:ui-util", version.ref = "compose-ui" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
+compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose-ui" }
+compose-material = { module = "androidx.compose.material:material", version.ref = "compose-ui" }
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayout-compose" }
+joda-time = { module = "joda-time:joda-time", version.ref = "joda-time" }
+
+[bundles]
+
+[plugins]

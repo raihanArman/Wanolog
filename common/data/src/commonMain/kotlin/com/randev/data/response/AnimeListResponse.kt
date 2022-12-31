@@ -13,15 +13,15 @@ data class AnimeListResponse(
     @Serializable
     data class Data(
         @SerialName("attributes")
-        val attributes: Attributes?,
+        val attributes: Attributes? = null,
         @SerialName("id")
-        val id: String?,
+        val id: String? = null,
         @SerialName("links")
-        val links: Links?,
+        val links: Links? = null,
         @SerialName("relationships")
-        val relationships: Relationships?,
+        val relationships: Relationships? = null,
         @SerialName("type")
-        val type: String?
+        val type: String? = null
     ) {
         @Serializable
         data class Attributes(

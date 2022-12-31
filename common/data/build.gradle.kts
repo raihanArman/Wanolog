@@ -33,10 +33,22 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+                implementation("junit:junit:4.13.2")
+                implementation("io.mockk:mockk:1.13.2")
+                implementation("io.mockk:mockk-common:1.12.1")
+//                implementation( "org.mockito:mockito-inline:4.6.0")
+//                implementation("org.mockito:mockito-core:4.6.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+                implementation(Dependencies.koinTest)
             }
         }
         val androidMain by getting
-        val androidTest by getting
+        val androidTest by getting {
+            dependencies {
+                implementation("io.mockk:mockk-jvm:1.13.2")
+            }
+
+        }
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting

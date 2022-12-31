@@ -26,7 +26,7 @@ class AnimeRepositoryImpl(
     override suspend fun getAnimeAll(page: Int): Flow<Resource<AnimeListModel>> {
         return object : NetworkResource<AnimeListModel>() {
             override suspend fun remoteFetch(): AnimeListModel {
-                val request = api.fetchAnimeAll(page*20)
+                val request = api.fetchAnimeAll(page)
                 return mapper.map(request)
             }
         }.asFlow()

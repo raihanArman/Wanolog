@@ -233,7 +233,7 @@ fun FavoriteTab(
     selectedTab: FavoriteTabEnum
 ) {
     val inactiveColor = Color(0xFF919191)
-    val pagerState = rememberPagerState(pageCount = 3)
+    val pagerState = rememberPagerState(initialPage = 3)
     val scope = rememberCoroutineScope()
 
     TabRow(
