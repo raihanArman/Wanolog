@@ -1,15 +1,10 @@
 package com.randev.data.repository
 
 import com.randev.core.wrapper.Resource
-import com.randev.data.datasource.local.AnimeFavoriteDataSource
 import com.randev.data.datasource.local.QuoteFavoriteDataSource
-import com.randev.data.mapper.AnimeFavoriteMapper
 import com.randev.data.mapper.QuoteFavoriteMapper
-import com.randev.domain.model.AnimeFavoriteModel
 import com.randev.domain.model.QuoteFavoriteModel
-import com.randev.domain.repository.AnimeFavoriteRepository
 import com.randev.domain.repository.QuoteFavoriteRepository
-import com.randev.wanolog.db.AnimeFavoriteEntity
 import com.randev.wanolog.db.QuoteFavoriteEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

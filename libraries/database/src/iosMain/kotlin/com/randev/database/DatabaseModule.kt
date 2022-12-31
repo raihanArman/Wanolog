@@ -1,6 +1,6 @@
 package com.randev.database
 
-import com.randev.wanolog.db.WanologDatabase
+import com.randev.kiiroi.db.WanologDatabase
 import com.squareup.sqldelight.drivers.native.NativeSqliteDriver
 import org.koin.dsl.module
 

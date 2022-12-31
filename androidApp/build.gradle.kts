@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "com.randev.wanolog.android"
+    namespace = "com.randev.kiiroi.android"
     compileSdk = 33
     defaultConfig {
-        applicationId = "com.randev.wanolog.android"
+        applicationId = "com.randev.kiiroi.android"
         minSdk = 23
         targetSdk = 33
         versionCode = 1

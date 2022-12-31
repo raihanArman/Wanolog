@@ -1,7 +1,5 @@
 package com.randev.data.datasource.local
 
-import com.randev.wanolog.db.AnimeFavoriteEntity
-import com.randev.wanolog.db.MangaFavoriteEntity
 import com.randev.wanolog.db.QuoteFavoriteEntity
 import com.randev.wanolog.db.WanologDatabase
 

@@ -9,7 +9,8 @@
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".application.WanologApp">
+        android:label="@string/name_app"
+        android:name=".application.KiiroiApp">
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -20,7 +21,7 @@
         </activity>
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.randev.wanolog.android"
+            android:authorities="com.randev.kiiroi.android"
             android:exported="false"
             android:grantUriPermissions="true">
 

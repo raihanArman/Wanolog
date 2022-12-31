@@ -1,11 +1,7 @@
 package com.randev.data.mapper
 
 import com.randev.core.arch.BaseMapper
-import com.randev.domain.model.AnimeFavoriteModel
-import com.randev.domain.model.MangaFavoriteModel
 import com.randev.domain.model.QuoteFavoriteModel
-import com.randev.wanolog.db.AnimeFavoriteEntity
-import com.randev.wanolog.db.MangaFavoriteEntity
 import com.randev.wanolog.db.QuoteFavoriteEntity
 
 /**
