@@ -23,6 +23,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.randev.movieapp_kmm.android.composable.style.MovieAppTheme
@@ -71,6 +74,10 @@ fun AnimeScreen(
                         style = MovieAppTheme.typography.bold
                     )
                     TextButtonCustom(
+                        modifier = Modifier
+                            .semantics {
+                                contentDescription = "See All"
+                            },
                         text = "See All",
                         onClick = viewModel::onNavigateToAnimeAll
                     )
@@ -145,7 +152,7 @@ fun TrendingSection(state: AnimeState, onClick: (String) -> Unit ) {
     state.trendingData?.let {
         AnimeAllSection(
             data = it,
-            onClick = onClick
+            onClick = onClick,
         )
     }
 }

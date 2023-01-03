@@ -4,12 +4,15 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.SizeMode
 import com.randev.domain.model.AnimeListModel
+import com.randev.kiiroi.android.utils.DASHBOARD_ANIME_CONTENT_TAG
+import com.randev.kiiroi.android.utils.ITEM_CARD_TAG
 
 /**
  * @author Raihan Arman
@@ -25,6 +28,8 @@ fun AnimeAllSection(
 ) {
     val itemSize: Dp = (LocalConfiguration.current.screenWidthDp.dp / 2)
     FlowRow(
+        modifier = modifier
+            .testTag(DASHBOARD_ANIME_CONTENT_TAG),
         mainAxisSize = SizeMode.Expand,
         mainAxisAlignment = FlowMainAxisAlignment.SpaceBetween,
         crossAxisSpacing = 10.dp
@@ -34,7 +39,7 @@ fun AnimeAllSection(
                 id = it.id,
                 title = it.attributes.titles.enJp,
                 image = it.attributes.posterImage.original,
-                modifier = Modifier.width(itemSize - 30.dp),
+                modifier = Modifier.width(itemSize - 30.dp).testTag(ITEM_CARD_TAG),
                 onClick = onClick,
                 rating = it.attributes.averageRating
             )

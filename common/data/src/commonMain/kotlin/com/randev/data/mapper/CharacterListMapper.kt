@@ -17,7 +17,9 @@ class CharacterListMapper: BaseMapper<CharacterListResponse, CharacterListModel>
             data = value.data?.map {
                 it.mapToModel()
             } ?: emptyList()
-        )
+        ).apply {
+            status = true
+        }
     }
 }
 

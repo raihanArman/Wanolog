@@ -12,6 +12,8 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         getByName("release") {
@@ -66,4 +68,9 @@ dependencies {
     implementation(libs.activity.compose)
 
     implementation(libs.joda.time)
+
+    androidTestImplementation(libs.compose.ui.test)
+// Needed for createAndroidComposeRule, but not createComposeRule:
+    debugImplementation(libs.compose.ui.test.manifest)
+
 }

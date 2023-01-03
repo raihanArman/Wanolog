@@ -1,5 +1,7 @@
 package com.randev.domain.model
 
+import com.randev.core.arch.BaseModel
+
 /**
  * @author Raihan Arman
  * @date 07/12/22
@@ -13,7 +15,7 @@ data class EmbedModel(
     val title: String,
     val url: String,
     val video: Video
-) {
+): BaseModel() {
     data class Image(
         val height: Int,
         val url: String,

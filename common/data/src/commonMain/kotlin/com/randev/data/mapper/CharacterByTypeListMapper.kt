@@ -21,7 +21,9 @@ class CharacterByTypeListMapper: BaseMapper<CharacterByTypeListResponse, Charact
         } ?: emptyList()
         return CharacterListModel(
             data = included
-        )
+        ).apply {
+            status = true
+        }
     }
 
 }

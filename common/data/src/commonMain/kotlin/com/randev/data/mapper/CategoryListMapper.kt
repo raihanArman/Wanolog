@@ -15,7 +15,9 @@ class CategoryListMapper: BaseMapper<CategoryListResponse, CategoryListModel>() 
             data = value.data?.map {
                 it.mapToModel()
             } ?: emptyList()
-        )
+        ).apply {
+            status = true
+        }
     }
 }
 

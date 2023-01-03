@@ -1,5 +1,6 @@
 package com.randev.core.wrapper
 
+import com.randev.core.arch.BaseModel
 import com.randev.core.exception.ErrorCodesMapper
 import com.randev.core.exception.NetworkCodes
 import io.ktor.utils.io.errors.*
@@ -16,14 +17,22 @@ sealed class ResultWrapper<out T> {
     data class GenericError(val code: Int, val message: String? = null) : ResultWrapper<Nothing>()
 }
 
-internal suspend fun <T> safeApiCall(
+internal suspend fun <T: BaseModel> safeApiCall(
     dispatcher: CoroutineDispatcher,
     apiCall: suspend () -> T?
 ): ResultWrapper<T?> {
     return withContext(dispatcher) {
         try {
             val call = apiCall.invoke()
-            ResultWrapper.Success(call)
+            when (call?.status) {
+                true -> ResultWrapper.Success(call)
+                else -> {
+                    ResultWrapper.GenericError(
+                        code = 0,
+                        message = "Something went error"
+                    )
+                }
+            }
         } catch (throwable: Throwable) {
             throwable.printStackTrace()
             when (throwable) {

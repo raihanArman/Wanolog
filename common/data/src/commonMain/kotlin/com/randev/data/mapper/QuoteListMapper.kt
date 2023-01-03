@@ -25,7 +25,9 @@ class QuoteListMapper(
                     val favorite = favoriteDataSource.getFavoriteByQuote(it.quote.orEmpty())
                     isFavorite = favorite != null
                 }
-            } ?: emptyList()
-        )
+            }
+        ).apply {
+            status = true
+        }
     }
 }

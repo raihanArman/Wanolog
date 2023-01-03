@@ -8,6 +8,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
+import androidx.glance.ImageProvider
 import androidx.glance.action.ActionParameters
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.GlanceAppWidget
@@ -43,9 +44,7 @@ class QuoteWidget : GlanceAppWidget() {
         Column(
             modifier = GlanceModifier
                 .fillMaxSize()
-                .appWidgetBackground()
-                .background(R.color.widget_background_color)
-                .cornerRadius(20.dp)
+                .background(ImageProvider(R.drawable.background_widget))
                 .clickable(actionRunCallback<ActionUpdate>()),
         ) {
             Text(

@@ -18,7 +18,9 @@ class ReviewListMapper: BaseMapper<ReviewListResponse, ReviewListModel>() {
             data = value.data?.map {
                 it.mapToModel(value.included)
             } ?: emptyList()
-        )
+        ).apply {
+            status = true
+        }
     }
 }
 

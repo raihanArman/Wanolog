@@ -17,7 +17,9 @@ class UserListMapper: BaseMapper<UserListResponse, UserListModel>() {
             data = value.data?.map {
                 it.mapToModel()
             } ?: emptyList()
-        )
+        ).apply {
+            status = true
+        }
     }
 }
 

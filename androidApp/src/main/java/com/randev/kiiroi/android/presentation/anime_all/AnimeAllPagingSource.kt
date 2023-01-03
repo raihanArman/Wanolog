@@ -20,7 +20,7 @@ class AnimeAllPagingSource(
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, AnimeListModel.AnimeModel> {
         val currentPage = params.key ?: 0
-        return when(val response = useCase.invoke(currentPage).last()) {
+        return when(val response = useCase.invoke(currentPage*20).last()) {
             is Resource.Success -> {
                 val data = response.model?.data ?: emptyList()
                 val endOfPaginationReached = data.isEmpty()

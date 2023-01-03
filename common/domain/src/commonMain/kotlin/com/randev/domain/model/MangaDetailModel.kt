@@ -1,5 +1,7 @@
 package com.randev.domain.model
 
+import com.randev.core.arch.BaseModel
+
 /**
  * @author Raihan Arman
  * @date 27/11/22
@@ -11,7 +13,7 @@ data class MangaDetailModel(
     val reviews: List<ReviewModel>,
     val relates: List<RelatedModel>,
     var isFavorite: Boolean = false,
-) {
+): BaseModel() {
     data class MangaModel(
         val attributes: AttributesModel,
         val id: String,

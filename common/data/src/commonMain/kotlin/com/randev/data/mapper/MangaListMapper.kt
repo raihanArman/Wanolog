@@ -18,7 +18,9 @@ class MangaListMapper: BaseMapper<MangaListResponse, MangaListModel>() {
             data = value.data?.map {
                 it.mapToModel()
             } ?: emptyList()
-        )
+        ).apply {
+            status = true
+        }
     }
 }
 

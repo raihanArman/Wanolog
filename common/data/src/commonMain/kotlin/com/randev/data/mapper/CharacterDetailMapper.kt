@@ -22,7 +22,9 @@ class CharacterDetailMapper: BaseMapper<CharacterDetailResponse, CharacterDetail
         return CharacterDetailModel(
             data = value.data.mapToModel(),
             voices = voices
-        )
+        ).apply {
+            status = true
+        }
     }
 }
 

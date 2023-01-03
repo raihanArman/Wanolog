@@ -13,12 +13,13 @@ import com.randev.domain.model.TitlesModel
  */
 class AnimeListMapper: BaseMapper<AnimeListResponse, AnimeListModel>() {
     override fun map(value: AnimeListResponse): AnimeListModel {
-        println("Value ->>>> $value")
         return AnimeListModel(
             data = value.data?.map {
                 it.mapToModel()
             } ?: emptyList()
-        )
+        ).apply {
+            status = true
+        }
     }
 }
 

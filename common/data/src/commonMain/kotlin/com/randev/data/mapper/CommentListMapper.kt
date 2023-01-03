@@ -18,7 +18,9 @@ class CommentListMapper: BaseMapper<CommentListResponse, CommentListModel>() {
             data = value.data?.map {
                 it.mapToModel(value.included)
             } ?: emptyList()
-        )
+        ).apply {
+            status = true
+        }
     }
 }
 

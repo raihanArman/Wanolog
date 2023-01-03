@@ -1,5 +1,7 @@
 package com.randev.domain.model
 
+import com.randev.core.arch.BaseModel
+
 /**
  * @author Raihan Arman
  * @date 05/12/22
@@ -8,7 +10,7 @@ data class UserModel(
     val attributes: AttributesUser,
     val id: String,
     val type: String
-)
+): BaseModel()
 
 data class AttributesUser(
     val about: String,

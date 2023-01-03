@@ -11,6 +11,7 @@ import kotlinx.serialization.Serializable
 open class BaseModel {
     val links: LinksModel = LinksModel()
     val meta: MetaModel = MetaModel()
+    var status: Boolean = false
 }
 
 data class LinksModel(

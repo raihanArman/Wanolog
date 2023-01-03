@@ -1,12 +1,14 @@
 package com.randev.domain.model
 
+import com.randev.core.arch.BaseModel
+
 /**
  * @author Raihan Arman
  * @date 08/12/22
  */
 data class CommentListModel(
     val data: List<CommentModel>
-) {
+): BaseModel() {
     data class CommentModel(
         val attributes: AttributesModel,
         val id: String,

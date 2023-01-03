@@ -32,6 +32,8 @@ compose-ui-util = { module = "androidx.compose.ui:ui-util", version.ref = "compo
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose-ui" }
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose-ui" }
+compose-ui-test = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose-ui" }
+compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose-ui" }
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
 constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayout-compose" }
 joda-time = { module = "joda-time:joda-time", version.ref = "joda-time" }

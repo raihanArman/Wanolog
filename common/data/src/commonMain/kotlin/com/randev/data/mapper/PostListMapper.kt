@@ -17,7 +17,9 @@ class PostListMapper: BaseMapper<PostListResponse, PostListModel>() {
             data = value.data?.map {
                 it.mapToModel(value.included)
             } ?: emptyList()
-        )
+        ).apply {
+            status = true
+        }
     }
 }
 

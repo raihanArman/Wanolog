@@ -55,7 +55,9 @@ class AnimeDetailMapper: BaseMapper<AnimeDetailResponse, AnimeDetailModel>() {
             characters = characters,
             reviews = reviews,
             relates = relates
-        )
+        ).apply {
+            status = true
+        }
 
     }
 }

@@ -59,7 +59,9 @@ class MangaDetailMapper: BaseMapper<MangaDetailResponse, MangaDetailModel>() {
             characters = characters,
             reviews = reviews,
             relates = relates
-        )
+        ).apply {
+            status = true
+        }
     }
 }
 

@@ -15,6 +15,8 @@ class AnimeFavoriteMapper: BaseMapper<AnimeFavoriteEntity, AnimeFavoriteModel>()
             title = value.title,
             poster = value.poster,
             rate = value.rate.toFloat().toInt()
-        )
+        ).apply {
+            status = true
+        }
     }
 }

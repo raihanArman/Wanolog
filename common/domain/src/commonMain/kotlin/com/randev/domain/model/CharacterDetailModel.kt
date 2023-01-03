@@ -1,5 +1,7 @@
 package com.randev.domain.model
 
+import com.randev.core.arch.BaseModel
+
 /**
  * @author Raihan Arman
  * @date 28/11/22
@@ -7,7 +9,7 @@ package com.randev.domain.model
 data class CharacterDetailModel(
     val data: CharacterModel,
     val voices: List<Voices>
-) {
+): BaseModel() {
     data class CharacterModel(
         val attributes: AttributesModel,
         val id: String,

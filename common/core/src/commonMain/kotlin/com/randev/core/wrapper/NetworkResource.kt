@@ -1,5 +1,6 @@
 package com.randev.core.wrapper
 
+import com.randev.core.arch.BaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -9,7 +10,7 @@ import kotlinx.coroutines.withContext
  * @author Raihan Arman
  * @date 11/10/22
  */
-abstract class NetworkResource<T>() {
+abstract class NetworkResource<T: BaseModel>() {
 
     fun asFlow(): Flow<Resource<T>> = flow {
         // check if should fetch data from remote or not

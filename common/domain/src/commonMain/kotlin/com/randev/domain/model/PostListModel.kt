@@ -1,12 +1,14 @@
 package com.randev.domain.model
 
+import com.randev.core.arch.BaseModel
+
 /**
  * @author Raihan Arman
  * @date 07/12/22
  */
 data class PostListModel(
     val data: List<PostModel>
-) {
+): BaseModel() {
     data class PostModel(
         val attributes: AttributesModel,
         val id: String,
