@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:label="@string/name_app"
+        android:icon="@drawable/logo"
         android:name=".application.KiiroiApp">
         <activity
             android:name=".MainActivity"

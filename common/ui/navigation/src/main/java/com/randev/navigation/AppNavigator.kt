@@ -33,6 +33,12 @@ interface AppNavigator {
         inclusive: Boolean = false,
         isSingleTop: Boolean = false,
     )
+
+
+
+    fun tryNavigateAndReplaceStartRoute(
+        route: String,
+    )
 }
 
 sealed class NavigationIntent {
@@ -46,5 +52,8 @@ sealed class NavigationIntent {
         val popUpToRoute: String? = null,
         val inclusive: Boolean = false,
         val isSingleTop: Boolean = false,
+    ) : NavigationIntent()
+    data class NavigateAndReplace(
+        val route: String,
     ) : NavigationIntent()
 }

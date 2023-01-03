@@ -21,6 +21,7 @@ import com.randev.kiiroi.android.presentation.dashboard.DashboardScreen
 import com.randev.kiiroi.android.presentation.manga_all.MangaAllScreen
 import com.randev.kiiroi.android.presentation.manga_by_category.MangaByCategoryScreen
 import com.randev.kiiroi.android.presentation.manga_detail.MangaDetailScreen
+import com.randev.kiiroi.android.presentation.splash_screen.SplashScreen
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import org.koin.androidx.compose.getViewModel
@@ -43,8 +44,11 @@ fun MainScreen(
 
     NavHostApp(
         navController = navController,
-        startDestination = Destination.DashboardScreen
+        startDestination = Destination.SplashScreen
     ){
+        composable(Destination.SplashScreen){
+            SplashScreen()
+        }
         composable(Destination.DashboardScreen){
             DashboardScreen()
         }
@@ -107,6 +111,13 @@ fun NavigationEffects(
                                 inclusive = intent.inclusive
                             }
                         }
+                    }
+                }
+                is NavigationIntent.NavigateAndReplace -> {
+                    navHostController.apply {
+                        popBackStack(graph.startDestinationId, true)
+                        graph.setStartDestination(intent.route)
+                        navigate(intent.route)
                     }
                 }
             }

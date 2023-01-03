@@ -16,6 +16,7 @@ sealed class Destination(protected val route: String, vararg params: String) {
         operator fun invoke(): String = route
     }
 
+    object SplashScreen : NoArgumentsDestination("Splash")
     object DashboardScreen : NoArgumentsDestination("dashboard")
 
     object AnimeDetailScreen : Destination("anime_detail", "anime_id") {

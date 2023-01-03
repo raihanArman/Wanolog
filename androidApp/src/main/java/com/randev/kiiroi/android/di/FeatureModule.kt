@@ -22,6 +22,7 @@ import com.randev.kiiroi.android.presentation.manga_by_category.MangaByCategoryV
 import com.randev.kiiroi.android.presentation.manga_detail.MangaDetailViewModel
 import com.randev.kiiroi.android.presentation.review_anime.ReviewsAnimeViewModel
 import com.randev.kiiroi.android.presentation.review_manga.ReviewsMangaViewModel
+import com.randev.kiiroi.android.presentation.splash_screen.SplashViewModel
 import com.randev.kiiroi.android.utils.SharingCommentAttr
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -116,5 +117,8 @@ val featureModule = module {
     }
     viewModel {
         QuoteDialogViewModel(get(), get(), get())
+    }
+    viewModel {
+        SplashViewModel(get())
     }
 }

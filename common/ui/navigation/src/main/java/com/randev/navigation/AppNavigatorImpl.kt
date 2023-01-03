@@ -64,4 +64,10 @@ class AppNavigatorImpl: AppNavigator {
         )
     }
 
+    override fun tryNavigateAndReplaceStartRoute(route: String) {
+        navigationChannel.trySend(
+            NavigationIntent.NavigateAndReplace(route)
+        )
+    }
+
 }
