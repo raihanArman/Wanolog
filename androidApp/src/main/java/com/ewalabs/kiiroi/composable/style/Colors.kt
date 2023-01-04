@@ -1,4 +1,4 @@
-package com.ewalabs.movieapp_kmm.android.composable.style
+package com.ewalabs.kiiroi.composable.style
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
@@ -25,20 +25,20 @@ object Colors {
 }
 
 @Immutable
-data class MovieComposeColorsDark(
+data class KiiroiComposeColorsDark(
     override val colorPrimary: Color = Colors.charlestonGreen,
     override val colorAccent: Color = Colors.sunGlow,
     override val colorPrimaryDark: Color = Colors.black,
     override val colorTextPrimary: Color = Colors.white,
     override val colorTextSecondary: Color = Colors.white.asDisabledColor()
-) : BaseMovieComposeColors()
+) : BaseKiiroiComposeColors()
 
 
 @Immutable
-data class MovieComposeColorsLight(
+data class KiiroiComposeColorsLight(
     override val colorPrimary: Color = Colors.charlestonGreen,
     override val colorAccent: Color = Colors.sunGlow,
     override val colorPrimaryDark: Color = Colors.black,
     override val colorTextPrimary: Color = Colors.white,
     override val colorTextSecondary: Color = Colors.white.asDisabledColor()
-) : BaseMovieComposeColors()
+) : BaseKiiroiComposeColors()

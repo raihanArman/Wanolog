@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.ewalabs.kiiroi.android.presentation.dashboard.characters.CharacterItem
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.utils.items
 import org.koin.androidx.compose.getViewModel
 
@@ -47,7 +47,7 @@ fun CharactersScreen(
                     text = "Characters",
                     fontSize = 24.sp,
                     color = Color.White,
-                    style = MovieAppTheme.typography.bold
+                    style = KiiroiAppTheme.typography.bold
                 )
             }
             items(paging) { data ->

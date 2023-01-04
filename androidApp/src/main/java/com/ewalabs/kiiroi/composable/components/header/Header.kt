@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 
 /**
  * @author Raihan Arman
@@ -33,7 +33,7 @@ fun Header(
             text = text,
             color = Color.White,
             fontSize = 20.sp,
-            style = MovieAppTheme.typography.bold,
+            style = KiiroiAppTheme.typography.bold,
         )
         actions()
     }

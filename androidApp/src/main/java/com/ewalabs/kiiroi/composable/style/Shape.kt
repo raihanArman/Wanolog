@@ -1,4 +1,4 @@
-package com.ewalabs.movieapp_kmm.android.composable.style
+package com.ewalabs.kiiroi.composable.style
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

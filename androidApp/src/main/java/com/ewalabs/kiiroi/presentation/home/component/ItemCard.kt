@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ewalabs.movieapp_kmm.android.composable.components.image.BaseImageView
 import com.ewalabs.movieapp_kmm.android.composable.components.space.HorizontalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import kotlin.math.roundToInt
 
 /**
@@ -88,7 +88,7 @@ fun ItemCard(
                                 Text(
                                     text = rate.toString(),
                                     color = Color.White,
-                                    style = MovieAppTheme.typography.medium,
+                                    style = KiiroiAppTheme.typography.medium,
                                     fontSize = 10.sp
                                 )
                             }
@@ -110,7 +110,7 @@ fun ItemCard(
                         .padding(10.dp)
                         .fillMaxWidth(),
                     color = Color.White,
-                    style = MovieAppTheme.typography.bold,
+                    style = KiiroiAppTheme.typography.bold,
                 )
             }
         }

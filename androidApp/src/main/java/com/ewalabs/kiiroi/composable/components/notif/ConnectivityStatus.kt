@@ -26,8 +26,8 @@ import androidx.compose.ui.unit.sp
 import com.ewalabs.core.connectivity.ConnectionState
 import com.ewalabs.kiiroi.R
 import com.ewalabs.movieapp_kmm.android.composable.components.space.HorizontalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.Colors.greenNotification
-import com.ewalabs.movieapp_kmm.android.composable.style.Colors.redNotification
+import com.ewalabs.kiiroi.composable.style.Colors.greenNotification
+import com.ewalabs.kiiroi.composable.style.Colors.redNotification
 import com.ewalabs.kiiroi.utils.connectivityState
 import kotlinx.coroutines.delay
 

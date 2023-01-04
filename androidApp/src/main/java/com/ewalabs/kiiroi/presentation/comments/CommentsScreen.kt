@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.sp
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.composable.components.progressCircular.ProgressCircularComponent
 import com.ewalabs.kiiroi.presentation.comments.components.ItemComment
 import com.ewalabs.kiiroi.utils.SheetHandler
@@ -71,7 +71,7 @@ fun CommentsScreen(
                             text = "Comments",
                             fontSize = 16.sp,
                             color = Color.White,
-                            style = MovieAppTheme.typography.medium
+                            style = KiiroiAppTheme.typography.medium
                         )
                     }
                     items(data) { comment ->

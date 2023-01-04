@@ -25,7 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.composable.components.button.TextButtonCustom
 import com.ewalabs.kiiroi.composable.components.progressCircular.ProgressCircularComponent
 import com.ewalabs.kiiroi.presentation.home.ContentStatus
@@ -51,7 +51,7 @@ fun MangaScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(MovieAppTheme.colors.colorPrimary),
+            .background(KiiroiAppTheme.colors.colorPrimary),
     ) {
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(20.dp)
@@ -68,7 +68,7 @@ fun MangaScreen(
                         text = "Manga",
                         fontSize = 24.sp,
                         color = Color.White,
-                        style = MovieAppTheme.typography.bold
+                        style = KiiroiAppTheme.typography.bold
                     )
                     TextButtonCustom(
                         text = "See All",

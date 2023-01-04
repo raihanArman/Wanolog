@@ -5,7 +5,7 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import com.ewalabs.kiiroi.presentation.dashboard.anime.AnimeScreen
 import com.ewalabs.kiiroi.utils.ITEM_CARD_TAG
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import org.junit.Rule
 import org.junit.Test
 
@@ -20,7 +20,7 @@ class DetailAnimeScreenTest {
     @Test
     fun testCompareWithDetailContent() {
         composeTestRule.setContent {
-            MovieAppTheme {
+            KiiroiAppTheme {
                 AnimeScreen()
 //                AnimeAllSection(
 //                    data = fakeDataAnime(),

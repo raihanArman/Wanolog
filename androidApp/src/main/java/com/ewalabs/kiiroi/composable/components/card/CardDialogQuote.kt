@@ -35,7 +35,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.ewalabs.domain.model.QuoteListModel
 import com.ewalabs.movieapp_kmm.android.composable.components.space.VerticalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.presentation.dashboard.quote.QuoteDialogViewModel
 import com.ewalabs.kiiroi.utils.ImageUtils
 import com.ewalabs.kiiroi.utils.IntentUtils
@@ -192,14 +192,14 @@ fun CardDialogQuote(
             ) {
                 Text(
                     text = quote.anime,
-                    style = MovieAppTheme.typography.bold,
+                    style = KiiroiAppTheme.typography.bold,
                     color = Color.White,
                     fontSize = 16.sp,
                     textAlign = TextAlign.Center
                 )
                 Text(
                     text = quote.character,
-                    style = MovieAppTheme.typography.bold,
+                    style = KiiroiAppTheme.typography.bold,
                     color = Color.White,
                     fontStyle = FontStyle.Italic,
                     fontSize = 14.sp,
@@ -208,7 +208,7 @@ fun CardDialogQuote(
                 VerticalSpacer(height = 16.dp)
                 Text(
                     text = quote.quote,
-                    style = MovieAppTheme.typography.light,
+                    style = KiiroiAppTheme.typography.light,
                     color = Color.White,
                     fontStyle = FontStyle.Italic,
                     fontSize = 20.sp,

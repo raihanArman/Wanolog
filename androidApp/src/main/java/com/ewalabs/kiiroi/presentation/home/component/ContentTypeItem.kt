@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.presentation.home.ContentType
 
 /**
@@ -42,7 +42,7 @@ fun ContentTypeItem(
                 text = contentTypeCurrent.value,
                 color = Color.White,
                 fontSize = 16.sp,
-                style = MovieAppTheme.typography.medium,
+                style = KiiroiAppTheme.typography.medium,
                 modifier = Modifier.padding(
                     start = 16.dp,
                     end = 16.dp,
@@ -55,7 +55,7 @@ fun ContentTypeItem(
         Text(text = contentTypeCurrent.value,
             color = Color.White,
             fontSize = 16.sp,
-            style = MovieAppTheme.typography.medium,
+            style = KiiroiAppTheme.typography.medium,
             modifier = Modifier
                 .padding(
                     start = 16.dp,
@@ -73,7 +73,7 @@ fun ContentTypeItem(
 @Preview
 @Composable
 fun PreviewContentType() {
-    MovieAppTheme {
+    KiiroiAppTheme {
         Row() {
             ContentTypeItem(
                 contentTypeCurrent = ContentType.ANIME,

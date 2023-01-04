@@ -34,8 +34,8 @@ import androidx.compose.ui.unit.sp
 import com.ewalabs.domain.model.CharacterListModel
 import com.ewalabs.movieapp_kmm.android.composable.components.image.BaseImageView
 import com.ewalabs.movieapp_kmm.android.composable.components.space.VerticalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.Colors
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.Colors
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 
 /**
  * @author Raihan Arman
@@ -83,7 +83,7 @@ fun CharacterItem(
                 text = data.attributes.names.en,
                 fontSize = 12.sp,
                 color = Color.White,
-                style = MovieAppTheme.typography.bold,
+                style = KiiroiAppTheme.typography.bold,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth(),
@@ -95,7 +95,7 @@ fun CharacterItem(
                     text = data.attributes.otherNames[0].orEmpty(),
                     fontSize = 10.sp,
                     color = Color.White,
-                    style = MovieAppTheme.typography.medium,
+                    style = KiiroiAppTheme.typography.medium,
                     textAlign = TextAlign.Center,
                     modifier = Modifier
                         .fillMaxWidth(),
@@ -110,7 +110,7 @@ fun CharacterItem(
 @Preview
 @Composable
 fun CharacterItemPreview() {
-    MovieAppTheme {
+    KiiroiAppTheme {
 //        CharacterItem()
     }
 }

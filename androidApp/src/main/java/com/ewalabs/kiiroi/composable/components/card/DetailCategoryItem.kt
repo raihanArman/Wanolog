@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.ewalabs.domain.model.CategoryModel
-import com.ewalabs.movieapp_kmm.android.composable.style.Colors
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.Colors
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 
 /**
  * @author Raihan Arman
@@ -34,7 +34,7 @@ fun DetailCategoryItem(
         Text(
             text = category.title,
             color = Color.Gray,
-            style = MovieAppTheme.typography.medium,
+            style = KiiroiAppTheme.typography.medium,
             modifier = Modifier
                 .padding(start = 15.dp, end = 15.dp, top = 8.dp, bottom = 8.dp)
         )

@@ -18,7 +18,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.R
 import com.ewalabs.kiiroi.presentation.comments.CommentsScreen
 import com.ewalabs.kiiroi.presentation.dashboard.anime.AnimeScreen
@@ -118,7 +118,7 @@ fun DashboardScreen(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(MovieAppTheme.colors.colorPrimary)
+                    .background(KiiroiAppTheme.colors.colorPrimary)
                     .padding(bottom = it.calculateBottomPadding())
             ) {
                 NavHost(

@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.sp
 import com.ewalabs.core.SortType
 import com.ewalabs.core.listOfSort
 import com.ewalabs.movieapp_kmm.android.composable.components.space.VerticalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.composable.components.button.PrimaryButton
 import com.ewalabs.kiiroi.utils.SheetHandler
 
@@ -55,7 +55,7 @@ fun FilterBottomDialog(
                 ) {
                     Text(
                         text = "Sort",
-                        style = MovieAppTheme.typography.bold,
+                        style = KiiroiAppTheme.typography.bold,
                         color = Color.White,
                         fontSize = 24.sp
                     )
@@ -74,7 +74,7 @@ fun FilterBottomDialog(
                                 modifier = Modifier
                                     .weight(1f),
                                 color = Color.White,
-                                style = MovieAppTheme.typography.medium,
+                                style = KiiroiAppTheme.typography.medium,
                                 fontSize = 16.sp
                             )
                             RadioButton(
@@ -83,7 +83,7 @@ fun FilterBottomDialog(
                                     onOptionSelected(sortType)
                                 },
                                 colors = RadioButtonDefaults.colors(
-                                    selectedColor = MovieAppTheme.colors.colorAccent,
+                                    selectedColor = KiiroiAppTheme.colors.colorAccent,
                                     unselectedColor = Color.White,
                                 )
                             )

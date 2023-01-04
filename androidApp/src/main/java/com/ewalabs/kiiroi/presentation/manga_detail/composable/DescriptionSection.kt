@@ -46,7 +46,7 @@ import com.ewalabs.domain.model.MangaDetailModel
 import com.ewalabs.movieapp_kmm.android.composable.components.image.BaseImageView
 import com.ewalabs.movieapp_kmm.android.composable.components.space.HorizontalSpacer
 import com.ewalabs.movieapp_kmm.android.composable.components.space.VerticalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.R
 import com.ewalabs.kiiroi.composable.components.button.BackButton
 import com.ewalabs.kiiroi.composable.components.icon.FavoriteIcon
@@ -96,7 +96,7 @@ fun DescriptionSection(
                         Brush.verticalGradient(
                             colorStops = arrayOf(
                                 Pair(0.4f, Color.Transparent),
-                                Pair(0.9f, MovieAppTheme.colors.colorPrimary)
+                                Pair(0.9f, KiiroiAppTheme.colors.colorPrimary)
                             )
                         )
                     )
@@ -139,7 +139,7 @@ fun DescriptionSection(
             VerticalSpacer(height = 320.dp)
             Text(
                 text = content.data.attributes.titles.enJp,
-                style = MovieAppTheme.typography.bold,
+                style = KiiroiAppTheme.typography.bold,
                 color = Color.White,
                 fontSize = 26.sp
             )
@@ -151,7 +151,7 @@ fun DescriptionSection(
             ) {
                 Text(
                     text = content.data.attributes.mangaType.typeManga(context),
-                    style = MovieAppTheme.typography.medium,
+                    style = KiiroiAppTheme.typography.medium,
                     color = Color.Gray,
                     fontSize = 14.sp
                 )
@@ -171,7 +171,7 @@ fun DescriptionSection(
                             content.data.attributes.startDate,
                             content.data.attributes.endDate
                         ),
-                        style = MovieAppTheme.typography.medium,
+                        style = KiiroiAppTheme.typography.medium,
                         color = Color.Gray,
                         fontSize = 14.sp
                     )
@@ -189,7 +189,7 @@ fun DescriptionSection(
                     HorizontalSpacer(width = 8.dp)
                     Text(
                         text = content.data.attributes.ageRatingGuide.ifEmpty { content.data.attributes.ageRating },
-                        style = MovieAppTheme.typography.medium,
+                        style = KiiroiAppTheme.typography.medium,
                         color = Color.Gray,
                         fontSize = 14.sp
                     )
@@ -199,7 +199,7 @@ fun DescriptionSection(
             VerticalSpacer(height = 20.dp)
             Text(
                 text = content.data.attributes.description,
-                style = MovieAppTheme.typography.medium,
+                style = KiiroiAppTheme.typography.medium,
                 color = Color.White,
                 fontSize = 14.sp,
                 maxLines = if (!expanded) 4 else 20,

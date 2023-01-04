@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 
 /**
  * @author Raihan Arman
@@ -24,11 +24,11 @@ fun OutlineButtonCustom(
         modifier = modifier
             .height(56.dp),
         colors = ButtonDefaults.outlinedButtonColors(
-            contentColor = MovieAppTheme.colors.colorAccent,
+            contentColor = KiiroiAppTheme.colors.colorAccent,
             backgroundColor = Color.Transparent
         ),
         onClick = onClick,
-        border = BorderStroke(1.dp, MovieAppTheme.colors.colorAccent)
+        border = BorderStroke(1.dp, KiiroiAppTheme.colors.colorAccent)
     ) {
         content()
     }

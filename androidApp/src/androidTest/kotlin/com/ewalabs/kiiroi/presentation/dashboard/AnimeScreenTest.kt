@@ -10,7 +10,7 @@ import androidx.compose.ui.test.onNodeWithTag
 import com.ewalabs.kiiroi.android.presentation.home.component.AnimeAllSection
 import com.ewalabs.kiiroi.utils.DASHBOARD_ANIME_CONTENT_TAG
 import com.ewalabs.kiiroi.data.fakeDataAnime
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import org.junit.Rule
 import org.junit.Test
 
@@ -26,7 +26,7 @@ class AnimeScreenTest {
     @Test
     fun testAnimeIfDataIsEmpty() {
         composeTestRule.setContent {
-            MovieAppTheme {
+            KiiroiAppTheme {
                 AnimeAllSection(
                     data = emptyList(),
                     onClick = {}
@@ -42,7 +42,7 @@ class AnimeScreenTest {
     @Test
     fun testAnimeIdDataIsExist() {
         composeTestRule.setContent {
-            MovieAppTheme {
+            KiiroiAppTheme {
                 AnimeAllSection(
                     data = fakeDataAnime(),
                     onClick = {}
@@ -58,7 +58,7 @@ class AnimeScreenTest {
     @Test
     fun testCompareAnimeContent() {
         composeTestRule.setContent {
-            MovieAppTheme {
+            KiiroiAppTheme {
                 AnimeAllSection(
                     data = fakeDataAnime(),
                     onClick = {}

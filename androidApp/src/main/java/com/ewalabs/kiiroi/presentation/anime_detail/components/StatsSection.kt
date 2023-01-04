@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ewalabs.domain.model.AnimeDetailModel
 import com.ewalabs.movieapp_kmm.android.composable.components.space.HorizontalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.R
 
 /**
@@ -64,7 +64,7 @@ fun ItemStatsSection(
             Icon(
                painter = painterResource(id = R.drawable.ic_baseline_thumb_up_alt_24),
                contentDescription = null,
-               tint = MovieAppTheme.colors.colorAccent,
+               tint = KiiroiAppTheme.colors.colorAccent,
                modifier = Modifier
                    .size(30.dp)
             )
@@ -73,8 +73,8 @@ fun ItemStatsSection(
             Text(
                 text = "${Math.round(data.data.attributes.averageRating.toDouble())}%",
                 fontSize = 20.sp,
-                color = MovieAppTheme.colors.colorAccent,
-                style = MovieAppTheme.typography.bold
+                color = KiiroiAppTheme.colors.colorAccent,
+                style = KiiroiAppTheme.typography.bold
             )
 
         }
@@ -82,7 +82,7 @@ fun ItemStatsSection(
             text = "${data.data.attributes.favoritesCount} favorites",
             fontSize = 14.sp,
             color = Color.Gray,
-            style = MovieAppTheme.typography.medium
+            style = KiiroiAppTheme.typography.medium
         )
     }
 }
@@ -104,7 +104,7 @@ fun ItemPopularSection(
             Icon(
                 painter = painterResource(id = R.drawable.ic_baseline_equalizer_24),
                 contentDescription = null,
-                tint = MovieAppTheme.colors.colorAccent,
+                tint = KiiroiAppTheme.colors.colorAccent,
                 modifier = Modifier
                     .size(25.dp)
             )
@@ -113,14 +113,14 @@ fun ItemPopularSection(
                 text = "#${data.data.attributes.popularityRank}",
                 fontSize = 20.sp,
                 color = Color.Gray,
-                style = MovieAppTheme.typography.bold
+                style = KiiroiAppTheme.typography.bold
             )
         }
         Text(
             text = "Most Popular",
             fontSize = 12.sp,
             color = Color.Gray,
-            style = MovieAppTheme.typography.bold
+            style = KiiroiAppTheme.typography.bold
         )
     }
 }
@@ -142,7 +142,7 @@ fun ItemRatedSection(
             Icon(
                 painter = painterResource(id = R.drawable.ic_baseline_star_24),
                 contentDescription = null,
-                tint = MovieAppTheme.colors.colorAccent,
+                tint = KiiroiAppTheme.colors.colorAccent,
                 modifier = Modifier
                     .size(25.dp)
             )
@@ -151,14 +151,14 @@ fun ItemRatedSection(
                 text = "#${data.data.attributes.ratingRank}",
                 fontSize = 20.sp,
                 color = Color.Gray,
-                style = MovieAppTheme.typography.bold
+                style = KiiroiAppTheme.typography.bold
             )
         }
         Text(
             text = "Highest Rated",
             fontSize = 12.sp,
             color = Color.Gray,
-            style = MovieAppTheme.typography.bold
+            style = KiiroiAppTheme.typography.bold
         )
     }
 }

@@ -18,7 +18,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ewalabs.movieapp_kmm.android.composable.components.space.VerticalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 
 /**
  * @author Raihan Arman
@@ -50,7 +50,7 @@ fun ItemQuote(
         ) {
             Text(
                 text = anime,
-                style = MovieAppTheme.typography.bold,
+                style = KiiroiAppTheme.typography.bold,
                 color = Color.White,
                 fontSize = 12.sp,
                 textAlign = TextAlign.Center
@@ -58,7 +58,7 @@ fun ItemQuote(
             VerticalSpacer(height = 6.dp)
             Text(
                 text = quote,
-                style = MovieAppTheme.typography.light,
+                style = KiiroiAppTheme.typography.light,
                 color = Color.White,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 4,

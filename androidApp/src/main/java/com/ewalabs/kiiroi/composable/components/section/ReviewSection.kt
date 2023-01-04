@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.sp
 import com.ewalabs.domain.model.ReviewModel
 import com.ewalabs.kiiroi.R
 import com.ewalabs.movieapp_kmm.android.composable.components.space.HorizontalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 
 /**
  * @author Raihan Arman
@@ -54,7 +54,7 @@ fun ReviewSection(
                 Text(
                     text = "All Reviews",
                     fontSize = 14.sp,
-                    style = MovieAppTheme.typography.bold,
+                    style = KiiroiAppTheme.typography.bold,
                     color = Color.Gray
                 )
                 HorizontalSpacer(width = 10.dp)

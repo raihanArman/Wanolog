@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ewalabs.movieapp_kmm.android.composable.components.space.HorizontalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 
 /**
  * @author Raihan Arman
@@ -34,7 +34,7 @@ fun PrimaryButton(
         modifier = modifier,
         shape = RoundedCornerShape(8.dp),
         colors = ButtonDefaults.buttonColors(
-            backgroundColor = MovieAppTheme.colors.colorAccent,
+            backgroundColor = KiiroiAppTheme.colors.colorAccent,
             contentColor = Color.Blue
         ),
         onClick = onClick
@@ -58,7 +58,7 @@ fun PrimaryButton(
             Text(
                 text = text,
                 fontSize = 16.sp,
-                style = MovieAppTheme.typography.medium,
+                style = KiiroiAppTheme.typography.medium,
                 color = Color.Black
             )
         }

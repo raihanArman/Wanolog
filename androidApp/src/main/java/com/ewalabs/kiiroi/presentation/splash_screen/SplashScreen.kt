@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.ewalabs.kiiroi.R
 import com.ewalabs.movieapp_kmm.android.composable.components.image.BaseImageView
-import com.ewalabs.movieapp_kmm.android.composable.style.Colors
+import com.ewalabs.kiiroi.composable.style.Colors
 import kotlinx.coroutines.delay
 import org.koin.androidx.compose.getViewModel
 

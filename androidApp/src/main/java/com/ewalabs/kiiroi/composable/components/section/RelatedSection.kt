@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ewalabs.domain.model.RelatedModel
 import com.ewalabs.movieapp_kmm.android.composable.components.space.VerticalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.presentation.home.component.ItemCard
 
 /**
@@ -36,7 +36,7 @@ fun RelatedSection(
             text = "Related",
             fontSize = 20.sp,
             color = Color.White,
-            style = MovieAppTheme.typography.bold
+            style = KiiroiAppTheme.typography.bold
         )
         VerticalSpacer(height = 10.dp)
         LazyRow(

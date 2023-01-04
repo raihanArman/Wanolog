@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ewalabs.movieapp_kmm.android.composable.components.image.BaseImageView
 import com.ewalabs.movieapp_kmm.android.composable.components.space.HorizontalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 
 /**
  * @author Raihan Arman
@@ -52,13 +52,13 @@ fun UserPost(
             Text(
                 text = name,
                 color = Color.White,
-                style = MovieAppTheme.typography.medium,
+                style = KiiroiAppTheme.typography.medium,
                 fontSize = 11.sp
             )
             Text(
                 text = rangeTime,
                 color = Color.White,
-                style = MovieAppTheme.typography.light,
+                style = KiiroiAppTheme.typography.light,
                 fontSize = 8.sp
             )
         }

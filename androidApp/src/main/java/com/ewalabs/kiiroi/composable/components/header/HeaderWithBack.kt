@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ewalabs.movieapp_kmm.android.composable.components.space.HorizontalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.composable.components.button.BackButton
 
 /**
@@ -35,7 +35,7 @@ fun HeaderWithBack(
             text = headerText,
             fontSize = 24.sp,
             color = Color.White,
-            style = MovieAppTheme.typography.bold
+            style = KiiroiAppTheme.typography.bold
         )
     }
 }

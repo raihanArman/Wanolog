@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 
 enum class DashboardBottomBarItemType {
     ANIME, MANGA, FAVORITE, POST ,ACCOUNT
@@ -30,7 +30,7 @@ fun DashboardBottomBar(
     navController: NavHostController
 ) {
 
-    val surfaceColor = MovieAppTheme.colors.colorAccent
+    val surfaceColor = KiiroiAppTheme.colors.colorAccent
     val contentColor = Color.White
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -55,15 +55,15 @@ fun DashboardBottomBar(
                     item.icon()
                 },
                 alwaysShowLabel = true,
-                selectedContentColor = MovieAppTheme.colors.colorPrimary,
+                selectedContentColor = KiiroiAppTheme.colors.colorPrimary,
                 unselectedContentColor = Color.Gray.copy(alpha = 0.5f),
                 label = {
                     Text(
                         text = item.label,
-                        style = MovieAppTheme.typography.medium,
+                        style = KiiroiAppTheme.typography.medium,
                         fontSize = 12.sp,
                         color = if (currentRoute == item.route) {
-                            MovieAppTheme.colors.colorPrimary
+                            KiiroiAppTheme.colors.colorPrimary
                         } else {
                             Color.Gray.copy(alpha = 0.5f)
                         }

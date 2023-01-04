@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ewalabs.domain.model.CategoryListModel
 import com.ewalabs.movieapp_kmm.android.composable.components.space.VerticalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 
 /**
  * @author Raihan Arman
@@ -49,7 +49,7 @@ fun SidePanel(
                 Text(
                     text = "Category",
                     color = Color.White,
-                    style = MovieAppTheme.typography.bold,
+                    style = KiiroiAppTheme.typography.bold,
                     fontSize = 16.sp
                 )
                 VerticalSpacer(height = 20.dp)
@@ -88,7 +88,7 @@ fun ItemCategorySidePanel(category: CategoryListModel.CategoryModel) {
                 .fillMaxWidth(),
             text = category.title,
             color = Color.White,
-            style = MovieAppTheme.typography.medium,
+            style = KiiroiAppTheme.typography.medium,
             fontSize = 14.sp,
             textAlign = TextAlign.Start
         )

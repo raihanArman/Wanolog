@@ -18,7 +18,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
 import androidx.core.text.HtmlCompat
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 
 /**
  * @author Raihan Arman
@@ -28,7 +28,7 @@ import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
 fun HtmlText(
     html: String,
     modifier: Modifier = Modifier,
-    style: TextStyle = MovieAppTheme.typography.light.copy(fontSize = 11.sp),
+    style: TextStyle = KiiroiAppTheme.typography.light.copy(fontSize = 11.sp),
     hyperlinkStyle: TextStyle = TextStyle.Default.copy(fontSize = 11.sp),
     softWrap: Boolean = true,
     overflow: TextOverflow = TextOverflow.Clip,

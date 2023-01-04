@@ -27,7 +27,7 @@ import com.ewalabs.domain.model.CategoryModel
 import com.ewalabs.domain.model.MangaDetailModel
 import com.ewalabs.movieapp_kmm.android.composable.components.space.HorizontalSpacer
 import com.ewalabs.movieapp_kmm.android.composable.components.space.VerticalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.R
 import com.ewalabs.kiiroi.composable.components.image.GridImageLayout
 import com.ewalabs.kiiroi.composable.components.progressCircular.ProgressCircularComponent
@@ -90,7 +90,7 @@ fun ContentDetail(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(MovieAppTheme.colors.colorPrimary)
+            .background(KiiroiAppTheme.colors.colorPrimary)
     ) {
         LazyColumn(
             modifier = Modifier
@@ -164,14 +164,14 @@ fun ChapterCount(content: MangaDetailModel) {
             Text(
                 text = "${content.data.attributes.chapterCount} Chapters",
                 fontSize = 14.sp,
-                color = MovieAppTheme.colors.colorAccent,
-                style = MovieAppTheme.typography.medium
+                color = KiiroiAppTheme.colors.colorAccent,
+                style = KiiroiAppTheme.typography.medium
             )
             Text(
                 text = "${content.data.attributes.volumeCount} volumes",
                 fontSize = 14.sp,
                 color = Color.Gray,
-                style = MovieAppTheme.typography.medium
+                style = KiiroiAppTheme.typography.medium
             )
         }
     }
@@ -188,7 +188,7 @@ fun CharacterSection(content: MangaDetailModel, onClickCharacter: () -> Unit) {
             text = "Characters",
             fontSize = 20.sp,
             color = Color.White,
-            style = MovieAppTheme.typography.bold
+            style = KiiroiAppTheme.typography.bold
         )
 
         VerticalSpacer(height = 10.dp)

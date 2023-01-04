@@ -41,7 +41,7 @@ import com.google.accompanist.pager.rememberPagerState
 import com.ewalabs.domain.model.UserModel
 import com.ewalabs.movieapp_kmm.android.composable.components.image.BaseImageView
 import com.ewalabs.movieapp_kmm.android.composable.components.space.VerticalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.R
 import com.ewalabs.kiiroi.composable.components.button.PrimaryButton
 import com.ewalabs.kiiroi.composable.components.text_field.TextFieldCustom
@@ -80,7 +80,7 @@ fun ProfileScreen(
 
     Scaffold(
         scaffoldState = scaffoldState,
-        backgroundColor = MovieAppTheme.colors.colorPrimary
+        backgroundColor = KiiroiAppTheme.colors.colorPrimary
     ) {
         if (!state.isLogin) {
             LoginFormScreen(
@@ -141,7 +141,7 @@ fun UserScreen(
         Text(
             text = userModel.attributes.name,
             color = Color.White,
-            style = MovieAppTheme.typography.bold,
+            style = KiiroiAppTheme.typography.bold,
             fontSize = 20.sp
         )
 
@@ -302,7 +302,7 @@ fun LoginFormScreen(
         Text(
             text = "Login with Kitsu.io Account",
             color = Color.White,
-            style = MovieAppTheme.typography.bold,
+            style = KiiroiAppTheme.typography.bold,
             fontSize = 20.sp
         )
         VerticalSpacer(height = 80.dp)
@@ -330,7 +330,7 @@ fun LoginFormScreen(
                 withStyle(style = SpanStyle(Color.White)){
                     append("Don't have an account? ")
                 }
-                withStyle(style = SpanStyle(MovieAppTheme.colors.colorAccent)){
+                withStyle(style = SpanStyle(KiiroiAppTheme.colors.colorAccent)){
                     append(" Sign Up with Kitsu.IO")
                 }
             },

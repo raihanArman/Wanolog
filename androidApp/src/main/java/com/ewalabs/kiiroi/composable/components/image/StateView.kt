@@ -7,7 +7,7 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 
 /**
  * @author Raihan Arman
@@ -24,7 +24,7 @@ fun DefaultLoadingView() {
         CircularProgressIndicator(
             modifier = Modifier
                 .wrapContentSize(),
-            color = MovieAppTheme.colors.colorPrimary
+            color = KiiroiAppTheme.colors.colorPrimary
         )
     }
 }

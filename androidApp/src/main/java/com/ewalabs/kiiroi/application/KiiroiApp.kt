@@ -17,7 +17,7 @@ import org.koin.core.logger.Level
  */
 class KiiroiApp: BaseApplication() {
 
-    val taskRepository by inject<QuoteTaskRepository>()
+    private val taskRepository by inject<QuoteTaskRepository>()
 
     override fun onCreate() {
         super.onCreate()

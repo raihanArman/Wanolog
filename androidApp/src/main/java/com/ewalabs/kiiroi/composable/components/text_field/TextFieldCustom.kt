@@ -18,7 +18,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.R
 
 /**
@@ -44,9 +44,9 @@ fun TextFieldCustom(
         value = value,
         onValueChange = onValueChange,
         colors = TextFieldDefaults.outlinedTextFieldColors(
-            focusedBorderColor = MovieAppTheme.colors.colorAccent,
-            unfocusedBorderColor = MovieAppTheme.colors.colorAccent,
-            cursorColor = MovieAppTheme.colors.colorAccent,
+            focusedBorderColor = KiiroiAppTheme.colors.colorAccent,
+            unfocusedBorderColor = KiiroiAppTheme.colors.colorAccent,
+            cursorColor = KiiroiAppTheme.colors.colorAccent,
             textColor = Color.White
         ),
         leadingIcon = leadingIcon,
@@ -68,7 +68,7 @@ fun TextFieldCustom(
                                     R.drawable.ic_hide_password
                                 }
                             ),
-                            tint = MovieAppTheme.colors.colorAccent,
+                            tint = KiiroiAppTheme.colors.colorAccent,
                             contentDescription = null
                         )
                     }
@@ -87,7 +87,7 @@ fun TextFieldCustom(
             if (textHint != null) {
                 Text(
                     text = textHint,
-                    style = MovieAppTheme.typography.light,
+                    style = KiiroiAppTheme.typography.light,
                     color = Color.White.copy(alpha = 0.3f)
                 )
             }

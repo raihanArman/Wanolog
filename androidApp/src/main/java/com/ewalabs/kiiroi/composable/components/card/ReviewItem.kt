@@ -21,7 +21,7 @@ import com.ewalabs.domain.model.ReviewModel
 import com.ewalabs.movieapp_kmm.android.composable.components.image.BaseImageView
 import com.ewalabs.movieapp_kmm.android.composable.components.space.HorizontalSpacer
 import com.ewalabs.movieapp_kmm.android.composable.components.space.VerticalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.R
 
 /**
@@ -54,7 +54,7 @@ fun ReviewItem(
             Text(
                 text = data.username,
                 fontSize = 14.sp,
-                style = MovieAppTheme.typography.bold,
+                style = KiiroiAppTheme.typography.bold,
             )
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -64,7 +64,7 @@ fun ReviewItem(
                 Text(
                     text = "${data.rating}",
                     fontSize = 14.sp,
-                    style = MovieAppTheme.typography.medium,
+                    style = KiiroiAppTheme.typography.medium,
                 )
                 VerticalSpacer(height = 8.dp)
                 Icon(
@@ -72,7 +72,7 @@ fun ReviewItem(
                     contentDescription = null,
                     modifier = Modifier
                         .size(15.dp),
-                    tint = MovieAppTheme.colors.colorAccent
+                    tint = KiiroiAppTheme.colors.colorAccent
                 )
 
             }
@@ -80,7 +80,7 @@ fun ReviewItem(
             Text(
                 text = data.content,
                 fontSize = 14.sp,
-                style = MovieAppTheme.typography.light,
+                style = KiiroiAppTheme.typography.light,
                 maxLines = 3,
                 overflow = TextOverflow.Ellipsis
             )

@@ -5,7 +5,7 @@ import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 
 /**
  * @author Raihan Arman
@@ -24,8 +24,8 @@ fun TextButtonCustom(
         Text(
             text = text,
             fontSize = 14.sp,
-            color = MovieAppTheme.colors.colorAccent,
-            style = MovieAppTheme.typography.bold
+            color = KiiroiAppTheme.colors.colorAccent,
+            style = KiiroiAppTheme.typography.bold
         )
     }
 }

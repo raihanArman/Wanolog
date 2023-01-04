@@ -9,7 +9,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.ewalabs.domain.model.CharacterDetailModel
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.composable.components.progressCircular.ProgressCircularComponent
 import com.ewalabs.kiiroi.android.presentation.character_detail.DescriptionSection
 import org.koin.androidx.compose.getViewModel
@@ -44,12 +44,12 @@ fun ContentDetail(
    Box(
        modifier = Modifier
            .fillMaxSize()
-           .background(MovieAppTheme.colors.colorPrimary)
+           .background(KiiroiAppTheme.colors.colorPrimary)
    ) {
        Box(
            modifier = Modifier
                .fillMaxSize()
-               .background(MovieAppTheme.colors.colorPrimary)
+               .background(KiiroiAppTheme.colors.colorPrimary)
        ) {
            LazyColumn(
                modifier = Modifier

@@ -20,7 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.unit.dp
 import com.ewalabs.movieapp_kmm.android.composable.components.space.VerticalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.presentation.dashboard.anime.AnimeScreen
 import com.ewalabs.kiiroi.presentation.home.component.CategorySection
 import com.ewalabs.kiiroi.presentation.dashboard.manga.MangaScreen
@@ -59,7 +59,7 @@ fun HomeScreen(
     Scaffold(
         modifier = Modifier
             .fillMaxSize(),
-        backgroundColor = MovieAppTheme.colors.colorPrimary
+        backgroundColor = KiiroiAppTheme.colors.colorPrimary
     ) {
         BoxWithConstraints {
             val parentWidth = this.maxWidth

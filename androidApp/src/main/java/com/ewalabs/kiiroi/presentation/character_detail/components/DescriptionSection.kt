@@ -42,7 +42,7 @@ import com.ewalabs.domain.model.CharacterDetailModel
 import com.ewalabs.movieapp_kmm.android.composable.components.image.BaseImageView
 import com.ewalabs.movieapp_kmm.android.composable.components.space.HorizontalSpacer
 import com.ewalabs.movieapp_kmm.android.composable.components.space.VerticalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.R
 import com.ewalabs.kiiroi.composable.components.button.BackButton
 import com.ewalabs.kiiroi.utils.emptyString
@@ -86,7 +86,7 @@ fun DescriptionSection(
                         Brush.verticalGradient(
                             colorStops = arrayOf(
                                 Pair(0.4f, Color.Transparent),
-                                Pair(0.9f, MovieAppTheme.colors.colorPrimary)
+                                Pair(0.9f, KiiroiAppTheme.colors.colorPrimary)
                             )
                         )
                     )
@@ -120,7 +120,7 @@ fun DescriptionSection(
             VerticalSpacer(height = 320.dp)
             Text(
                 text = content.data.attributes.canonicalName,
-                style = MovieAppTheme.typography.bold,
+                style = KiiroiAppTheme.typography.bold,
                 color = Color.White,
                 fontSize = 26.sp,
                 modifier = Modifier
@@ -139,7 +139,7 @@ fun DescriptionSection(
                         s?.let { name ->
                             Text(
                                 text = name + if (index != content.data.attributes.otherNames.size - 1) ", " else emptyString(),
-                                style = MovieAppTheme.typography.medium,
+                                style = KiiroiAppTheme.typography.medium,
                                 color = Color.Gray,
                                 fontSize = 14.sp,
                             )
@@ -165,7 +165,7 @@ fun DescriptionSection(
                     Text(
                         text = content.voices[0].name,
                         color = Color.White,
-                        style = MovieAppTheme.typography.medium,
+                        style = KiiroiAppTheme.typography.medium,
                         fontSize = 14.sp
                     )
                 }
@@ -174,7 +174,7 @@ fun DescriptionSection(
             VerticalSpacer(height = 20.dp)
             Text(
                 text = content.data.attributes.description,
-                style = MovieAppTheme.typography.medium,
+                style = KiiroiAppTheme.typography.medium,
                 color = Color.White,
                 fontSize = 14.sp,
                 maxLines = if (!expanded) 4 else 20,

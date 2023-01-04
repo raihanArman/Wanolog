@@ -1,4 +1,4 @@
-package com.ewalabs.movieapp_kmm.android.composable.style
+package com.ewalabs.kiiroi.composable.style
 
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
@@ -9,7 +9,7 @@ import androidx.compose.ui.text.TextStyle
  * @date 12/10/22
  */
 
-abstract class BaseMovieComposeColors {
+abstract class BaseKiiroiComposeColors {
     abstract val colorPrimary: Color
     abstract val colorAccent: Color
     abstract val colorPrimaryDark: Color
@@ -17,18 +17,18 @@ abstract class BaseMovieComposeColors {
     abstract val colorTextSecondary: Color
 }
 
-val LocalMovieComposeColors = staticCompositionLocalOf<BaseMovieComposeColors> {
-    MovieComposeColorsDark()
-    MovieComposeColorsLight()
+val LocalMovieComposeColors = staticCompositionLocalOf<BaseKiiroiComposeColors> {
+    KiiroiComposeColorsDark()
+    KiiroiComposeColorsLight()
 }
 
-abstract class BaseMovieComposeTypography {
+abstract class BaseKiiroiComposeTypography {
     abstract val medium: TextStyle
     abstract val bold: TextStyle
     abstract val light: TextStyle
     abstract val normal: TextStyle
 }
 
-val LocalMovieComposeTypography = staticCompositionLocalOf<BaseMovieComposeTypography> {
-    MovieComposeTypography()
+val LocalMovieComposeTypography = staticCompositionLocalOf<BaseKiiroiComposeTypography> {
+    KiiroiComposeTypography()
 }

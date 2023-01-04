@@ -23,7 +23,7 @@ import com.ewalabs.domain.model.PostListModel
 import com.ewalabs.movieapp_kmm.android.composable.components.image.BaseImageView
 import com.ewalabs.movieapp_kmm.android.composable.components.space.HorizontalSpacer
 import com.ewalabs.movieapp_kmm.android.composable.components.space.VerticalSpacer
-import com.ewalabs.movieapp_kmm.android.composable.style.MovieAppTheme
+import com.ewalabs.kiiroi.composable.style.KiiroiAppTheme
 import com.ewalabs.kiiroi.R
 import com.ewalabs.kiiroi.composable.components.card.DescriptionPost
 import com.ewalabs.kiiroi.composable.components.card.UserPost
@@ -73,7 +73,7 @@ fun ItemPost(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(20.dp),
-                color = MovieAppTheme.colors.colorPrimary
+                color = KiiroiAppTheme.colors.colorPrimary
             ) {
 
             }
@@ -101,7 +101,7 @@ fun LikeCommentsCount(data: PostListModel.PostModel, onClickComment: (String) ->
            HorizontalSpacer(width = 5.dp)
            Text(
                text = "${data.attributes.postLikesCount} likes",
-               style = MovieAppTheme.typography.light,
+               style = KiiroiAppTheme.typography.light,
                color = Color.Gray,
                fontSize = 11.sp
            )
@@ -123,7 +123,7 @@ fun LikeCommentsCount(data: PostListModel.PostModel, onClickComment: (String) ->
             HorizontalSpacer(width = 5.dp)
             Text(
                 text = "${data.attributes.commentsCount} comments",
-                style = MovieAppTheme.typography.light,
+                style = KiiroiAppTheme.typography.light,
                 color = Color.Gray,
                 fontSize = 11.sp
             )
