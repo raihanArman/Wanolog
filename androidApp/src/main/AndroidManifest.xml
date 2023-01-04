@@ -22,7 +22,7 @@
         </activity>
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.randev.kiiroi.android"
+            android:authorities="com.ewalabs.kiiroi"
             android:exported="false"
             android:grantUriPermissions="true">
 
@@ -42,7 +42,7 @@
 <!--                tools:node="remove" />-->
 <!--        </provider>-->
         <receiver
-            android:name="com.randev.widget.QuoteWidgetReceiver"
+            android:name="com.ewalabs.widget.QuoteWidgetReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

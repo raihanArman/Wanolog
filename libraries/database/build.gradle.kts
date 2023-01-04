@@ -73,7 +73,7 @@ android {
 
 sqldelight {
     database("WanologDatabase") {
-        packageName = "com.randev.wanolog.db"
+        packageName = "com.ewalabs.wanolog.db"
         sourceFolders = listOf("sqldelight")
     }
 }

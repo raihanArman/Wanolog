@@ -58,9 +58,21 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
         }
-        val iosX64Test by getting
-        val iosArm64Test by getting
-        val iosSimulatorArm64Test by getting
+        val iosX64Test by getting {
+            dependencies {
+                implementation("io.mockk:mockk:1.13.2")
+            }
+        }
+        val iosArm64Test by getting {
+            dependencies {
+                implementation("io.mockk:mockk:1.13.2")
+            }
+        }
+        val iosSimulatorArm64Test by getting {
+            dependencies {
+                implementation("io.mockk:mockk:1.13.2")
+            }
+        }
         val iosTest by creating {
             dependsOn(commonTest)
             iosX64Test.dependsOn(this)

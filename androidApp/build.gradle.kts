@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "com.randev.kiiroi.android"
+    namespace = "com.ewalabs.kiiroi"
     compileSdk = 33
     defaultConfig {
-        applicationId = "com.randev.kiiroi.android"
+        applicationId = "com.ewalabs.kiiroi"
         minSdk = 23
         targetSdk = 33
         versionCode = 1
