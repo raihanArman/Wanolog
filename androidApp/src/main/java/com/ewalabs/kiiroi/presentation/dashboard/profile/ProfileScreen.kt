@@ -233,7 +233,7 @@ fun FavoriteTab(
     selectedTab: FavoriteTabEnum
 ) {
     val inactiveColor = Color(0xFF919191)
-    val pagerState = rememberPagerState(initialPage = 3)
+    val pagerState = rememberPagerState(initialPage = 0, pageCount = 3)
     val scope = rememberCoroutineScope()
 
     TabRow(
@@ -248,13 +248,14 @@ fun FavoriteTab(
                 Modifier
                     .clip(RoundedCornerShape(5.dp))
                     .pagerTabIndicatorOffset(pagerState, tabPositions),
-                height = 2.dp,
+                height = 3.dp,
                 color = Color.White
             )
         },
         modifier = modifier
     ) {
         FavoriteTabEnum.values().forEachIndexed { index, favoriteTabEnum ->
+            println("FavoriteTabEnum -> ${favoriteTabEnum}")
             Tab(
                 selected = selectedTab == favoriteTabEnum,
                 selectedContentColor = Color.Black,
