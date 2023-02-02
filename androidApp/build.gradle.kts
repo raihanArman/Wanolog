@@ -68,6 +68,9 @@ dependencies {
     implementation(libs.activity.compose)
 
     implementation(libs.joda.time)
+    implementation("androidx.compose.material3:material3:1.0.1")
+    implementation("androidx.compose.material3:material3-window-size-class:1.0.1")
+    implementation("com.google.accompanist:accompanist-adaptive:0.26.2-beta")
 
     androidTestImplementation(libs.compose.ui.test)
 // Needed for createAndroidComposeRule, but not createComposeRule:

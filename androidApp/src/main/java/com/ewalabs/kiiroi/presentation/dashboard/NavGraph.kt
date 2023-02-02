@@ -11,16 +11,16 @@ import com.ewalabs.kiiroi.utils.Screen
  * @date 16/09/22
  */
 
-@Composable
-fun SetupNavGraph(
-    navController: NavHostController
-) {
-    NavHost(
-        navController = navController,
-        startDestination = Screen.Dashboard.route
-    ){
-        composable(Screen.Dashboard.route){
-            DashboardScreen()
-        }
-    }
-}
+//@Composable
+//fun SetupNavGraph(
+//    navController: NavHostController
+//) {
+//    NavHost(
+//        navController = navController,
+//        startDestination = Screen.Dashboard.route
+//    ){
+//        composable(Screen.Dashboard.route){
+//            DashboardScreen()
+//        }
+//    }
+//}

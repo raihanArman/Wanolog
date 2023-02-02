@@ -18,6 +18,7 @@ object Colors {
     val charlestonGreen: Color = Color(0xFF222E3F)
     val sunGlow: Color = Color(0xFFFFD130)
     val sunGlow2: Color = Color(0xFFFF9130)
+    val sunGlow3: Color = Color(0xFFDD9E33)
     val transparent: Color = Color(0xFF00000000)
     val red: Color = Color.Red
     val greenNotification = Color(0xff6FCF97)

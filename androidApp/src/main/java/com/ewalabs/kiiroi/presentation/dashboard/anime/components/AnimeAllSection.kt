@@ -27,7 +27,7 @@ fun AnimeAllSection(
     data: List<AnimeListModel.AnimeModel>,
     onClick: (String) -> Unit
 ) {
-    val itemSize: Dp = (LocalConfiguration.current.screenWidthDp.dp / 2)
+    val itemSize: Dp = (LocalConfiguration.current.screenWidthDp.dp / 5)
     FlowRow(
         modifier = modifier
             .testTag(DASHBOARD_ANIME_CONTENT_TAG),
