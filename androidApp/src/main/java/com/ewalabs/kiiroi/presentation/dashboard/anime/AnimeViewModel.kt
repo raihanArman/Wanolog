@@ -13,6 +13,8 @@ import com.ewalabs.domain.usecase.anime.GetAnimeTrendingUseCase
 import com.ewalabs.navigation.AppNavigator
 import com.ewalabs.navigation.Destination
 import com.ewalabs.kiiroi.presentation.home.ContentStatus
+import com.ewalabs.kiiroi.utils.navigation.AppDisplayType
+import com.ewalabs.kiiroi.utils.navigation.AppWindowScreen
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -28,11 +30,14 @@ class AnimeViewModel(
     private val topUpcomingUseCase: GetAnimeTopUpcomingUseCase,
     private val topRatingUseCase: GetAnimeTopRatingUseCase,
     private val popularUseCase: GetAnimePopularUseCase,
-    private val appNavigator: AppNavigator
+    private val appNavigator: AppNavigator,
+    private val appWindowScreen: AppWindowScreen
 ): ViewModel() {
 
     private val _observeHome: MutableStateFlow<AnimeState> = MutableStateFlow(AnimeState())
     val observeHome: StateFlow<AnimeState> = _observeHome
+
+    val displayType = appWindowScreen.appDisplayType
 
     var contentStatusState by mutableStateOf(ContentStatus.TRENDING)
 

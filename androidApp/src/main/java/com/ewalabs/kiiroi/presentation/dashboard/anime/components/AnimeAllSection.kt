@@ -14,6 +14,8 @@ import com.ewalabs.domain.model.AnimeListModel
 import com.ewalabs.kiiroi.utils.DASHBOARD_ANIME_CONTENT_TAG
 import com.ewalabs.kiiroi.utils.ITEM_CARD_TAG
 import com.ewalabs.kiiroi.presentation.home.component.ItemCard
+import com.ewalabs.kiiroi.utils.AppNavigationType
+import com.ewalabs.kiiroi.utils.navigation.AppDisplayType
 
 /**
  * @author Raihan Arman
@@ -25,9 +27,14 @@ import com.ewalabs.kiiroi.presentation.home.component.ItemCard
 fun AnimeAllSection(
     modifier: Modifier = Modifier,
     data: List<AnimeListModel.AnimeModel>,
-    onClick: (String) -> Unit
+    onClick: (String) -> Unit,
+    displayType: AppDisplayType
 ) {
-    val itemSize: Dp = (LocalConfiguration.current.screenWidthDp.dp / 5)
+    val itemSize: Dp = if (displayType.navigationType == AppNavigationType.PERMANENT_NAVIGATION_DRAWER) {
+        (LocalConfiguration.current.screenWidthDp.dp / 5)
+    } else {
+        (LocalConfiguration.current.screenWidthDp.dp / 2)
+    }
     FlowRow(
         modifier = modifier
             .testTag(DASHBOARD_ANIME_CONTENT_TAG),

@@ -10,24 +10,28 @@ import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.ui.Modifier
 import com.ewalabs.kiiroi.composable.components.notif.ConnectivityStatus
 import com.ewalabs.kiiroi.presentation.MainScreen
+import com.ewalabs.kiiroi.utils.navigation.AppWindowScreen
 import com.google.accompanist.adaptive.calculateDisplayFeatures
+import org.koin.android.ext.android.inject
 
 class MainActivity : ComponentActivity() {
+
+    private val windowScreen: AppWindowScreen by inject()
+
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val windowSize = calculateWindowSizeClass(this)
-            val displayFeatures = calculateDisplayFeatures(this)
+            windowScreen.setWindowScreen(
+                windowSize = calculateWindowSizeClass(this),
+                displayFeatures = calculateDisplayFeatures(this)
+            )
             Column(
                 modifier = Modifier
                     .fillMaxSize(),
             ) {
                 ConnectivityStatus()
-                MainScreen(
-                    windowSize = windowSize,
-                    displayFeatures = displayFeatures
-                )
+                MainScreen()
             }
         }
     }

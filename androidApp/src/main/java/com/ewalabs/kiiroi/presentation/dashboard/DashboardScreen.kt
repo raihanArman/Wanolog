@@ -52,57 +52,56 @@ import org.koin.androidx.compose.getViewModel
 @Composable
 fun DashboardScreen(
     viewModel: DashboardViewModel = getViewModel(),
-    navigationType: AppNavigationType,
-    contentType: AppContentType,
-    displayFeatures: List<DisplayFeature>,
-    navigationContentPosition: AppNavigationContentPosition,
 ) {
     val dashboardNav = rememberNavController()
+    val displayType = viewModel.displayType
 
-    if (navigationType == AppNavigationType.PERMANENT_NAVIGATION_DRAWER) {
-        Row(
-            modifier = Modifier
-                .fillMaxSize(),
-        ) {
-            DashboardPermanentNavigation(
-                navController = dashboardNav,
-                navigationContentPosition = navigationContentPosition
-            )
-            Box(
+    displayType?.apply {
+        if (navigationType == AppNavigationType.PERMANENT_NAVIGATION_DRAWER) {
+            Row(
                 modifier = Modifier
-                    .background(KiiroiAppTheme.colors.colorPrimary)
+                    .fillMaxSize(),
             ) {
-                DashboardContent(navController = dashboardNav)
-            }
-        }
-    } else {
-        Scaffold(
-            bottomBar = {
-                AnimatedVisibility(visible = navigationType == AppNavigationType.BOTTOM_NAVIGATION) {
-                    DashboardBottomNavigation(navController = dashboardNav)
-                }
-            },
-            content = {
-                Row(
+                DashboardPermanentNavigation(
+                    navController = dashboardNav,
+                    navigationContentPosition = navigationContentPosition
+                )
+                Box(
                     modifier = Modifier
-                        .fillMaxSize(),
+                        .background(KiiroiAppTheme.colors.colorPrimary)
                 ) {
-                    AnimatedVisibility(visible = navigationType == AppNavigationType.NAVIGATION_RAIL) {
-                        DashboardRailNavigation(
-                            navController = dashboardNav,
-                            navigationContentPosition = navigationContentPosition
-                        )
-                    }
-                    Box(
-                        modifier = Modifier
-                            .background(KiiroiAppTheme.colors.colorPrimary)
-                            .padding(bottom = it.calculateBottomPadding())
-                    ) {
-                        DashboardContent(navController = dashboardNav)
-                    }
+                    DashboardContent(navController = dashboardNav)
                 }
             }
-        )
+        } else {
+            Scaffold(
+                bottomBar = {
+                    AnimatedVisibility(visible = navigationType == AppNavigationType.BOTTOM_NAVIGATION) {
+                        DashboardBottomNavigation(navController = dashboardNav)
+                    }
+                },
+                content = {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxSize(),
+                    ) {
+                        AnimatedVisibility(visible = navigationType == AppNavigationType.NAVIGATION_RAIL) {
+                            DashboardRailNavigation(
+                                navController = dashboardNav,
+                                navigationContentPosition = navigationContentPosition
+                            )
+                        }
+                        Box(
+                            modifier = Modifier
+                                .background(KiiroiAppTheme.colors.colorPrimary)
+                                .padding(bottom = it.calculateBottomPadding())
+                        ) {
+                            DashboardContent(navController = dashboardNav)
+                        }
+                    }
+                }
+            )
+        }
     }
 
     CommentsScreen(
@@ -147,63 +146,63 @@ fun NavGraphBuilder.setupDashboardBottomNavScreens(){
     }
 }
 
-
-@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
-@Preview(showBackground = true)
-@Composable
-fun ReplyAppPreview() {
-    KiiroiAppTheme {
-        MainScreen(
-            windowSize = WindowSizeClass.calculateFromSize(DpSize(400.dp, 900.dp)),
-            displayFeatures = emptyList(),
-        )
-    }
-}
-
-@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
-@Preview(showBackground = true, widthDp = 700, heightDp = 500)
-@Composable
-fun ReplyAppPreviewTablet() {
-    KiiroiAppTheme {
-        MainScreen(
-            windowSize = WindowSizeClass.calculateFromSize(DpSize(700.dp, 500.dp)),
-            displayFeatures = emptyList(),
-        )
-    }
-}
-
-@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
-@Preview(showBackground = true, widthDp = 500, heightDp = 700)
-@Composable
-fun ReplyAppPreviewTabletPortrait() {
-    KiiroiAppTheme {
-        MainScreen(
-            windowSize = WindowSizeClass.calculateFromSize(DpSize(500.dp, 700.dp)),
-            displayFeatures = emptyList(),
-        )
-    }
-}
-
-@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
-@Preview(showBackground = true, widthDp = 1100, heightDp = 600)
-@Composable
-fun ReplyAppPreviewDesktop() {
-    KiiroiAppTheme {
-        MainScreen(
-            windowSize = WindowSizeClass.calculateFromSize(DpSize(1100.dp, 600.dp)),
-            displayFeatures = emptyList(),
-        )
-    }
-}
-
-@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
-@Preview(showBackground = true, widthDp = 600, heightDp = 1100)
-@Composable
-fun ReplyAppPreviewDesktopPortrait() {
-    KiiroiAppTheme {
-        MainScreen(
-            windowSize = WindowSizeClass.calculateFromSize(DpSize(600.dp, 1100.dp)),
-            displayFeatures = emptyList(),
-        )
-    }
-}
+//
+//@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+//@Preview(showBackground = true)
+//@Composable
+//fun ReplyAppPreview() {
+//    KiiroiAppTheme {
+//        MainScreen(
+//            windowSize = WindowSizeClass.calculateFromSize(DpSize(400.dp, 900.dp)),
+//            displayFeatures = emptyList(),
+//        )
+//    }
+//}
+//
+//@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+//@Preview(showBackground = true, widthDp = 700, heightDp = 500)
+//@Composable
+//fun ReplyAppPreviewTablet() {
+//    KiiroiAppTheme {
+//        MainScreen(
+//            windowSize = WindowSizeClass.calculateFromSize(DpSize(700.dp, 500.dp)),
+//            displayFeatures = emptyList(),
+//        )
+//    }
+//}
+//
+//@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+//@Preview(showBackground = true, widthDp = 500, heightDp = 700)
+//@Composable
+//fun ReplyAppPreviewTabletPortrait() {
+//    KiiroiAppTheme {
+//        MainScreen(
+//            windowSize = WindowSizeClass.calculateFromSize(DpSize(500.dp, 700.dp)),
+//            displayFeatures = emptyList(),
+//        )
+//    }
+//}
+//
+//@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+//@Preview(showBackground = true, widthDp = 1100, heightDp = 600)
+//@Composable
+//fun ReplyAppPreviewDesktop() {
+//    KiiroiAppTheme {
+//        MainScreen(
+//            windowSize = WindowSizeClass.calculateFromSize(DpSize(1100.dp, 600.dp)),
+//            displayFeatures = emptyList(),
+//        )
+//    }
+//}
+//
+//@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+//@Preview(showBackground = true, widthDp = 600, heightDp = 1100)
+//@Composable
+//fun ReplyAppPreviewDesktopPortrait() {
+//    KiiroiAppTheme {
+//        MainScreen(
+//            windowSize = WindowSizeClass.calculateFromSize(DpSize(600.dp, 1100.dp)),
+//            displayFeatures = emptyList(),
+//        )
+//    }
+//}

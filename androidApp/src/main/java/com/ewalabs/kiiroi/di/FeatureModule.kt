@@ -34,13 +34,13 @@ import org.koin.dsl.module
 
 val featureModule = module {
     single { SharingCommentAttr() }
-    viewModel { AnimeViewModel(get(), get(), get(), get(), get()) }
+    viewModel { AnimeViewModel(get(), get(), get(), get(), get(), get()) }
     viewModel { MangaViewModel(get(), get(), get(), get(), get()) }
     viewModel { HomeViewModel(get()) }
     viewModel { CharacterViewModel(get()) }
     viewModel { AnimeAllViewModel(get(), get(), get()) }
     viewModel { MangaAllViewModel(get(), get(), get()) }
-    viewModel { MainViewModel(get()) }
+    viewModel { MainViewModel(get(), get()) }
     viewModel { params ->
         DetailAnimeViewModel(
             appNavigator = get(),
@@ -90,7 +90,7 @@ val featureModule = module {
         CommentsViewModel(get(), get())
     }
     viewModel {
-        DashboardViewModel(get())
+        DashboardViewModel(get(), get())
     }
     viewModel { params ->
         AnimeByCategoryViewModel(

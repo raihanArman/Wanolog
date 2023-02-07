@@ -4,6 +4,7 @@ import com.ewalabs.core.BaseApplication
 import com.ewalabs.navigation.navigatorModule
 import com.ewalabs.kiiroi.di.featureModule
 import com.ewalabs.kiiroi.initKoin
+import com.ewalabs.kiiroi.utils.navigation.windowScreenModule
 import com.ewalabs.work_manager.di.workManagerModule
 import com.ewalabs.work_manager.repository.QuoteTaskRepository
 import org.koin.android.ext.android.inject
@@ -25,9 +26,10 @@ class KiiroiApp: BaseApplication() {
             androidLogger(Level.ERROR)
             androidContext(this@KiiroiApp)
             modules(
+                windowScreenModule,
                 navigatorModule,
                 featureModule,
-                workManagerModule
+                workManagerModule,
             )
         }
 

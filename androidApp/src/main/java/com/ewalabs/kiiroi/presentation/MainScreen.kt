@@ -50,64 +50,8 @@ import org.koin.androidx.compose.getViewModel
 @Composable
 fun MainScreen(
     viewModel: MainViewModel = getViewModel(),
-    windowSize: WindowSizeClass,
-    displayFeatures: List<DisplayFeature>,
 ) {
     val navController = rememberAnimatedNavController()
-    val navigationType: AppNavigationType
-    val contentType: AppContentType
-
-    val foldingFeature = displayFeatures.filterIsInstance<FoldingFeature>().firstOrNull()
-
-    val foldingDevicePosture = when {
-        isBookPosture(foldingFeature) -> {
-            DevicePosture.BookPosture(foldingFeature.bounds)
-        }
-        isSeparating(foldingFeature) -> {
-            DevicePosture.Separating(foldingFeature.bounds, foldingFeature.orientation)
-        }
-        else -> DevicePosture.NormalPosture
-    }
-
-    when (windowSize.widthSizeClass) {
-        WindowWidthSizeClass.Compact -> {
-            navigationType = AppNavigationType.BOTTOM_NAVIGATION
-            contentType = AppContentType.SINGLE_PANE
-        }
-        WindowWidthSizeClass.Medium -> {
-            navigationType = AppNavigationType.NAVIGATION_RAIL
-            contentType = if (foldingDevicePosture != DevicePosture.NormalPosture) {
-                AppContentType.DUAL_PANE
-            } else {
-                AppContentType.SINGLE_PANE
-            }
-        }
-        WindowWidthSizeClass.Expanded -> {
-            navigationType = if (foldingDevicePosture is DevicePosture.BookPosture) {
-                AppNavigationType.NAVIGATION_RAIL
-            } else {
-                AppNavigationType.PERMANENT_NAVIGATION_DRAWER
-            }
-            contentType = AppContentType.DUAL_PANE
-        }
-        else -> {
-            navigationType = AppNavigationType.BOTTOM_NAVIGATION
-            contentType = AppContentType.SINGLE_PANE
-        }
-    }
-
-    val navigationContentPosition = when (windowSize.heightSizeClass) {
-        WindowHeightSizeClass.Compact -> {
-            AppNavigationContentPosition.TOP
-        }
-        WindowHeightSizeClass.Medium,
-        WindowHeightSizeClass.Expanded -> {
-            AppNavigationContentPosition.CENTER
-        }
-        else -> {
-            AppNavigationContentPosition.TOP
-        }
-    }
 
     NavigationEffects(
         navigationChannel = viewModel.navigationChannel,
@@ -122,12 +66,7 @@ fun MainScreen(
             SplashScreen()
         }
         composable(Destination.DashboardScreen){
-            DashboardScreen(
-                navigationType = navigationType,
-                contentType = contentType,
-                displayFeatures = displayFeatures,
-                navigationContentPosition = navigationContentPosition
-            )
+            DashboardScreen()
         }
         composable(Destination.AnimeAllScreen){
             AnimeAllScreen()

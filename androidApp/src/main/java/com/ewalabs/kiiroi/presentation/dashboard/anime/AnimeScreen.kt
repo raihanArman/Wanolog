@@ -34,6 +34,7 @@ import com.ewalabs.kiiroi.presentation.home.ContentStatus
 import com.ewalabs.kiiroi.presentation.dashboard.anime.components.ContentStatusItem
 import com.ewalabs.kiiroi.android.presentation.home.component.AnimeAllSection
 import com.ewalabs.kiiroi.presentation.home.contentStatusList
+import com.ewalabs.kiiroi.utils.navigation.AppDisplayType
 import org.koin.androidx.compose.getViewModel
 
 /**
@@ -49,6 +50,7 @@ fun AnimeScreen(
 
     val state by viewModel.observeHome.collectAsState()
     val status = viewModel.contentStatusState
+    val displayType = viewModel.displayType
 
     Box(
         modifier = Modifier
@@ -119,16 +121,32 @@ fun AnimeScreen(
                     ) {
                         when (targetState) {
                             ContentStatus.TRENDING -> {
-                                TrendingSection(state = state, onClick = viewModel::onNavigateToDetailsClicked)
+                                TrendingSection(
+                                    state = state,
+                                    onClick = viewModel::onNavigateToDetailsClicked,
+                                    displayType = displayType
+                                )
                             }
                             ContentStatus.TOP_UPCOMING -> {
-                                TopUpcomingSection(state = state, onClick = viewModel::onNavigateToDetailsClicked)
+                                TopUpcomingSection(
+                                    state = state,
+                                    onClick = viewModel::onNavigateToDetailsClicked,
+                                    displayType = displayType
+                                )
                             }
                             ContentStatus.TOP_RATING -> {
-                                TopRatingSection(state = state, onClick = viewModel::onNavigateToDetailsClicked)
+                                TopRatingSection(
+                                    state = state,
+                                    onClick = viewModel::onNavigateToDetailsClicked,
+                                    displayType = displayType
+                                )
                             }
                             ContentStatus.POPULAR -> {
-                                PopularSection(state = state, onClick = viewModel::onNavigateToDetailsClicked)
+                                PopularSection(
+                                    state = state,
+                                    onClick = viewModel::onNavigateToDetailsClicked,
+                                    displayType = displayType
+                                )
                             }
                         }
                     }
@@ -147,41 +165,45 @@ fun AnimeScreen(
 }
 
 @Composable
-fun TrendingSection(state: AnimeState, onClick: (String) -> Unit ) {
+fun TrendingSection(state: AnimeState, onClick: (String) -> Unit, displayType: AppDisplayType) {
     state.trendingData?.let {
         AnimeAllSection(
             data = it,
             onClick = onClick,
+            displayType = displayType
         )
     }
 }
 
 @Composable
-fun TopUpcomingSection(state: AnimeState, onClick: (String) -> Unit ) {
+fun TopUpcomingSection(state: AnimeState, onClick: (String) -> Unit, displayType: AppDisplayType) {
     state.topUpcomingData?.let {
         AnimeAllSection(
             data = it,
-            onClick = onClick
+            onClick = onClick,
+            displayType = displayType
         )
     }
 }
 
 @Composable
-fun TopRatingSection(state: AnimeState, onClick: (String) -> Unit ) {
+fun TopRatingSection(state: AnimeState, onClick: (String) -> Unit, displayType: AppDisplayType) {
     state.topRatingData?.let {
         AnimeAllSection(
             data = it,
-            onClick = onClick
+            onClick = onClick,
+            displayType = displayType
         )
     }
 }
 
 @Composable
-fun PopularSection(state: AnimeState, onClick: (String) -> Unit ) {
+fun PopularSection(state: AnimeState, onClick: (String) -> Unit, displayType: AppDisplayType) {
     state.popularData?.let {
         AnimeAllSection(
             data = it,
-            onClick = onClick
+            onClick = onClick,
+            displayType = displayType
         )
     }
 }
